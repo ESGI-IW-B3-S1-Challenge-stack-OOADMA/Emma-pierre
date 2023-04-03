@@ -1,0 +1,46 @@
+@import url("./components/navbar.css");
+@import url("./components/custom-link.css");
+
+@font-face {
+	font-family: "Jost";
+	src: url("../fonts/Jost-VariableFont_wght.ttf");
+}
+
+@font-face {
+	font-family: "NotoSerif-Regular";
+	src: url("../fonts/noto-serif/NotoSerif-Regular.ttf");
+}
+
+@font-face {
+	font-family: "NotoSerif-Bold";
+	src: url("../fonts/noto-serif/NotoSerif-Bold.ttf");
+}
+
+:root {
+	--main-font: Jost;
+	--second-font: NotoSerif-Regural;
+	--black: #1d1923;
+	--green: #11373f;
+	--white: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--main-font);
+}
+
+ul,
+ol {
+	list-style: none;
+	padding-left: 0;
+}
+
+img,
+video {
+	max-width: 100%;
+	height: auto;
+}
