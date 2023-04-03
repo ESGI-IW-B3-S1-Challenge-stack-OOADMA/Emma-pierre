@@ -1,5 +1,7 @@
 @import url("./components/navbar.css");
 @import url("./components/custom-link.css");
+@import url("./components/buttons.css");
+@import url("./layouts/detail-produit.css");
 
 @font-face {
 	font-family: "Jost";
@@ -19,17 +21,25 @@
 :root {
 	--main-font: Jost;
 	--second-font: NotoSerif-Regural;
-	--black: #1d1923;
-	--green: #11373f;
+
+	--dark-gray: #1d1923;
+	--gray: #2e2b31;
+	--light-gray: #3e3943;
+
+	--dark-green: #11373f;
+	--green: #18515c;
+	--light-green: #1d5f6b;
+
+	--dark-cream: #e9dbc1;
+	--cream: #dccdb6;
+	--light-cream: #f0e5d3;
+
 	--white: #fff;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+html,
+body {
+	color: var(--dark-gray);
 	font-family: var(--main-font);
 }
 

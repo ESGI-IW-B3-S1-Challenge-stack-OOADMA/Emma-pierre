@@ -1,0 +1,11 @@
+.shop-button {
+	background-color: var(--light-green);
+	text-decoration: none;
+	display: flex;
+	width: fit-content;
+	gap: 15px;
+	align-items: center;
+	padding: 12px 24px;
+	border-radius: 12px;
+	color: white;
+}
