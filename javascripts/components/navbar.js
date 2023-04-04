@@ -1,4 +1,4 @@
-let navbar = document.getElementById('navbar-mobile')
+let navbar = document.getElementById('navbar')
 let navbarButton = navbar.querySelector('button')
 let navbarLists = navbar.querySelectorAll('ul')
 

@@ -18,7 +18,27 @@
 	right: 0;
 	content: "";
 	height: 1px;
-	background: var(--white);
+	background-color: var(--white);
 	transform: translateX(-101%);
 	transition: 0.3s all;
+}
+
+.custom-link:hover::after {
+	transform: translateX(0%);
+}
+
+.custom-link.custom-link.dark-gray {
+	color: var(--dark-gray);
+}
+
+.custom-link.dark-gray::after {
+	background-color: var(--dark-gray);
+}
+
+.custom-link.custom-link.light-cream {
+	color: var(--light-cream);
+}
+
+.custom-link.light-cream::after {
+	background-color: var(--light-cream);
 }
