@@ -35,3 +35,7 @@
 #products-slider .splide__pagination__page.is-active {
 	background: var(--dark-gray);
 }
+
+#products-slider a {
+	text-decoration: none;
+}
