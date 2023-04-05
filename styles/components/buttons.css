@@ -1,4 +1,4 @@
-.shop-button {
+.main-button {
 	background-color: var(--light-green);
 	text-decoration: none;
 	display: flex;
@@ -11,8 +11,21 @@
 	transition: 0.3s all;
 }
 
-.shop-button:hover {
+.main-button:hover {
 	background-color: var(--dark-green);
+}
+
+.main-button.cream {
+	color: var(--dark-green);
+	background-color: var(--light-cream);
+}
+
+.main-button.cream svg {
+	fill: var(--dark-green);
+}
+
+.main-button.cream:hover {
+	background-color: var(--cream);
 }
 
 .secondary-btn {
@@ -36,12 +49,24 @@
 	border: 1px solid var(--light-green);
 	padding: 0.5rem 1rem;
 	border-radius: 50rem;
-	transition: 
-		color 0.3s ease,
-		background-color 0.3s ease;
+	transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .validation-btn:hover {
 	background-color: var(--bs-gray-200);
 	color: black;
+}
+
+.favoris-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--corail);
+	border-radius: 16px;
+	padding: 12px;
+	transition: 0.3s all;
+}
+
+.favoris-button:hover {
+	background-color: var(--dark-corail);
 }
