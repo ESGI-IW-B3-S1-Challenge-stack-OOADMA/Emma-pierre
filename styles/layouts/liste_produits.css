@@ -1,3 +1,7 @@
+:root {
+    --great-angle: 5rem;
+}
+
 main {
     margin: 0 5rem;
 }
@@ -24,7 +28,7 @@ main {
 }
 
 #lists div.image img:first-child {
-    border-radius: 5rem 10px;
+    border-radius: var(--great-angle) 10px;
 }
 
 #lists div.image p {
@@ -36,7 +40,7 @@ main {
     align-items: center;
     padding: 2rem;
     margin: 0;
-    border-radius: 5rem 10px;
+    border-radius: var(--great-angle) 10px;
     color: white;
     background-color: #11373faa;
     text-align: center;
@@ -113,4 +117,28 @@ main {
 
 #pagination span:not(.active):hover {
     background-color: #1d5f6b55;
+}
+
+@media screen and (max-width: 992px) {
+    #lists {
+        column-gap: 2rem;
+        row-gap: 2rem;
+    }
+
+    :root {
+        --great-angle: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #lists {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #lists {
+        grid-template-columns: 1fr;
+    }
 }
