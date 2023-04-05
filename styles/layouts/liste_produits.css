@@ -18,10 +18,35 @@ main {
 
 #lists div.image {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #lists div.image img:first-child {
     border-radius: 5rem 10px;
+}
+
+#lists div.image p {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin: 0;
+    border-radius: 5rem 10px;
+    color: white;
+    background-color: #11373faa;
+    text-align: center;
+    font-size: 18px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+#lists div.image p:hover {
+    opacity: 1;
 }
 
 #lists div.image img:last-child {
