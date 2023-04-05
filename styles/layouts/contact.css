@@ -1,0 +1,182 @@
+.contact-infos {
+  margin: auto;
+  margin-top: 200px;
+  width: 75%;
+  padding: 20px;
+  text-align: center;
+}
+
+.contact-infos h1 {
+  margin-bottom: 50px;
+}
+
+.contact-infos .blocs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.contact-infos .blocs .bloc {
+  text-decoration: none;
+  color: var(--dark-gray);
+  width: 30%;
+  padding: 50px;
+  border: 1px solid var(--dark-cream);
+  border-radius: 50px 0;
+  background-color: rgba(233, 219, 193, 0.4);
+  transition: 300ms all;
+}
+
+.contact-infos .blocs .bloc:hover {
+  border: 1px solid var(--dark-green);
+}
+
+.contact-infos .blocs .bloc p {
+  padding-top: 20px;
+  margin-bottom: 0;
+}
+
+.contact-infos .blocs .bloc svg {
+  fill: var(--dark-gray);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 20px;
+}
+
+form div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+form .floating-label-group label {
+  flex-basis: 120px;
+  font-weight: bold;
+}
+
+form .floating-label-group input[type="text"],
+form .floating-label-group input[type="email"],
+form .floating-label-group textarea {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid var(--dark-green);
+  border-radius: 3px;
+}
+
+form .input-container-denomination {
+  display: flex;
+}
+
+form .input-line {
+  flex: 1;
+}
+
+form .input-container-denomination .input-nom {
+  margin-right: 10px;
+}
+form .input-container-denomination .input-prenom {
+  margin-left: 10px;
+}
+
+form button[type="submit"] {
+  background-color: var(--dark-green);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  width: 15%;
+}
+
+form button[type="submit"]:hover {
+  background-color: var(--light-green);
+}
+
+.floating-label-group {
+  position: relative;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.floating-label-group .floating-label {
+  font-size: 13px;
+  color: var(--light-gray);
+  position: absolute;
+  pointer-events: none;
+  top: 9px;
+  left: 12px;
+  transition: all 0.1s ease;
+}
+
+.floating-label-group input:focus ~ .floating-label,
+.floating-label-group input:not(:focus):valid ~ .floating-label,
+.floating-label-group textarea:focus ~ .floating-label,
+.floating-label-group textarea:not(:focus):valid ~ .floating-label {
+  top: -15px;
+  bottom: 0px;
+  left: 0px;
+  font-size: 11px;
+  opacity: 1;
+  color: var(--dark-green);
+}
+
+.floating-label-group input:focus,
+.floating-label-group textarea:focus {
+  outline: none;
+  border: 1px solid var(--dark-green);
+}
+
+@media screen and (max-width: 991px) {
+  .contact-infos .blocs .bloc {
+    width: 100%;
+  }
+}
+
+/**Reponsive**/
+@media screen and (max-width: 767px) {
+  .contact-infos {
+    width: 100%;
+    margin-top: 100px;
+  }
+
+  .contact-infos .blocs .bloc:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  form {
+    width: 100%;
+  }
+  form .floating-label-group label {
+    flex-basis: 100px;
+  }
+  form .input-container-denomination {
+    flex-direction: column;
+  }
+  form .input-container-denomination .input-nom {
+    margin-right: 0;
+    width: 100%;
+  }
+  form .input-container-denomination .input-prenom {
+    margin-left: 0;
+    width: 100%;
+  }
+  form button[type="submit"] {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .contact-infos .blocs .bloc {
+    width: 30%;
+    padding: 25px;
+  }
+}
