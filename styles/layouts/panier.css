@@ -1,0 +1,47 @@
+.page-panier a {
+	text-decoration: none;
+	color: black;
+}
+
+.line-middle {
+	height: 1px;
+	background-color: var(--light-green);
+}
+
+.steps-cart {
+	margin-bottom: 30px;	
+}
+
+.step-cart {
+	position: relative;
+}
+
+.step-cart p:first-of-type {
+	position: absolute;
+}
+
+.img-item {
+	max-width: 150px;
+}
+
+.d-flex.gutter-2 {
+	gap: 1rem;
+}
+
+.d-flex.gutter-5 {
+	gap: 3rem;
+}
+
+.cart-item {
+	display: flex;
+	column-gap: 3rem;
+}
+
+.icon-trash::before {
+	content: "";
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	background-image: url("../../icons/trash.svg");
+	background-size: contain;
+}
