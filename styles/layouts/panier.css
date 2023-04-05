@@ -23,7 +23,7 @@
 .step-cart p:first-of-type {
 	position: absolute;
 	left: -100%;
-	font-weight: 600;
+	font-weight: 500;
 }
 
 .img-item {
@@ -186,5 +186,9 @@
 	.secondary-btn, .validation-btn {
 		display: block;
 		width: 100%;
+	}
+
+	.step-cart p:first-of-type {
+		font-size: 0.75rem;
 	}
 }
