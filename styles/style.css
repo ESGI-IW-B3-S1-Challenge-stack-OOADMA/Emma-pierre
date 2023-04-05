@@ -4,6 +4,7 @@
 @import url("./components/custom-link.css");
 @import url("./components/buttons.css");
 @import url("./components/header.css");
+@import url("./components/footer.css");
 @import url("./layouts/detail-produit.css");
 
 @font-face {
@@ -37,6 +38,10 @@
 	--cream: #dccdb6;
 	--light-cream: #f0e5d3;
 
+	--dark-corail: #bd3e43;
+	--corail: #ec5052;
+	--light-corail: #f7645d;
+
 	--white: #fff;
 }
 
@@ -62,51 +67,6 @@ video {
 .padding-navbar {
 	padding-top: 190px;
 }
-
-/*Footer  */
-footer ul {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-	margin: 10px;
-	
-}
-
-
-
-footer ul li {
-	text-align: center;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-}
-
-footer ul li:nth-child(2){
-	flex-direction: row;
-	gap: 16px;
-}
-
-footer ul li:nth-child(2) div{
-	display: flex;
-	flex-direction: column;
-}
-
-footer a {
-	text-decoration: none;
-	color: black;
-}
-
-@media screen and (max-width: 767px) {
-
-	footer ul li{
-		width: 100%;
-	}
-	
-}
-/*Fin Footer */
-
 
 @media screen and (max-width: 767px) {
 	.padding-navbar {
