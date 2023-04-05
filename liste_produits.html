@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,8 +12,9 @@
     <link rel="stylesheet" href="./styles/components/filters.css">
     <script type="module" src="./javascripts/index.js" defer></script>
 </head>
+
 <body>
-    <nav id="navbar" class="no-background">
+    <nav id="navbar">
         <a href="/" id="navbar-brand">
             <img src="./images/logos/emma-pierre-logo-noir.png" alt="Logo Emma Pierre">
         </a>
@@ -24,18 +26,47 @@
         </button>
         <ul class="white">
             <li>
-                <a href="" class="custom-link white">
+                <a href="" class="custom-link">
                     À propos
                 </a>
             </li>
-            <li>
-                <a href="" class="custom-link white">Produits</a>
+            <li class="dropdown">
+                <a class="custom-link white no-after">
+                    Produits
+                </a>
+                <ul>
+                    <li>
+                        <a href="/" class="custom-link">
+                            Précieuses
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/" class="custom-link">
+                            Impertinentes
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/" class="custom-link">
+                            Unique
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/" class="custom-link">
+                            Couleur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/" class="custom-link">
+                            Voir tout
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li>
-                <a href="" class="custom-link white">Blog</a>
+                <a href="" class="custom-link">Blog</a>
             </li>
             <li>
-                <a href="" class="custom-link white">
+                <a href="/contact.html" class="custom-link">
                     Contact
                 </a>
             </li>
@@ -55,8 +86,30 @@
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M32 56C45.2547 56 56 45.2547 56 32C56 18.7453 45.2547 8.00001 32 8.00001C18.7454 8.00001 8.00004 18.7453 8.00004 32C8.00004 45.2547 18.7454 56 32 56ZM32 58.6667C46.728 58.6667 58.6667 46.728 58.6667 32C58.6667 17.272 46.728 5.33334 32 5.33334C17.272 5.33334 5.33337 17.272 5.33337 32C5.33337 46.728 17.272 58.6667 32 58.6667Z" />
                     </svg>
-    
+
                 </a>
+            </li>
+            <li class="dropdown">
+                <a class="custom-link white no-after">
+                    FR
+                </a>
+                <ul>
+                    <li>
+                        <a href="/" class="custom-link">
+                            FR
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/" class="custom-link">
+                            EN
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/" class="custom-link">
+                            DE
+                        </a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </nav>
@@ -250,4 +303,5 @@
         </section>
     </main>
 </body>
+
 </html>
