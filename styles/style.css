@@ -40,6 +40,10 @@
 	--white: #fff;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html,
 body {
 	color: var(--dark-gray);
