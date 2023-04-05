@@ -16,11 +16,22 @@ main {
     align-items: center;
 }
 
-#lists img {
+#lists div.image {
+    position: relative;
+}
+
+#lists div.image img:first-child {
     border-radius: 5rem 10px;
 }
 
-#lists div {
+#lists div.image img:last-child {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 10;
+}
+
+#lists div.text {
     display: flex;
     justify-content: space-between;
     align-items: center;
