@@ -15,6 +15,7 @@ header.light-cream {
 
 header h1 {
 	text-transform: uppercase;
+	color: var(--light-cream);
 }
 
 header p {

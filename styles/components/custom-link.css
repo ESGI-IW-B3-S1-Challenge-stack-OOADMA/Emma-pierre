@@ -3,7 +3,7 @@
 	text-decoration: none;
 	color: var(--dark-gray);
 	overflow: hidden;
-	display: block;
+	display: inline-block;
 	transition: 0.3s all;
 }
 
@@ -35,10 +35,10 @@
 	background-color: var(--dark-gray);
 }
 
-.custom-link.custom-link.light-cream {
-	color: var(--light-cream);
+.custom-link.custom-link.white {
+	color: var(--white);
 }
 
-.custom-link.light-cream::after {
-	background-color: var(--light-cream);
+.custom-link.white::after {
+	background-color: var(--white);
 }

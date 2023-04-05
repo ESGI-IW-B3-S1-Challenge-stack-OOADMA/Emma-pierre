@@ -4,6 +4,10 @@
 @import url("./components/custom-link.css");
 @import url("./components/buttons.css");
 @import url("./components/header.css");
+@import url("./components/footer.css");
+@import url("./components/about.css");
+@import url("./components/product-slider.css");
+@import url("./components/titles.css");
 @import url("./layouts/detail-produit.css");
 
 @font-face {
@@ -37,7 +41,12 @@
 	--cream: #dccdb6;
 	--light-cream: #f0e5d3;
 
+	--dark-corail: #bd3e43;
+	--corail: #ec5052;
+	--light-corail: #f7645d;
+
 	--white: #fff;
+	--bs-heading-color: var(--dark-gray);
 }
 
 *, *::before, *::after {

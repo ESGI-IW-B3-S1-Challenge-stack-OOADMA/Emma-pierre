@@ -8,6 +8,11 @@
 	padding: 12px 24px;
 	border-radius: 12px;
 	color: white;
+	transition: 0.3s all;
+}
+
+.shop-button:hover {
+	background-color: var(--dark-green);
 }
 
 .secondary-btn {
