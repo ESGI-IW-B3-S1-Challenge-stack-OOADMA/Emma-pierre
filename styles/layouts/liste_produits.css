@@ -1,0 +1,47 @@
+main {
+    margin: 0 5rem;
+}
+
+#lists {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 5rem;
+    row-gap: 5rem;
+    margin-top: 2rem;
+}
+
+#lists article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#lists img {
+    border-radius: 5rem 10px;
+}
+
+#lists div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    padding: 1rem 0;
+    margin: 0 1rem;
+}
+
+#lists div :first-child {
+    font-size: 18px;
+}
+
+#lists div :last-child {
+    font-size: 21px;
+}
+
+#lists button {
+    appearance: none;
+    background-color: var(--light-green);
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+}
