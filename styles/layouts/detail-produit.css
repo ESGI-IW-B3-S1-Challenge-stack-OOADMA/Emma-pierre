@@ -106,6 +106,10 @@
 	}
 }
 
+#other-products {
+	padding-bottom: 64px;
+}
+
 #other-products > h2 {
 	font-weight: 200;
 	margin-bottom: 32px;
