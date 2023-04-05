@@ -29,11 +29,12 @@
 }
 
 .validation-btn {
+	display: block;
 	background-color: var(--light-green);
 	color: white;
 	font-weight: 500;
 	border: 1px solid var(--light-green);
-	padding: 0.5rem 3rem;
+	padding: 0.5rem 1rem;
 	border-radius: 50rem;
 	transition: 
 		color 0.3s ease,
