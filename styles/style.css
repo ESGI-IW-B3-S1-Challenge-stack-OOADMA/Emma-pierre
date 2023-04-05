@@ -49,6 +49,10 @@
 	--bs-heading-color: var(--dark-gray);
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html,
 body {
 	color: var(--dark-gray);

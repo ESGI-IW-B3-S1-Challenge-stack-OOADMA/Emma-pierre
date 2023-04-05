@@ -14,3 +14,34 @@
 .shop-button:hover {
 	background-color: var(--dark-green);
 }
+
+.secondary-btn {
+	background-color: white;
+	font-weight: 500;
+	border: 1px solid black;
+	padding: 0.5rem 1.5rem;
+	border-radius: 0.5rem;
+	transition: background-color 0.3s ease;
+}
+
+.secondary-btn:hover {
+	background-color: var(--bs-gray-300);
+}
+
+.validation-btn {
+	display: block;
+	background-color: var(--light-green);
+	color: white;
+	font-weight: 500;
+	border: 1px solid var(--light-green);
+	padding: 0.5rem 1rem;
+	border-radius: 50rem;
+	transition: 
+		color 0.3s ease,
+		background-color 0.3s ease;
+}
+
+.validation-btn:hover {
+	background-color: var(--bs-gray-200);
+	color: black;
+}
