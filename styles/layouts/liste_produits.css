@@ -81,3 +81,36 @@ main {
     border-radius: 1rem;
     padding: 1rem 2rem;
 }
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+#pagination * {
+    transform: scale(2);
+}
+
+#pagination img {
+    transition: all 0.2s ease;
+}
+
+#pagination img:hover {
+    transform: scale(2.25);
+}
+
+#pagination span {
+    padding: 0 7px;
+    border-radius: 5px 2px;
+    transition: 0.2s ease;
+}
+
+#pagination .active {
+    background-color: #1d5f6b99;
+}
+
+#pagination span:not(.active):hover {
+    background-color: #1d5f6b55;
+}
