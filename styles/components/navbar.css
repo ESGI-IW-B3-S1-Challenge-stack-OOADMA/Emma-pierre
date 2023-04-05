@@ -20,7 +20,6 @@
 	right: 0;
 	background-color: var(--white);
 	box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
-	padding: 0;
 }
 
 #navbar #navbar-brand {
@@ -94,11 +93,11 @@
 }
 
 #navbar.white.fixed .custom-link.white {
-	color: var(--dark-green);
+	color: var(--dark-gray);
 }
 
 #navbar.white.fixed .white::after {
-	background-color: var(--dark-green);
+	background-color: var(--dark-gray);
 }
 
 #navbar.white.fixed svg {
@@ -120,7 +119,14 @@
 		background-color: transparent;
 	}
 
-	#navbar.fixed {
+	#navbar:not(.fixed).no-background .custom-link.white {
+		color: var(--dark-gray);
+	}
+	#navbar:not(.fixed).no-background .white::after {
+		background-color: var(--dark-gray);
+	}
+
+	#navbar:not(.fixed).no-background {
 		padding: 16px 0;
 	}
 
