@@ -141,7 +141,8 @@
     font-size 0.3s ease;
 }
 
-.reduction-container input:focus + .placeholder-input {
+.reduction-container input:focus + .placeholder-input,
+.reduction-container input:not(:placeholder-shown) + .placeholder-input {
   top: -10px;
   font-size: 10px;
   color: black;
