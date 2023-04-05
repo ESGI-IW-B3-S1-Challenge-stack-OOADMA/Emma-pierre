@@ -38,6 +38,7 @@
 	--light-cream: #f0e5d3;
 
 	--white: #fff;
+	--bs-heading-color: var(--dark-gray);
 }
 
 html,
