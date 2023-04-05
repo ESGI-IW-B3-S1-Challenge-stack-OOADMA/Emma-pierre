@@ -77,6 +77,27 @@
 	stroke: var(--light-cream);
 }
 
+#navbar.light-cream .custom-link.light-cream {
+	color: var(--light-cream);
+}
+
+#navbar.light-cream .light-cream::after {
+	background-color: var(--light-cream);
+}
+
+#navbar.light-cream.fixed .custom-link.light-cream {
+	color: var(--dark-green);
+}
+
+#navbar.light-cream.fixed .light-cream::after {
+	background-color: var(--dark-green);
+}
+
+#navbar.light-cream.fixed svg {
+	fill: var(--dark-green);
+	stroke: var(--dark-green);
+}
+
 #navbar ul li a {
 	text-transform: uppercase;
 }
