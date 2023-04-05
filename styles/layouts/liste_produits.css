@@ -1,144 +1,141 @@
 :root {
-    --great-angle: 5rem;
-}
-
-main {
-    margin: 0 5rem;
+	--great-angle: 5rem;
 }
 
 #lists {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: 5rem;
-    row-gap: 5rem;
-    margin-top: 2rem;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	column-gap: 5rem;
+	row-gap: 5rem;
+	margin-top: 2rem;
+	padding: 0 32px;
 }
 
 #lists article {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 #lists div.image {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #lists div.image img:first-child {
-    border-radius: var(--great-angle) 10px;
+	border-radius: var(--great-angle) 10px;
 }
 
 #lists div.image p {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    margin: 0;
-    border-radius: var(--great-angle) 10px;
-    color: white;
-    background-color: #11373faa;
-    text-align: center;
-    font-size: 18px;
-    opacity: 0;
-    transition: all 0.3s ease;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem;
+	margin: 0;
+	border-radius: var(--great-angle) 10px;
+	color: white;
+	background-color: #11373faa;
+	text-align: center;
+	font-size: 18px;
+	opacity: 0;
+	transition: all 0.3s ease;
 }
 
 #lists div.image p:hover {
-    opacity: 1;
+	opacity: 1;
 }
 
 #lists div.image img:last-child {
-    position: absolute;
-    right: 5px;
-    top: 5px;
-    z-index: 10;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	z-index: 10;
 }
 
 #lists div.text {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    padding: 1rem 0;
-    margin: 0 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 80%;
+	padding: 1rem 0;
+	margin: 0 1rem;
 }
 
 #lists div :first-child {
-    font-size: 18px;
+	font-size: 18px;
 }
 
 #lists div :last-child {
-    font-size: 21px;
+	font-size: 21px;
 }
 
 #lists button {
-    appearance: none;
-    background-color: var(--light-green);
-    color: white;
-    border: none;
-    border-radius: 1rem;
-    padding: 1rem 2rem;
+	appearance: none;
+	background-color: var(--light-green);
+	color: white;
+	border: none;
+	border-radius: 1rem;
+	padding: 1rem 2rem;
 }
 
 #pagination {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    padding-top: 2rem;
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+	padding-top: 2rem;
 }
 
 #pagination * {
-    transform: scale(2);
+	transform: scale(2);
 }
 
 #pagination img {
-    transition: all 0.2s ease;
+	transition: all 0.2s ease;
 }
 
 #pagination img:hover {
-    transform: scale(2.25);
+	transform: scale(2.25);
 }
 
 #pagination span {
-    padding: 0 7px;
-    border-radius: 5px 2px;
-    transition: 0.2s ease;
+	padding: 0 7px;
+	border-radius: 5px 2px;
+	transition: 0.2s ease;
 }
 
 #pagination .active {
-    background-color: #1d5f6b99;
+	background-color: #1d5f6b99;
 }
 
 #pagination span:not(.active):hover {
-    background-color: #1d5f6b55;
+	background-color: #1d5f6b55;
 }
 
 @media screen and (max-width: 992px) {
-    #lists {
-        column-gap: 2rem;
-        row-gap: 2rem;
-    }
+	#lists {
+		column-gap: 2rem;
+		row-gap: 2rem;
+	}
 
-    :root {
-        --great-angle: 2.5rem;
-    }
+	:root {
+		--great-angle: 2.5rem;
+	}
 }
 
 @media screen and (max-width: 768px) {
-    #lists {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
-    }
+	#lists {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: auto;
+	}
 }
 
 @media screen and (max-width: 576px) {
-    #lists {
-        grid-template-columns: 1fr;
-    }
+	#lists {
+		grid-template-columns: 1fr;
+	}
 }

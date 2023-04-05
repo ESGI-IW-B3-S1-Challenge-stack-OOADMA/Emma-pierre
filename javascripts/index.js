@@ -18,4 +18,12 @@ if(document.getElementById('products-slider')){
         }).mount()
     }
 
+if (document.getElementById('filters')) {
+    let navFilters = document.getElementById('filters')
+    let listFilters = document.querySelector('#filters-list')
+    let buttonFilters = navFilters.querySelector('#filters-button')
 
+    buttonFilters.onclick = () => (
+        listFilters.classList.toggle('show')
+    )
+}
