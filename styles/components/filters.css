@@ -1,0 +1,70 @@
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filters li {
+    position: relative;
+    padding: 15px 30px 15px 20px;
+    background: white;
+    border-radius: 10px;
+}
+
+.filters li button {
+    position: relative;
+    appearance: none;
+    background: transparent;
+    padding: 1rem 3rem 1rem 2rem;
+    border: 1px solid var(--light-green);
+    border-radius: 20px;
+    z-index: 10;
+}
+
+.filters li button::after {
+    position: absolute;
+    content: "\203A";
+    transform: rotate(90deg) scale(2.5);
+    right: 1rem;
+    top: 1.1rem;
+}
+
+.filters ul {
+    z-index: 20;
+}
+
+.filters li > a {
+    position: relative;
+}
+
+.filters .submenu {
+    position: absolute;
+    top: 73px;
+    right: 0;
+    transform: scaleY(0);
+    width: 100%;
+}
+
+.filters > li:hover button {
+    background-color: var(--light-green);
+    color: white;
+    z-index: 3;
+}
+
+.filters > li:hover .submenu {
+    transform: scaleY(1);
+}
+
+.filters>li .submenu li {
+    z-index: 2;
+    text-align: center;
+}
+
+.filters>li .submenu li:hover {
+    transform: scale(1.15);
+}
+
+.filters > li .submenu li a {
+    color: var(--light-green);
+    text-decoration: none;
+}
