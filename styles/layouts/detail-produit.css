@@ -114,25 +114,3 @@
 	font-weight: 200;
 	margin-bottom: 32px;
 }
-
-#other-products .splide__arrow {
-	background: transparent;
-}
-
-#other-products .splide__slide {
-	text-align: center;
-}
-
-#other-products .splide__slide img {
-	width: 85%;
-}
-
-#other-products .splide__slide h2 {
-	margin-top: 15px;
-	font-size: 28px;
-}
-
-#other-products .splide__slide h3 {
-	font-weight: 200;
-	font-size: 24px;
-}

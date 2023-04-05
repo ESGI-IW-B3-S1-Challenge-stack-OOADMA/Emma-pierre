@@ -8,6 +8,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/layouts/index.css">
+    <script src="./javascripts/splide/splide.min.js" defer></script>
+    <link rel="stylesheet" href="./styles/splide/splide.min.css">
     <script type="module" src="./javascripts/index.js" defer></script>
 </head>
 
@@ -108,28 +110,101 @@
 
 
     <main>
-        <h2>Nos bijoux</h2>
-        <p>
-            Tous nos bijoux sont fabriqués à la main dans notre atelier lyonnais, en éditions limitées pour plus
-            d’exclusivité,
-            certains même en unique exemplaire, ils vous apporteront cette touche particulière qui vous rendra unique,
-            chaque
-            matière ayant été soigneusement sélectionnée. En choisissant l’artisanat, vous contribuez à maintenir notre
-            savoir faire
-            et l’emploi en France.
-        </p>
-        <section id="gallery">
-            <img src="images/photos/deux_colliers_bleues.jpeg" alt="colliers perles bleues">
-            <div>Colliers</div>
-            <img src="images/photos/plant_gemstone.png" alt="collier sur feuille">
-            <img src="images/photos/boucle_oreille_marron.jpeg" alt="collier bleu et blanc">
-            <div>Boucles d'oreilles</div>
-            <img src="images/photos/collier_bleue.jpeg" alt="boucle d'oreille avec plumes">
-            <img src="images/photos/boucles_bleues.jpg" alt="multitude de colliers et bracelets">
-            <img src="images/photos/multitudes_de_bracelets.jpeg" alt="">
-            <div>Bracelets</div>
-            <img src="images/photos/bracelets_bleu.jpeg" alt="3 bracelets bleus et blanc">
-            <img src="images/photos/boucle_bleue.jpeg" alt="boucle d'oreille bleue">
+        <section class="container" id="gallery-container">
+            <h2 class="line">Nos bijoux</h2>
+            <p>
+                Tous nos bijoux sont fabriqués à la main dans notre atelier lyonnais, en éditions limitées pour plus
+                d’exclusivité,
+                certains même en unique exemplaire, ils vous apporteront cette touche particulière qui vous rendra
+                unique,
+                chaque
+                matière ayant été soigneusement sélectionnée. En choisissant l’artisanat, vous contribuez à maintenir
+                notre
+                savoir faire
+                et l’emploi en France.
+            </p>
+            <article id="gallery">
+                <img src="images/photos/deux_colliers_bleues.jpeg" alt="colliers perles bleues">
+                <div>Colliers</div>
+                <img src="images/photos/plant_gemstone.png" alt="collier sur feuille">
+                <img src="images/photos/boucle_oreille_marron.jpeg" alt="collier bleu et blanc">
+                <div>Boucles d'oreilles</div>
+                <img src="images/photos/collier_bleue.jpeg" alt="boucle d'oreille avec plumes">
+                <img src="images/photos/boucles_bleues.jpg" alt="multitude de colliers et bracelets">
+                <img src="images/photos/multitudes_de_bracelets.jpeg" alt="">
+                <div>Bracelets</div>
+                <img src="images/photos/bracelets_bleu.jpeg" alt="3 bracelets bleus et blanc">
+                <img src="images/photos/boucle_bleue.jpeg" alt="boucle d'oreille bleue">
+            </article>
+        </section>
+
+        <section id="about">
+            <h2>À propos de nous</h2>
+            <svg width="212" height="12" viewBox="0 0 212 12" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M0.226497 6L6 11.7735L11.7735 6L6 0.226497L0.226497 6ZM211.773 6L206 0.226497L200.227 6L206 11.7735L211.773 6ZM6 7H206V5H6V7Z" />
+            </svg>
+            <p>
+                Notre entreprise est née de la passion pour les bijoux et les pierres ornementales de notre fondatrice,
+                qui a associé
+                son diminutif à cette passion pour créer notre nom de société unique. Depuis l'enfance, notre fondatrice
+                a été fascinée
+                par la multitude de couleurs et d'éclats que les pierres précieuses peuvent offrir. Notre unique
+                objectif est de vous
+                aider à trouver la pierre qui s'accordera à votre humeur du jour ou de toujours, à un prix qui vous
+                permettra de
+                multiplier votre plaisir.
+            </p>
+            <a href="" class="shop-button">En savoir plus</a>
+        </section>
+        <section class="container" id="featured-products">
+            <h2 class="line">Produits à la une</h2>
+            <div class="splide" role="group" aria-label="Splide Basic HTML Example" id="products-slider">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <img src="./images/photos/WhatsApp Image 2023-03-08 at 20.16.07 (4).jpeg" alt="">
+                            <h2>Collier bleu</h2>
+                            <h3>72,00 €</h3>
+                        </li>
+                        <li class="splide__slide">
+                            <img src="./images/photos/WhatsApp Image 2023-03-08 at 20.16.07 (4).jpeg" alt="">
+                            <h2>Collier bleu</h2>
+                            <h3>72,00 €</h3>
+                        </li>
+                        <li class="splide__slide">
+                            <img src="./images/photos/WhatsApp Image 2023-03-08 at 20.16.07 (4).jpeg" alt="">
+                            <h2>Collier bleu</h2>
+                            <h3>72,00 €</h3>
+                        </li>
+                        <li class="splide__slide">
+                            <img src="./images/photos/WhatsApp Image 2023-03-08 at 20.16.07 (4).jpeg" alt="">
+                            <h2>Collier bleu</h2>
+                            <h3>72,00 €</h3>
+                        </li>
+                        <li class="splide__slide">
+                            <img src="./images/photos/WhatsApp Image 2023-03-08 at 20.16.07 (4).jpeg" alt="">
+                            <h2>Collier bleu</h2>
+                            <h3>72,00 €</h3>
+                        </li>
+                        <li class="splide__slide">
+                            <img src="./images/photos/WhatsApp Image 2023-03-08 at 20.16.07 (4).jpeg" alt="">
+                            <h2>Collier bleu</h2>
+                            <h3>72,00 €</h3>
+                        </li>
+                        <li class="splide__slide">
+                            <img src="./images/photos/WhatsApp Image 2023-03-08 at 20.16.07 (4).jpeg" alt="">
+                            <h2>Collier bleu</h2>
+                            <h3>72,00 €</h3>
+                        </li>
+                        <li class="splide__slide">
+                            <img src="./images/photos/WhatsApp Image 2023-03-08 at 20.16.07 (4).jpeg" alt="">
+                            <h2>Collier bleu</h2>
+                            <h3>72,00 €</h3>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </section>
     </main>
 
