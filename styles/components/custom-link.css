@@ -3,7 +3,7 @@
 	text-decoration: none;
 	color: var(--dark-gray);
 	overflow: hidden;
-	display: block;
+	display: inline-block;
 	transition: 0.3s all;
 }
 

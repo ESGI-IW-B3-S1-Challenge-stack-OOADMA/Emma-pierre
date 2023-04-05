@@ -19,6 +19,7 @@
 	left: 0;
 	right: 0;
 	background-color: var(--light-cream);
+	padding: 0;
 }
 
 #navbar #navbar-brand {
@@ -63,6 +64,12 @@
 	margin-top: 0;
 }
 
+#navbar ul li {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 #navbar svg {
 	fill: var(--black);
 	stroke: var(--dark-green);
@@ -105,6 +112,11 @@
 @media screen and (max-width: 767px) {
 	#navbar {
 		flex-direction: row;
+		background-color: var(--light-cream);
+	}
+
+	#navbar.fixed {
+		padding: 16px 0;
 	}
 
 	#navbar #navbar-brand {
@@ -130,6 +142,8 @@
 		top: 100%;
 		right: 0;
 		left: 0;
+
+		border-top: 0;
 
 		transform: scaleY(0);
 		transform-origin: 50% 0;
