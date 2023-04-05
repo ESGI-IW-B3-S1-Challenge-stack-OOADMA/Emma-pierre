@@ -50,11 +50,22 @@
 	opacity: 1;
 }
 
-#lists div.image img:last-child {
+#lists div.image svg {
 	position: absolute;
 	right: 5px;
 	top: 5px;
 	z-index: 10;
+	cursor: pointer;
+}
+
+#lists div.image svg path {
+	fill: #f2f2f2;
+	stroke: #ec5052;
+	transition: 0.3s all;
+}
+
+#lists div.image svg:hover path {
+	fill: #ec5052;
 }
 
 #lists div.text {

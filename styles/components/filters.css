@@ -88,6 +88,11 @@ nav#filters ul li.dropdown ul li:hover {
 nav#filters ul li.dropdown ul li a {
 	color: var(--light-green);
 	text-decoration: none;
+	transition: 0.3s all;
+}
+
+nav#filters ul li.dropdown ul li a:hover {
+	color: var(--dark-beige);
 }
 
 @media screen and (max-width: 767px) {
