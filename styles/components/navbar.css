@@ -124,6 +124,7 @@
 	border-top-right-radius: 40px;
 	border-bottom-left-radius: 40px;
 	transform: scaleY(0);
+	border-top: none;
 	transform-origin: 50% 0;
 	width: fit-content;
 	box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
