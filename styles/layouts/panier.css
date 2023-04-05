@@ -126,3 +126,16 @@
 .reduction-container input:focus {
   background-size: 100% 0.15em, 100% 0.1em, 100%;
 }
+
+.aside-panel-cart {
+	background-color: var(--light-green);
+	height: 100%;
+	border-radius: 0.75rem;
+}
+
+.offset-img {
+	position: absolute;
+	bottom: 0;
+	right: 20%;
+
+}
