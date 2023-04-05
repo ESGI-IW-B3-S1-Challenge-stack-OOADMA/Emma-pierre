@@ -34,3 +34,11 @@
 .custom-link.dark-gray::after {
 	background-color: var(--dark-gray);
 }
+
+.custom-link.custom-link.white {
+	color: var(--white);
+}
+
+.custom-link.white::after {
+	background-color: var(--white);
+}
