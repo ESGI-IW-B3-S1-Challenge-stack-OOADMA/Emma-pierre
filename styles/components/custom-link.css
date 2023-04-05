@@ -3,7 +3,7 @@
 	text-decoration: none;
 	color: var(--dark-gray);
 	overflow: hidden;
-	display: block;
+	display: inline-block;
 	transition: 0.3s all;
 }
 
@@ -33,12 +33,4 @@
 
 .custom-link.dark-gray::after {
 	background-color: var(--dark-gray);
-}
-
-.custom-link.custom-link.light-cream {
-	color: var(--light-cream);
-}
-
-.custom-link.light-cream::after {
-	background-color: var(--light-cream);
 }
