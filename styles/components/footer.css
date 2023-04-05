@@ -52,7 +52,7 @@ footer ul.links li svg {
 footer p {
 	border-top: 1px solid rgba(255, 255, 255, 0.4);
 	padding-top: 16px;
-	margin-top: 16px;
+	margin-top: 32px;
 	margin-bottom: 0;
 	color: var(--white);
 	text-align: center;
