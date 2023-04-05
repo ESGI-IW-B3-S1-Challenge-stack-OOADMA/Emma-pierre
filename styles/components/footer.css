@@ -5,6 +5,7 @@ footer {
 	justify-content: space-around;
 	align-items: center;
 	flex-wrap: wrap;
+	margin-top: 4rem;
 }
 
 footer img {
