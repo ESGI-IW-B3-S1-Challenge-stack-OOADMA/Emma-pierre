@@ -18,7 +18,7 @@ function navbar(){
         } else {
             navbar.classList.remove('fixed');
             
-            if(navbar.classList.contains('light-cream')) navbarLogo.src = './images/logos/emma-pierre-logo-blanc.png'
+            if(navbar.classList.contains('white')) navbarLogo.src = './images/logos/emma-pierre-logo-blanc.png'
         }
     });
 }

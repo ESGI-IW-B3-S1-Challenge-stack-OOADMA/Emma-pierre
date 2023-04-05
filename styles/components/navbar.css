@@ -18,7 +18,8 @@
 	top: 0;
 	left: 0;
 	right: 0;
-	background-color: var(--light-cream);
+	background-color: var(--white);
+	box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
 	padding: 0;
 }
 
@@ -75,32 +76,32 @@
 	stroke: var(--dark-green);
 }
 
-#navbar.light-cream ul {
-	border-top: 1px solid var(--light-cream);
+#navbar.white ul {
+	border-top: 1px solid var(--white);
 }
 
-#navbar.light-cream svg {
-	fill: var(--light-cream);
-	stroke: var(--light-cream);
+#navbar.white svg {
+	fill: var(--white);
+	stroke: var(--white);
 }
 
-#navbar.light-cream .custom-link.light-cream {
-	color: var(--light-cream);
+#navbar.white .custom-link.white {
+	color: var(--white);
 }
 
-#navbar.light-cream .light-cream::after {
-	background-color: var(--light-cream);
+#navbar.white .white::after {
+	background-color: var(--white);
 }
 
-#navbar.light-cream.fixed .custom-link.light-cream {
+#navbar.white.fixed .custom-link.white {
 	color: var(--dark-green);
 }
 
-#navbar.light-cream.fixed .light-cream::after {
+#navbar.white.fixed .white::after {
 	background-color: var(--dark-green);
 }
 
-#navbar.light-cream.fixed svg {
+#navbar.white.fixed svg {
 	fill: var(--dark-green);
 	stroke: var(--dark-green);
 }
@@ -112,7 +113,11 @@
 @media screen and (max-width: 767px) {
 	#navbar {
 		flex-direction: row;
-		background-color: var(--light-cream);
+		background-color: var(--white);
+	}
+
+	#navbar:not(.fixed).no-background {
+		background-color: transparent;
 	}
 
 	#navbar.fixed {
@@ -132,8 +137,8 @@
 		width: 50%;
 	}
 
-	#navbar.light-cream.fixed svg {
-		fill: var(--light-cream);
+	#navbar.white.fixed svg {
+		fill: var(--white);
 		stroke: var(--light-gray);
 	}
 
@@ -147,7 +152,7 @@
 
 		transform: scaleY(0);
 		transform-origin: 50% 0;
-		background-color: var(--light-cream);
+		background-color: var(--white);
 		color: var(--dark-green);
 		margin: 0;
 		row-gap: 32px;
