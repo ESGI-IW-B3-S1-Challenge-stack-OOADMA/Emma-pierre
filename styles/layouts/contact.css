@@ -59,7 +59,6 @@ form div {
 
 form .floating-label-group label {
 	flex-basis: 120px;
-	font-weight: bold;
 }
 
 form .floating-label-group input[type="text"],
