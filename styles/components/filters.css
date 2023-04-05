@@ -1,12 +1,13 @@
 .filters {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .filters li {
     position: relative;
     padding: 15px 30px 15px 20px;
     background: white;
-    z-index: 100;
     border-radius: 10px;
 }
 
@@ -17,6 +18,7 @@
     padding: 1rem 3rem 1rem 2rem;
     border: 1px solid var(--light-green);
     border-radius: 20px;
+    z-index: 10;
 }
 
 .filters li button::after {
@@ -25,6 +27,10 @@
     transform: rotate(90deg) scale(2.5);
     right: 1rem;
     top: 1.1rem;
+}
+
+.filters ul {
+    z-index: 20;
 }
 
 .filters li > a {
