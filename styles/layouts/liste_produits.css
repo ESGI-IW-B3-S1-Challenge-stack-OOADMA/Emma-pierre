@@ -26,6 +26,8 @@
 
 #lists div.image img:first-child {
 	border-radius: var(--great-angle) 10px;
+	height: 316px;
+	object-fit: cover;
 }
 
 #lists div.image p {
