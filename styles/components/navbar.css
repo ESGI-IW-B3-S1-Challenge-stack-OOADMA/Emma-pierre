@@ -114,6 +114,10 @@
 	color: var(--dark-gray);
 }
 
+#navbar ul:not(.dropdown) li.dropdown {
+	cursor: pointer;
+}
+
 #navbar ul:not(.dropdown) li.dropdown ul {
 	position: absolute;
 	top: 100%;
@@ -132,7 +136,7 @@
 	transition: 0.3s all;
 }
 
-#navbar ul:not(.dropdown) li.dropdown:hover ul {
+#navbar ul:not(.dropdown) li.dropdown.show ul {
 	transform: scaleY(1);
 }
 
