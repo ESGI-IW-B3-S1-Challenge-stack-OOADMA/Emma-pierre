@@ -27,3 +27,5 @@ if (document.getElementById('filters')) {
         listFilters.classList.toggle('show')
     )
 }
+
+AOS.init();
