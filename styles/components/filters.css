@@ -9,6 +9,7 @@ nav#filters #filters-button {
 	appearance: none;
 	background-color: transparent;
 	border: var(--dark-green) 1px solid;
+	color: var(--dark-green);
 	transition: 0.3s all;
 }
 
