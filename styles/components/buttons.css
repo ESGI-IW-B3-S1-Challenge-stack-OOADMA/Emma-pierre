@@ -1,3 +1,7 @@
+a {
+	text-decoration: none;
+}
+
 .main-button {
 	appearance: none;
 	background-color: var(--dark-green);
@@ -36,6 +40,24 @@
 	padding: 0.5rem 1.5rem;
 	border-radius: 0.5rem;
 	transition: background-color 0.3s ease;
+	text-align: center;
+	color: black;
+}
+
+.primary-btn {
+	background-color: var(--light-green);
+	font-weight: 500;
+	border: 1px solid var(--light-green);
+	padding: 0.5rem 1.5rem;
+	border-radius: 0.5rem;
+	transition: background-color 0.3s ease;
+	text-align: center;
+	color: white;
+}
+
+.primary-btn:hover {
+	background-color: white;
+	color: black;
 }
 
 .secondary-btn:hover {
@@ -70,4 +92,10 @@
 
 .favoris-button:hover {
 	background-color: var(--dark-corail);
+}
+
+@media screen and (max-width: 320px) {
+	.primary-btn {
+		padding: 0.25rem 0.75rem;
+	}
 }

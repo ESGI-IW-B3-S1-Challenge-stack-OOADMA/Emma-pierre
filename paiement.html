@@ -4,29 +4,23 @@
 <head>
     <!-- Meta Tags -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords"
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="keywords"
         content="Bijoux, pierres précieuses, colliers, bracelets, boucles d'oreilles, bijouterie, jewellery, gemstone, store, necklace, bangle, earring">
     <meta name="description" content="Venez découvrir nos bijoux fabriqués à la main dans notre atelier lyonnais, en éditions limitées pour plus d’exclusivité,
         certains même en unique exemplaire. Ils vous apporteront cette touche particulière qui vous rendra unique, chaque
         matière ayant été soigneusement sélectionnée. En choisissant l’artisanat, vous contribuez à maintenir notre savoirfaire
-        et l’emploi en France !">
-    <meta name="author"
-        content="CHloé Pisceri, Mathis Rome, Michael Yaromishyan, Arnaud Gouel, Loan Courchinoux-Billonnet">
-    et l’emploi en France !"
+        et l’emploi en France !"
     >
-    <meta name="author"
-        content="Chloé Pisceri, Mathis Rome, Michael Yaromishyan, Arnaud Gouel, Loan Courchinoux-Billonnet">
+    <meta name="author" content="Chloé Pisceri, Mathis Rome, Michael Yaromishyan, Arnaud Gouel, Loan Courchinoux-Billonnet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
     <!-- Title & favicon -->
-    <title>Mon panier - Emma Pierre</title>
+    <title>Paiement - Emma Pierre</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/layouts/tunnel-achat.css">
-
+    
     <!-- JS -->
     <script type="module" src="./javascripts/index.js" defer></script>
 </head>
@@ -133,23 +127,31 @@
     </nav>
     <main class="padding-navbar page-panier">
         <div class="container">
-            <div class="row">
+            <div class="row g-4 g-lg-0">
+                <section class="col-12 col-lg-6 order-0 order-lg-1">
+                    <div class="col-12 col-lg-9 offset-0 offset-lg-3 aside-panel-paiement position-relative text-white">
+                        <article>
+                            <p>Mon panier rempli de bijoux fabriqués main</p>
+                            <p class="fw-bolder">144,00 €</p>
+                        </article>
+                        <img src="images/photos/gems-outline-ps.png" class="offset-img d-none d-lg-block" alt="gem">
+                    </div>
+                </section>
                 <section class="col-12 col-lg-6">
                     <div class="d-flex flex-column gutter-5">
                         <ul class="steps-cart">
                             <li class="step-cart">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="10" cy="10" r="8.5" stroke="#1D5F6B" stroke-width="3" />
-                                    <circle cx="10" cy="10" r="3" fill="#1D5F6B" />
+                                    <circle cx="10" cy="10" r="9.5" stroke="#1D5F6B" />
                                 </svg>
                                 <p>Panier</p>
                             </li>
                             <li class="col line-middle"></li>
                             <li class="step-cart">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="10" cy="10" r="9.5" stroke="#1D5F6B" />
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="10" cy="10" r="9.5" stroke="#1D5F6B" />
                                 </svg>
                                 <p>Livraison</p>
                             </li>
@@ -157,7 +159,8 @@
                             <li class="step-cart">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="10" cy="10" r="9.5" stroke="#1D5F6B" />
+                                    <circle cx="10" cy="10" r="8.5" stroke="#1D5F6B" stroke-width="3" />
+                                    <circle cx="10" cy="10" r="3" fill="#1D5F6B" />
                                 </svg>
                                 <p>Paiement</p>
                             </li>
@@ -170,118 +173,46 @@
                                 <p>Confirmation</p>
                             </li>
                         </ul>
-                        <section class="cart-items">
-                            <article class="cart-item">
-                                <ul class="cart-item-head">
-                                    <li>
-                                        <img class="rounded img-item"
-                                            src="./images/photos/WhatsApp Image 2023-03-08 at 20.16.07 (3).jpeg">
-                                    </li>
-                                    <li>
-                                        <ul class="d-flex flex-column">
-                                            <li class="title-cart-item">Modern and Trending necklace</li>
-                                            <li class="">Collection : Family</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <ul class="cart-item-aside">
-                                    <li>
-                                        <ul class="d-flex gutter-2 align-items-center">
-                                            <a href="#">
-                                                <li>-</li>
-                                            </a>
-                                            <li class="cart-quantity">1</li>
-                                            <a href="#">
-                                                <li>+</li>
-                                            </a>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul class="cart-item-aside-price">
-                                            <li class="d-flex"><span class="fw-bolder">72,00 €</span></li>
-                                            <li class="d-flex">
-                                                <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M8.732 3.54165C8.86139 3.17608 9.10091 2.85959 9.41759 2.63575C9.73426 2.41191 10.1125 2.29172 10.5003 2.29172C10.8881 2.29172 11.2664 2.41191 11.5831 2.63575C11.8998 2.85959 12.1393 3.17608 12.2687 3.54165C12.296 3.61908 12.3384 3.69036 12.3933 3.75142C12.4482 3.81248 12.5146 3.86213 12.5887 3.89753C12.6628 3.93294 12.7431 3.9534 12.8251 3.95775C12.9071 3.9621 12.9892 3.95026 13.0666 3.9229C13.144 3.89555 13.2153 3.8532 13.2764 3.7983C13.3374 3.74339 13.3871 3.677 13.4225 3.60291C13.4579 3.52881 13.4783 3.44847 13.4827 3.36647C13.487 3.28447 13.4752 3.20241 13.4478 3.12499C13.2324 2.51554 12.8333 1.98788 12.3055 1.61466C11.7777 1.24145 11.1472 1.04105 10.5007 1.04105C9.85433 1.04105 9.22381 1.24145 8.69602 1.61466C8.16823 1.98788 7.76912 2.51554 7.55366 3.12499C7.52474 3.20272 7.51157 3.28543 7.51493 3.3683C7.51829 3.45117 7.53811 3.53254 7.57323 3.60767C7.60836 3.6828 7.65809 3.75019 7.71952 3.80592C7.78095 3.86164 7.85286 3.90457 7.93106 3.93222C8.00925 3.95987 8.09216 3.97168 8.17497 3.96696C8.25777 3.96225 8.33881 3.94109 8.41335 3.90474C8.4879 3.86839 8.55447 3.81757 8.60917 3.75523C8.66388 3.69289 8.70563 3.62029 8.732 3.54165ZM2.79199 4.99999C2.79199 4.83423 2.85784 4.67526 2.97505 4.55805C3.09226 4.44084 3.25123 4.37499 3.41699 4.37499H17.5837C17.7494 4.37499 17.9084 4.44084 18.0256 4.55805C18.1428 4.67526 18.2087 4.83423 18.2087 4.99999C18.2087 5.16575 18.1428 5.32472 18.0256 5.44193C17.9084 5.55914 17.7494 5.62499 17.5837 5.62499H3.41699C3.25123 5.62499 3.09226 5.55914 2.97505 5.44193C2.85784 5.32472 2.79199 5.16575 2.79199 4.99999ZM4.76449 6.45999C4.92979 6.44901 5.09269 6.50411 5.21739 6.61318C5.34208 6.72225 5.41837 6.87636 5.42949 7.04165L5.81283 12.7916C5.88783 13.9141 5.94116 14.6958 6.05783 15.2833C6.172 15.8541 6.33033 16.1558 6.55783 16.3691C6.78616 16.5825 7.09783 16.7208 7.6745 16.7958C8.2695 16.8733 9.05283 16.875 10.1778 16.875H10.8228C11.9478 16.875 12.7312 16.8733 13.3262 16.7958C13.9028 16.7208 14.2145 16.5825 14.4428 16.3691C14.6703 16.1558 14.8287 15.8541 14.9428 15.2833C15.0595 14.6958 15.1128 13.9141 15.1878 12.7916L15.5712 7.04165C15.5766 6.95974 15.5982 6.87971 15.6346 6.80613C15.671 6.73254 15.7215 6.66685 15.7833 6.6128C15.8451 6.55875 15.9169 6.5174 15.9947 6.4911C16.0725 6.46481 16.1547 6.4541 16.2366 6.45957C16.3185 6.46504 16.3985 6.48659 16.4721 6.52299C16.5457 6.5594 16.6114 6.60993 16.6654 6.67172C16.7195 6.73351 16.7608 6.80534 16.7871 6.88311C16.8134 6.96089 16.8241 7.04307 16.8187 7.12499L16.432 12.9183C16.3612 13.9866 16.3037 14.85 16.1687 15.5283C16.0278 16.2325 15.7895 16.8208 15.2962 17.2816C14.8037 17.7433 14.2003 17.9425 13.4878 18.035C12.8028 18.125 11.9378 18.125 10.8662 18.125H10.1345C9.06283 18.125 8.19783 18.125 7.51283 18.035C6.80033 17.9425 6.197 17.7433 5.70449 17.2816C5.21116 16.8208 4.97283 16.2316 4.83199 15.5283C4.69699 14.85 4.64033 13.9866 4.56866 12.9183L4.18199 7.12499C4.17656 7.04307 4.18732 6.96089 4.21366 6.88313C4.23999 6.80538 4.28139 6.73357 4.33548 6.67181C4.38958 6.61006 4.4553 6.55957 4.52892 6.52322C4.60253 6.48688 4.68258 6.46539 4.76449 6.45999Z"
-                                                        fill="black" />
-                                                </svg>
-                                                <a class="" href="#"> Retirer</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </article>
-                            <article class="cart-item">
-                                <ul class="cart-item-head">
-                                    <li>
-                                        <img class="rounded img-item"
-                                            src="./images/photos/WhatsApp Image 2023-03-08 at 20.16.07 (3).jpeg">
-                                    </li>
-                                    <li>
-                                        <ul class="d-flex flex-column">
-                                            <li class="title-cart-item">Modern and Trending necklace</li>
-                                            <li class="">Collection : Family</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <ul class="cart-item-aside">
-                                    <li>
-                                        <ul class="d-flex gutter-2 align-items-center">
-                                            <a href="#">
-                                                <li>-</li>
-                                            </a>
-                                            <li class="cart-quantity">1</li>
-                                            <a href="#">
-                                                <li>+</li>
-                                            </a>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul class="cart-item-aside-price">
-                                            <li class="d-flex"><span class="fw-bolder">72,00 €</span></li>
-                                            <li class="d-flex">
-                                                <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M8.732 3.54165C8.86139 3.17608 9.10091 2.85959 9.41759 2.63575C9.73426 2.41191 10.1125 2.29172 10.5003 2.29172C10.8881 2.29172 11.2664 2.41191 11.5831 2.63575C11.8998 2.85959 12.1393 3.17608 12.2687 3.54165C12.296 3.61908 12.3384 3.69036 12.3933 3.75142C12.4482 3.81248 12.5146 3.86213 12.5887 3.89753C12.6628 3.93294 12.7431 3.9534 12.8251 3.95775C12.9071 3.9621 12.9892 3.95026 13.0666 3.9229C13.144 3.89555 13.2153 3.8532 13.2764 3.7983C13.3374 3.74339 13.3871 3.677 13.4225 3.60291C13.4579 3.52881 13.4783 3.44847 13.4827 3.36647C13.487 3.28447 13.4752 3.20241 13.4478 3.12499C13.2324 2.51554 12.8333 1.98788 12.3055 1.61466C11.7777 1.24145 11.1472 1.04105 10.5007 1.04105C9.85433 1.04105 9.22381 1.24145 8.69602 1.61466C8.16823 1.98788 7.76912 2.51554 7.55366 3.12499C7.52474 3.20272 7.51157 3.28543 7.51493 3.3683C7.51829 3.45117 7.53811 3.53254 7.57323 3.60767C7.60836 3.6828 7.65809 3.75019 7.71952 3.80592C7.78095 3.86164 7.85286 3.90457 7.93106 3.93222C8.00925 3.95987 8.09216 3.97168 8.17497 3.96696C8.25777 3.96225 8.33881 3.94109 8.41335 3.90474C8.4879 3.86839 8.55447 3.81757 8.60917 3.75523C8.66388 3.69289 8.70563 3.62029 8.732 3.54165ZM2.79199 4.99999C2.79199 4.83423 2.85784 4.67526 2.97505 4.55805C3.09226 4.44084 3.25123 4.37499 3.41699 4.37499H17.5837C17.7494 4.37499 17.9084 4.44084 18.0256 4.55805C18.1428 4.67526 18.2087 4.83423 18.2087 4.99999C18.2087 5.16575 18.1428 5.32472 18.0256 5.44193C17.9084 5.55914 17.7494 5.62499 17.5837 5.62499H3.41699C3.25123 5.62499 3.09226 5.55914 2.97505 5.44193C2.85784 5.32472 2.79199 5.16575 2.79199 4.99999ZM4.76449 6.45999C4.92979 6.44901 5.09269 6.50411 5.21739 6.61318C5.34208 6.72225 5.41837 6.87636 5.42949 7.04165L5.81283 12.7916C5.88783 13.9141 5.94116 14.6958 6.05783 15.2833C6.172 15.8541 6.33033 16.1558 6.55783 16.3691C6.78616 16.5825 7.09783 16.7208 7.6745 16.7958C8.2695 16.8733 9.05283 16.875 10.1778 16.875H10.8228C11.9478 16.875 12.7312 16.8733 13.3262 16.7958C13.9028 16.7208 14.2145 16.5825 14.4428 16.3691C14.6703 16.1558 14.8287 15.8541 14.9428 15.2833C15.0595 14.6958 15.1128 13.9141 15.1878 12.7916L15.5712 7.04165C15.5766 6.95974 15.5982 6.87971 15.6346 6.80613C15.671 6.73254 15.7215 6.66685 15.7833 6.6128C15.8451 6.55875 15.9169 6.5174 15.9947 6.4911C16.0725 6.46481 16.1547 6.4541 16.2366 6.45957C16.3185 6.46504 16.3985 6.48659 16.4721 6.52299C16.5457 6.5594 16.6114 6.60993 16.6654 6.67172C16.7195 6.73351 16.7608 6.80534 16.7871 6.88311C16.8134 6.96089 16.8241 7.04307 16.8187 7.12499L16.432 12.9183C16.3612 13.9866 16.3037 14.85 16.1687 15.5283C16.0278 16.2325 15.7895 16.8208 15.2962 17.2816C14.8037 17.7433 14.2003 17.9425 13.4878 18.035C12.8028 18.125 11.9378 18.125 10.8662 18.125H10.1345C9.06283 18.125 8.19783 18.125 7.51283 18.035C6.80033 17.9425 6.197 17.7433 5.70449 17.2816C5.21116 16.8208 4.97283 16.2316 4.83199 15.5283C4.69699 14.85 4.64033 13.9866 4.56866 12.9183L4.18199 7.12499C4.17656 7.04307 4.18732 6.96089 4.21366 6.88313C4.23999 6.80538 4.28139 6.73357 4.33548 6.67181C4.38958 6.61006 4.4553 6.55957 4.52892 6.52322C4.60253 6.48688 4.68258 6.46539 4.76449 6.45999Z"
-                                                        fill="black" />
-                                                </svg>
-                                                <a class="" href="#"> Retirer</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </article>
+                        <section class="paiement-form">
+                            <h5>Détails de paiement</h5>
+                            <form>
+                                <div class="form-container">
+                                    <input id="cb-name-field" type="text" class="w-100" placeholder="&nbsp;" />
+                                    <label for="cb-name-field" class="placeholder-input">Nom sur la carte bancaire</label>
+                                </div>
+                                <div class="form-container">
+                                    <input id="cb-number-field" type="text" class="w-100" placeholder="&nbsp;" />
+                                    <label for="cb-number-field" class="placeholder-input">Numéro de la carte bancaire</label>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 form-container">
+                                        <input id="cb-date-field" type="text" class="w-100" placeholder="&nbsp;" />
+                                        <label for="cb-date-field" class="placeholder-input">Date d'expiration</label>
+                                    </div>
+                                    <div class="col-6 form-container">
+                                        <input id="cb-cvv-field" type="number" class="w-100" placeholder="&nbsp;" />
+                                        <label for="cb-cvv-field" class="placeholder-input">CVV</label>
+                                    </div>
+                                </div>
+                            </form>
                         </section>
-                        <form action="./livraison.html">
-                            <div class="form-container">
-                                <input id="reduction-field" type="text" placeholder="&nbsp;" />
-                                <label for="reduction-field" class="placeholder-input">Code Promo</label>
-                            </div>
-                            <div>
-                                <ul class="cart-actions">
-                                    <a href="./liste_produits.html" class="secondary-btn">Continuer mes achats</a>
-                                    <button class="validation-btn">Valider mon panier 144,00 €</button>
-                                </ul>
-                            </div>
-                        </form>
-                    </div>
-                </section>
-                <section class="col-6 d-none d-lg-block">
-                    <div class="col-9 offset-3 aside-panel-cart position-relative">
-                        <img src="images/photos/gems-outline-ps.png" class="offset-img" alt="gem">
+                        <div>
+                            <ul class="cart-actions">
+                                <a href="./livraison.html" class="secondary-btn">Retour</a>
+                                <button class="validation-btn">Confirmer mon paiement 144,00 €</button>
+                            </ul>
+                        </div>
                     </div>
                 </section>
             </div>
         </div>
     </main>
     <footer>
-        <img data-aos="fade-right" src="./images/logos/emma-pierre-logo-blanc.png" alt="logo Emma Pierre blanc">
-        <ul class="links" data-aos="fade-right">
+        <img src="./images/logos/emma-pierre-logo-blanc.png" alt="logo Emma Pierre blanc">
+        <ul class="links">
             <li>
                 <h2>Notre boutique</h2>
-                <a href="liste_produits.html" class="custom-link white">
+                <a href="./liste_produits.html" class="custom-link white">
                     Nos produits
                 </a>
                 <a href="./a-propos.html" class="custom-link white">
@@ -290,7 +221,7 @@
                 <a href="./blog.html" class="custom-link white">
                     Blog
                 </a>
-                <a href="/contact.html" class="custom-link white">
+                <a href="./contact.html" class="custom-link white">
                     Contact
                 </a>
             </li>
