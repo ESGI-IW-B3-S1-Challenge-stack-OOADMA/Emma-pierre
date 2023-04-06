@@ -81,6 +81,8 @@ form select {
 	appearance: none;
 	border: 1px solid var(--dark-green);
 	border-radius: 3px;
+	margin-top: 12px;
+	margin-bottom: 12px;
 }
 
 form select:focus {

@@ -4,10 +4,6 @@
 }
 
 #breadcrumb ul {
-	position: absolute;
-	top: 50%;
-	left: 20%;
-	transform: translate(-50%, -50%);
 	display: flex;
 	align-items: center;
 	gap: 10px;
@@ -21,7 +17,12 @@
 }
 
 #breadcrumb img {
-	width: 30%;
+	position: absolute;
+	top: 50%;
+	left: 10%;
+	width: 20%;
+	transform: translate(-50%, -50%);
+	z-index: -1;
 }
 
 @media screen and (max-width: 991px) {
@@ -43,11 +44,11 @@
 	}
 
 	#breadcrumb img {
-		width: 80%;
+		left: 50%;
+		width: 50%;
 	}
 
 	#breadcrumb ul {
-		left: 50%;
 		width: 100%;
 		display: flex;
 		justify-content: center;
