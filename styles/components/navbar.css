@@ -143,9 +143,6 @@
 	font-weight: 200;
 }
 
-#navbar ul:not(.dropdown) li.dropdown ul li a:hover {
-}
-
 #navbar ul:not(.dropdown) li ul li {
 	padding: 8px 18px;
 }
