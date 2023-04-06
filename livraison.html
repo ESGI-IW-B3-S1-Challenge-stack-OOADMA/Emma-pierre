@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Title & favicon -->
-    <title>Paiement - Emma Pierre</title>
+    <title>Livraison - Emma Pierre</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="./styles/style.css">
@@ -125,16 +125,13 @@
             </li>
         </ul>
     </nav>
-    <main class="padding-navbar page-panier">
+    <main class="padding-navbar">
         <div class="container">
             <div class="row g-4 g-lg-0">
-                <section class="col-12 col-lg-6 order-0 order-lg-1">
-                    <div class="col-12 col-lg-9 offset-0 offset-lg-3 aside-panel-paiement position-relative text-white">
-                        <article>
-                            <p>Mon panier rempli de bijoux fabriqués main</p>
-                            <p class="fw-bolder">144,00 €</p>
-                        </article>
-                        <img src="images/photos/gems-outline-ps.png" class="offset-img d-none d-lg-block" alt="gem">
+                <section class="col-12 col-lg-6 order-1 order-lg-1 d-none d-lg-block">
+                    <div class="col-12 col-lg-9 offset-0 offset-lg-3 aside-panel-livraison position-relative text-white">
+                        <h5 class="text-white">Relais colis à proximité</h5>
+                        <img src="images/photos/map relais colis.png" class="d-none d-lg-block" alt="gem">
                     </div>
                 </section>
                 <section class="col-12 col-lg-6">
@@ -151,16 +148,16 @@
                             <li class="step-cart">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="10" cy="10" r="9.5" stroke="#1D5F6B" />
-                                </svg>
-                                <p>Livraison</p>
-                            </li>
-                            <li class="col line-middle"></li>
-                            <li class="step-cart">
+                                <circle cx="10" cy="10" r="8.5" stroke="#1D5F6B" stroke-width="3" />
+                                <circle cx="10" cy="10" r="3" fill="#1D5F6B" />
+                            </svg>
+                            <p>Livraison</p>
+                        </li>
+                        <li class="col line-middle"></li>
+                        <li class="step-cart">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="10" cy="10" r="8.5" stroke="#1D5F6B" stroke-width="3" />
-                                    <circle cx="10" cy="10" r="3" fill="#1D5F6B" />
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="10" cy="10" r="9.5" stroke="#1D5F6B" />
                                 </svg>
                                 <p>Paiement</p>
                             </li>
@@ -173,35 +170,47 @@
                                 <p>Confirmation</p>
                             </li>
                         </ul>
-                        <section class="paiement-form">
-                            <h5>Détails de paiement</h5>
-                            <form>
-                                <div class="form-container">
-                                    <input id="cb-name-field" type="text" class="w-100" placeholder="&nbsp;" />
-                                    <label for="cb-name-field" class="placeholder-input">Nom sur la carte bancaire</label>
+                        <section class="delivery-form">
+                            <h5>Adresse de livraison</h5>
+                            <div class="delivery-choice">
+                                <div class="radio-group">
+                                    <input id="relais-colis" type="radio" name="delivery" value="relais-colis" checked/>
+                                    <label for="relais-colis">Livraison en point relais</label>
                                 </div>
-                                <div class="form-container">
-                                    <input id="cb-number-field" type="text" class="w-100" placeholder="&nbsp;" />
-                                    <label for="cb-number-field" class="placeholder-input">Numéro de la carte bancaire</label>
+                                <div class="radio-group">
+                                    <input id="home" type="radio" name="delivery" value="home"/>
+                                    <label for="home">Livraison chez moi</label>
                                 </div>
-                                <div class="row">
-                                    <div class="col-6 form-container">
-                                        <input id="cb-date-field" type="text" class="w-100" placeholder="&nbsp;" />
-                                        <label for="cb-date-field" class="placeholder-input">Date d'expiration</label>
-                                    </div>
-                                    <div class="col-6 form-container">
-                                        <input id="cb-cvv-field" type="number" class="w-100" placeholder="&nbsp;" />
-                                        <label for="cb-cvv-field" class="placeholder-input">CVV</label>
-                                    </div>
+                            </div>
+                            <section class="d-block d-lg-none">
+                                <div class="aside-panel-livraison">
+                                    <h5 class="text-white">Relais colis à proximité</h5>
+                                    <img src="images/photos/map relais colis.png" alt="gem">
                                 </div>
-                            </form>
+                            </section>
+                            <div class="relais-collection">
+                                <article class="relais-item">
+                                    <ul>
+                                        <li>Lessive connect</li>
+                                        <li>à 740 mètres</li>
+                                    </ul>
+                                    <a class="primary-btn">Choisir ce point relais</a>
+                                </article>
+                                <article class="relais-item">
+                                    <ul>
+                                        <li>KFE tolstoï</li>
+                                        <li>à 950 mètres</li>
+                                    </ul>
+                                    <a class="primary-btn">Choisir ce point relais</a>
+                                </article>
+                            </div>
                         </section>
-                        <div>
+                        <form action="./paiement.html">
                             <ul class="cart-actions">
-                                <a href="./livraison.html" class="secondary-btn">Retour</a>
-                                <button class="validation-btn">Confirmer mon paiement 144,00 €</button>
+                                <a href="./panier.html" class="secondary-btn">Retour</a>
+                                <button class="validation-btn">Valider mon adresse de livraison</button>
                             </ul>
-                        </div>
+                        </form>
                     </div>
                 </section>
             </div>
