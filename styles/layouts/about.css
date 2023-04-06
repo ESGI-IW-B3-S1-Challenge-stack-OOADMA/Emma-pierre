@@ -105,9 +105,31 @@
 	margin: 40px auto 0;
 }
 
+@media screen and (max-width: 1399px) {
+	#about-me aside article h2 {
+		font-size: 85px;
+	}
+}
+
+@media screen and (max-width: 1199px) {
+	#about-me aside article h2 {
+		font-size: 80px;
+	}
+
+	#about-page ul li article h2 {
+		padding: 20px 30px;
+	}
+}
+
 @media screen and (max-width: 1023px) {
 	#about-page ul li article h2 {
 		padding: 20px 30px;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	#about-me aside article h2 {
+		font-size: 50px;
 	}
 }
 
@@ -126,7 +148,7 @@
 	}
 
 	#about-page p {
-		text-align: center;
+		text-align: start;
 		width: 90%;
 	}
 
