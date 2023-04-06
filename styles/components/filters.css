@@ -34,9 +34,14 @@ nav#filters ul li.dropdown button {
 	position: relative;
 	appearance: none;
 	background: transparent;
-	padding: 1rem 3rem 1rem 2rem;
-	border: 1px solid var(--light-green);
-	border-radius: 20px;
+	padding: 9px 3rem 9px 2rem;
+	color: var(--dark-green);
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 1px solid var(--light-green);
+	border-radius: 100px;
+	box-shadow: none;
 	z-index: 10;
 }
 
@@ -45,7 +50,7 @@ nav#filters ul li.dropdown button::after {
 	content: "\203A";
 	transform: rotate(90deg) scale(2.5);
 	right: 1rem;
-	top: 1.1rem;
+	top: 9px;
 }
 
 nav#filters ul li.dropdown ul {
@@ -69,12 +74,6 @@ nav#filters ul li.dropdown ul {
 
 nav#filters ul li.dropdown:hover ul {
 	transform: scaleY(1);
-}
-
-nav#filters ul li.dropdown:hover button {
-	background-color: var(--light-green);
-	color: white;
-	z-index: 3;
 }
 
 nav#filters ul li.dropdown ul li {
