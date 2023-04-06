@@ -64,7 +64,7 @@
 }
 
 #navbar ul:not(.dropdown) li:last-child a {
-	font-size: 28px;
+	font-size: 20px;
 }
 
 #navbar ul:not(.dropdown) li {
