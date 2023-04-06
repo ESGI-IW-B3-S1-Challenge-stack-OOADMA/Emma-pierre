@@ -2,12 +2,10 @@ function navbar(){
     let navbar = document.getElementById('navbar')
     let navbarLogo = navbar.querySelector('img')
     let navbarButton = navbar.querySelector('button')
-    let navbarLists = navbar.querySelectorAll('ul')
+    let navbarList = navbar.querySelectorAll('ul')[0]
 
     navbarButton.onclick = () => {
-        navbarLists.forEach(element => {
-            element.classList.toggle('show')
-        });
+        navbarList.classList.toggle('show')
     }
 
 
