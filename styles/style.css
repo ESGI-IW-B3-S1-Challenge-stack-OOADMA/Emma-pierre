@@ -45,12 +45,18 @@
 	--corail: #ec5052;
 	--light-corail: #f7645d;
 
+	--dark-beige: #daa379;
+	--beige: #ebb184;
+	--light-beige: #f7c08f;
+
 	--white: #fff;
 	--bs-heading-color: var(--dark-gray);
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 
 html,
