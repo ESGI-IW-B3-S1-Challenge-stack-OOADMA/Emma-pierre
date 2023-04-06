@@ -29,9 +29,9 @@
 </head>
 
 <body>
-    <nav id="navbar">
+    <nav id="navbar" class="white no-background">
         <a href="/" id="navbar-brand">
-            <img src="./images/logos/emma-pierre-logo-noir.png" alt="Logo Emma Pierre">
+            <img src="./images/logos/emma-pierre-logo-blanc.png" alt="Logo Emma Pierre">
         </a>
         <button>
             <svg width="32" height="32" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
@@ -41,12 +41,12 @@
         </button>
         <ul class="white">
             <li>
-                <a href="./a-propos.html" class="custom-link">
+                <a href="./a-propos.html" class="custom-link white">
                     À propos
                 </a>
             </li>
             <li class="dropdown">
-                <a class="custom-link no-after">
+                <a class="custom-link white no-after">
                     Produits
                 </a>
                 <ul>
@@ -78,10 +78,10 @@
                 </ul>
             </li>
             <li>
-                <a href="./blog.html" class="custom-link">Blog</a>
+                <a href="./blog.html" class="custom-link white">Blog</a>
             </li>
             <li>
-                <a href="./contact.html" class="custom-link">
+                <a href="./contact.html" class="custom-link white">
                     Contact
                 </a>
             </li>
@@ -129,15 +129,42 @@
         </ul>
     </nav>
 
-    <main class="padding-navbar">
-        <section id="about-page" class="container">
+    <header class="light-cream about padding-navbar">
+        <article class="container" data-aos="fade-right" data-aos-duration="1500">
             <h1>Notre histoire</h1>
+        </article>
+    </header>
+
+    <main>
+        <section class="container" id="about-me">
+            <aside>
+                <article>
+                    <h2>Emma</h2>
+                </article>
+            </aside>
+            <article>
+                <h2>
+                    Qui est Emma ?
+                </h2>
+                <p>
+                    J'ai nommé ma société en combinant le diminutif de mon prénom avec ma passion pour les pierres
+                    ornementales. Je crée des
+                    bijoux pour que chaque femme puisse avoir accès à des gemmes telles que le saphir, l'émeraude ou la
+                    tourmaline, à un prix abordable.
+                </p>
+                <p>
+                    Notre entreprise a été fondée avec une passion pour la création de bijoux uniques et de haute
+                    qualité qui sont à la fois
+                    élégants et intemporels. Nous sommes fiers de notre artisanat, et chaque pièce de notre collection
+                    est faite à la main
+                    avec soin et attention aux détails.
+                </p>
+            </article>
+        </section>
+        <section id="about-page" class="container">
+            <h2>Qui est Pierre ?</h2>
             <p>
-                J'ai nommé ma société en combinant le diminutif de mon prénom avec ma passion pour les pierres
-                ornementales. Je crée des
-                bijoux pour que chaque femme puisse avoir accès à des gemmes telles que le saphir, l'émeraude ou la
-                tourmaline, à un
-                prix abordable. Tous mes bijoux sont fabriqués à la main dans mon atelier lyonnais en éditions limitées
+                Tous mes bijoux sont fabriqués à la main dans mon atelier lyonnais en éditions limitées
                 pour plus
                 d'exclusivité. En choisissant l'artisanat, vous contribuez à maintenir notre savoir-faire et l'emploi en
                 France. Les
@@ -213,6 +240,9 @@
                 </li>
 
             </ul>
+            <a href="./liste_produits.html" class="main-button">
+                Voir nos produits
+            </a>
         </section>
     </main>
 

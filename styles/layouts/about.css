@@ -1,28 +1,57 @@
-#about-page h1 {
+#about-me {
+	padding-top: 60px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+#about-me aside {
+	position: relative;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url("../../images/photos/portrait.jpg");
+	background-repeat: no-repeat;
+	background-position: 30%;
 	text-align: center;
+	width: 35%;
+	border-top-left-radius: 2.5rem;
+	border-bottom-right-radius: 2.5rem;
+	min-height: 50vh;
+}
+#about-me aside article {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#about-me aside article h2 {
+	text-transform: uppercase;
+	color: var(--dark-cream);
+	font-size: 100px;
+	font-weight: 200;
+}
+
+#about-me article {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 60%;
+}
+
+#about-page h2 {
+	text-align: center;
+	padding-top: 60px;
 }
 
 #about-page p {
-	text-align: center;
-	width: 65%;
-	margin: 0 auto;
+	text-align: start;
+	margin: 0 auto 40px;
+	max-width: 90%;
 }
 
 #about-page ul {
-	position: relative;
-	margin: 60px auto 0;
+	margin: 0 auto 0;
 	max-width: 75%;
-}
-
-#about-page ul::before {
-	position: absolute;
-	top: -35px;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 50%;
-	content: "";
-	height: 1px;
-	background-color: var(--dark-gray);
 }
 
 #about-page ul li {
@@ -72,6 +101,10 @@
 	width: 100%;
 }
 
+#about-page .main-button {
+	margin: 40px auto 0;
+}
+
 @media screen and (max-width: 1023px) {
 	#about-page ul li article h2 {
 		padding: 20px 30px;
@@ -79,10 +112,22 @@
 }
 
 @media screen and (max-width: 767px) {
+	#about-me aside {
+		width: 100%;
+	}
+
+	#about-me aside article h2 {
+		font-size: 75px;
+	}
+
+	#about-me article {
+		width: 100%;
+		margin-top: 30px;
+	}
+
 	#about-page p {
 		text-align: center;
 		width: 90%;
-		margin: 0 auto;
 	}
 
 	#about-page ul li img {
@@ -103,6 +148,6 @@
 	}
 
 	#about-page ul {
-		max-width: 75%;
+		max-width: 90%;
 	}
 }
