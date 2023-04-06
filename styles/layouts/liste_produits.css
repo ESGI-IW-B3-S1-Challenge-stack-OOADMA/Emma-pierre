@@ -53,8 +53,9 @@
 #lists div.image svg {
 	position: absolute;
 	right: 5px;
-	top: 5px;
+	top: 0px;
 	z-index: 10;
+	width: 40px;
 	cursor: pointer;
 }
 

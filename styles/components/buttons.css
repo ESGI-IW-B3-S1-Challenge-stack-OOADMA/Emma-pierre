@@ -1,5 +1,6 @@
 .main-button {
-	background-color: var(--light-green);
+	appearance: none;
+	background-color: var(--dark-green);
 	text-decoration: none;
 	display: flex;
 	width: fit-content;
@@ -12,7 +13,7 @@
 }
 
 .main-button:hover {
-	background-color: var(--dark-green);
+	background-color: var(--light-green);
 }
 
 .main-button.cream {

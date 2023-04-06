@@ -21,8 +21,10 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/layouts/about.css">
+    <link rel="stylesheet" href="./styles/aos/aos.css">
 
     <!-- JS -->
+    <script src="./javascripts/aos/aos.js" defer></script>
     <script type="module" src="./javascripts/index.js" defer></script>
 </head>
 
@@ -145,7 +147,7 @@
                 modèle.
             </p>
             <ul>
-                <li>
+                <li data-aos="fade-right" data-aos-duration="1000">
                     <img src="./images/photos/pink_flower.png" alt="">
                     <article>
                         <h2>Précieuse</h2>
@@ -161,7 +163,7 @@
                         </p>
                     </article>
                 </li>
-                <li>
+                <li data-aos="fade-left">
                     <img src="./images/photos/blue_flower.jpg" alt="">
                     <article>
                         <h2>Impertinentes</h2>
@@ -177,7 +179,7 @@
                         </p>
                     </article>
                 </li>
-                <li>
+                <li data-aos="fade-right">
                     <img src="./images/photos/pink_flower.png" alt="">
                     <article>
                         <h2>Unique</h2>
@@ -193,7 +195,7 @@
                         </p>
                     </article>
                 </li>
-                <li>
+                <li data-aos="fade-left">
                     <img src="./images/photos/blue_flower.jpg" alt="">
                     <article>
                         <h2>Couleur</h2>
@@ -215,8 +217,8 @@
     </main>
 
     <footer>
-        <img src="./images/logos/emma-pierre-logo-blanc.png" alt="logo Emma Pierre blanc">
-        <ul class="links">
+        <img data-aos="fade-right" src="./images/logos/emma-pierre-logo-blanc.png" alt="logo Emma Pierre blanc">
+        <ul class="links" data-aos="fade-right">
             <li>
                 <h2>Notre boutique</h2>
                 <a href="liste_produits.html" class="custom-link white">

@@ -22,9 +22,11 @@
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/layouts/index.css">
     <link rel="stylesheet" href="./styles/splide/splide.min.css">
+    <link rel="stylesheet" href="./styles/aos/aos.css">
 
     <!-- JS -->
     <script src="./javascripts/splide/splide.min.js" defer></script>
+    <script src="./javascripts/aos/aos.js" defer></script>
     <script type="module" src="./javascripts/index.js" defer></script>
 </head>
 
@@ -51,27 +53,27 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="/">
+                        <a href="/" class="custom-link">
                             Précieuses
                         </a>
                     </li>
                     <li>
-                        <a href="/">
+                        <a href="/" class="custom-link">
                             Impertinentes
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="" class="custom-link">
                             Unique
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="" class="custom-link">
                             Couleur
                         </a>
                     </li>
                     <li>
-                        <a href="./liste_produits.html">
+                        <a href="./liste_produits.html" class="custom-link">
                             Voir tout
                         </a>
                     </li>
@@ -129,7 +131,7 @@
         </ul>
     </nav>
     <header class="light-cream padding-navbar">
-        <article class="container">
+        <article class="container" data-aos="fade-right" data-aos-duration="1500">
             <h1>Sublimée à la <br> française</h1>
             <p>
                 lluminez votre look avec notre collection de colliers et bracelets pour femme, conçue pour sublimer
@@ -177,8 +179,8 @@
 
     <main>
         <section class="container" id="gallery-container">
-            <h2 class="line">Nos bijoux</h2>
-            <p>
+            <h2 class="line" data-aos="fade-right">Nos bijoux</h2>
+            <p data-aos="fade-right">
                 Tous nos bijoux sont fabriqués à la main dans notre atelier lyonnais, en éditions limitées pour plus
                 d’exclusivité,
                 certains même en unique exemplaire, ils vous apporteront cette touche particulière qui vous rendra
@@ -189,7 +191,7 @@
                 savoir faire
                 et l’emploi en France.
             </p>
-            <article id="gallery">
+            <article id="gallery" data-aos="zoom-in">
                 <img src="images/photos/deux_colliers_bleues.jpeg" alt="colliers perles bleues">
                 <div>Colliers</div>
                 <img src="images/photos/plant_gemstone.png" alt="collier sur feuille">
@@ -205,12 +207,12 @@
         </section>
 
         <section id="about">
-            <h2>À propos de nous</h2>
-            <svg width="212" height="12" viewBox="0 0 212 12" xmlns="http://www.w3.org/2000/svg">
+            <h2 data-aos="fade-right">À propos de nous</h2>
+            <svg data-aos="fade-right" width="212" height="12" viewBox="0 0 212 12" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M0.226497 6L6 11.7735L11.7735 6L6 0.226497L0.226497 6ZM211.773 6L206 0.226497L200.227 6L206 11.7735L211.773 6ZM6 7H206V5H6V7Z" />
             </svg>
-            <p>
+            <p data-aos="fade-right">
                 Notre entreprise est née de la passion pour les bijoux et les pierres ornementales de notre fondatrice,
                 qui a associé
                 son diminutif à cette passion pour créer notre nom de société unique. Depuis l'enfance, notre fondatrice
@@ -221,11 +223,12 @@
                 permettra de
                 multiplier votre plaisir.
             </p>
-            <a href="" class="main-button">En savoir plus</a>
+            <a data-aos="fade-right" href="" class="main-button">En savoir plus</a>
         </section>
         <section class="container" id="featured-products">
-            <h2 class="line">Produits à la une</h2>
-            <div class="splide" role="group" aria-label="Splide Basic HTML Example" id="products-slider">
+            <h2 class="line" data-aos="fade-right">Produits à la une</h2>
+            <div class="splide" data-aos="fade-right" role="group" aria-label="Splide Basic HTML Example"
+                id="products-slider">
                 <div class="splide__track">
                     <ul class="splide__list">
                         <li class="splide__slide">
@@ -334,8 +337,8 @@
 
 
     <footer>
-        <img src="./images/logos/emma-pierre-logo-blanc.png" alt="logo Emma Pierre blanc">
-        <ul class="links">
+        <img data-aos="fade-right" src="./images/logos/emma-pierre-logo-blanc.png" alt="logo Emma Pierre blanc">
+        <ul class="links" data-aos="fade-right">
             <li>
                 <h2>Notre boutique</h2>
                 <a href="liste_produits.html" class="custom-link white">
