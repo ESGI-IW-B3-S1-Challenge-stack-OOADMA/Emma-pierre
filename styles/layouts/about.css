@@ -45,8 +45,6 @@
 
 #about-page p {
 	text-align: start;
-	margin: 0 auto 40px;
-	max-width: 90%;
 }
 
 #about-page ul {
@@ -170,6 +168,6 @@
 	}
 
 	#about-page ul {
-		max-width: 90%;
+		max-width: 100%;
 	}
 }
