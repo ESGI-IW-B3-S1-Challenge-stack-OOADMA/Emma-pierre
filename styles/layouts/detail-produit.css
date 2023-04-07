@@ -1,128 +1,133 @@
 #detail-produit {
-	padding-bottom: 140px;
-	display: flex;
-	flex-wrap: wrap;
+  padding-bottom: 140px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 #detail-produit aside {
-	position: relative;
-	text-align: center;
-	height: fit-content;
-	width: 50%;
+  position: relative;
+  text-align: center;
+  height: fit-content;
+  width: 50%;
 }
 
 #detail-produit aside > img:first-child {
-	width: 60%;
-	border-top-left-radius: 100px;
-	border-bottom-right-radius: 100px;
+  width: 60%;
+  border-top-left-radius: 100px;
+  border-bottom-right-radius: 100px;
 }
 
 #detail-produit aside ul {
-	position: absolute;
-	top: 100%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	right: 0%;
-	width: 50%;
-	display: flex;
-	gap: 16px;
-	justify-content: center;
-	align-items: center;
-	padding: 16px;
-	background-color: var(--dark-cream);
-	z-index: 1;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  right: 0%;
+  width: 50%;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  background-color: var(--dark-cream);
+  z-index: 1;
 }
 
 #detail-produit article {
-	width: 50%;
-	padding-right: 64px;
+  width: 50%;
+  padding-right: 64px;
 }
 
 #detail-produit article h1 {
-	font-weight: 500;
+  font-weight: 500;
 }
 
 #detail-produit article h2 {
-	font-weight: 200;
+  font-weight: 200;
 }
 
 #detail-produit article p,
 #detail-produit article small {
-	font-weight: 200;
+  font-weight: 200;
 }
 
 #detail-produit article p {
-	font-size: 20px;
+  font-size: 20px;
 }
 
 #detail-produit article small {
-	font-weight: 100;
-	font-size: 16px;
+  font-weight: 100;
+  font-size: 16px;
 }
 
 #detail-produit article ul {
-	display: flex;
-	justify-content: center;
-	gap: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
 }
 
 #detail-produit article ul li {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #detail-produit article ul li .main-button {
-	margin: 20px auto;
+  margin: 20px auto;
 }
 
 #detail-produit article #return-shipping-condition {
-	font-weight: 100;
-	font-size: 18px;
-	text-align: center;
+  font-weight: 100;
+  font-size: 18px;
+  text-align: center;
 }
 
 #detail-produit article #return-shipping-condition svg {
-	width: 16px;
-	height: 16px;
+  width: 16px;
+  height: 16px;
+}
+
+#detail-produit article .text-small {
+  font-weight: 200;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 767px) {
-	#detail-produit {
-		margin-bottom: 32px;
-		padding-bottom: 0;
-	}
+  #detail-produit {
+    margin-bottom: 32px;
+    padding-bottom: 0;
+  }
 
-	#detail-produit aside > img:first-child {
-		width: 80%;
-	}
+  #detail-produit aside > img:first-child {
+    width: 80%;
+  }
 
-	#detail-produit aside,
-	#detail-produit article {
-		width: 100%;
-	}
+  #detail-produit aside,
+  #detail-produit article {
+    width: 100%;
+  }
 
-	#detail-produit aside {
-		margin-top: 40px;
-	}
+  #detail-produit aside {
+    margin-top: 40px;
+  }
 
-	#detail-produit article {
-		padding-right: 0;
-		margin-top: 80px;
-	}
+  #detail-produit article {
+    padding-right: 0;
+    margin-top: 80px;
+  }
 
-	#detail-produit aside ul {
-		width: 70%;
-		padding: 8px;
-		gap: 8px;
-	}
+  #detail-produit aside ul {
+    width: 70%;
+    padding: 8px;
+    gap: 8px;
+  }
 }
 
 #other-products {
-	padding-bottom: 64px;
+  padding-bottom: 64px;
 }
 
 #other-products > h2 {
-	font-weight: 200;
-	margin-bottom: 32px;
+  font-weight: 200;
+  margin-bottom: 32px;
 }
