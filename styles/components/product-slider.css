@@ -8,6 +8,17 @@
 
 #products-slider .splide__slide img {
 	width: 85%;
+	height: 334px;
+	object-fit: cover;
+	object-position: center;
+}
+
+@media screen and (max-width: 767px) {
+	#products-slider .splide__slide img {
+		height: 133px;
+		object-fit: cover;
+		object-position: center;
+	}
 }
 
 #products-slider .splide__slide h2 {
