@@ -1,0 +1,175 @@
+#about-me {
+	padding-top: 60px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+#about-me aside {
+	position: relative;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url("portrait.jpg");
+	background-repeat: no-repeat;
+	background-position: 30%;
+	text-align: center;
+	width: 35%;
+	border-top-left-radius: 2.5rem;
+	border-bottom-right-radius: 2.5rem;
+	min-height: 50vh;
+}
+#about-me aside article {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin-top: 0;
+}
+
+#about-me aside article h2 {
+	text-transform: uppercase;
+	color: var(--dark-cream);
+	font-size: 100px;
+	font-weight: 200;
+}
+
+#about-me article {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 60%;
+}
+
+#about-page h2 {
+	text-align: left;
+	padding-top: 60px;
+}
+
+#about-page p {
+	text-align: start;
+	margin-bottom: 32px;
+}
+
+#about-page ul {
+	margin: 0 auto 0;
+	max-width: 75%;
+}
+
+#about-page ul li {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 30px;
+}
+
+#about-page ul li:nth-child(even) {
+	flex-direction: row-reverse;
+}
+
+#about-page ul li:not(:last-child) {
+	margin-bottom: 30px;
+}
+
+#about-page ul li img {
+	border-radius: 8px;
+	width: 30%;
+}
+
+#about-page ul li article {
+	width: calc(70% - 30px);
+}
+
+#about-page ul li article h2 {
+	background-color: var(--dark-cream);
+	color: var(--dark-green);
+	width: fit-content;
+	padding: 30px 50px;
+	margin-bottom: 20px;
+	border-top-left-radius: 2.5rem;
+	border-bottom-right-radius: 2.5rem;
+	margin-left: calc(-40px - 30px);
+}
+
+#about-page ul li:nth-child(even) article h2 {
+	margin-left: auto;
+	margin-right: calc(-40px - 30px);
+}
+
+#about-page ul li article p {
+	text-align: start;
+	margin: 0;
+	width: 100%;
+}
+
+#about-page .main-button {
+	margin: 40px auto 0;
+}
+
+@media screen and (max-width: 1399px) {
+	#about-me aside article h2 {
+		font-size: 85px;
+	}
+}
+
+@media screen and (max-width: 1199px) {
+	#about-me aside article h2 {
+		font-size: 80px;
+	}
+
+	#about-page ul li article h2 {
+		padding: 20px 30px;
+	}
+}
+
+@media screen and (max-width: 1023px) {
+	#about-page ul li article h2 {
+		padding: 20px 30px;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	#about-me aside article h2 {
+		font-size: 50px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	#about-me aside {
+		width: 100%;
+	}
+
+	#about-me aside article h2 {
+		font-size: 75px;
+	}
+
+	#about-me article {
+		width: 100%;
+		margin-top: 30px;
+	}
+
+	#about-page p {
+		text-align: start;
+		width: 90%;
+	}
+
+	#about-page ul li img {
+		width: 100%;
+	}
+
+	#about-page ul li article {
+		width: 100%;
+	}
+
+	#about-page ul li article h2 {
+		padding: 15px 25px;
+		margin: -57px auto 20px;
+	}
+
+	#about-page ul li:nth-child(even) article h2 {
+		margin: -57px auto 20px;
+	}
+
+	#about-page ul {
+		max-width: 100%;
+	}
+}

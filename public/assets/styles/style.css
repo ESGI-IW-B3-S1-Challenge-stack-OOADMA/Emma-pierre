@@ -1,0 +1,91 @@
+@import url("bootstrap.min.css");
+
+@import url("navbar.css");
+@import url("breadcrumb.css");
+@import url("custom-link.css");
+@import url("buttons.css");
+@import url("header.css");
+@import url("footer.css");
+@import url("about.css");
+@import url("product-slider.css");
+@import url("titles.css");
+@import url("detail-produit.css");
+
+@font-face {
+	font-family: "Jost";
+	src: url("Jost-VariableFont_wght.ttf");
+}
+
+@font-face {
+	font-family: "NotoSerif-Regular";
+	src: url("NotoSerif-Regular.ttf");
+}
+
+@font-face {
+	font-family: "NotoSerif-Bold";
+	src: url("NotoSerif-Bold.ttf");
+}
+
+:root {
+	--main-font: Jost;
+	--second-font: NotoSerif-Regural;
+
+	--dark-gray: #1d1923;
+	--gray: #2e2b31;
+	--light-gray: #3e3943;
+
+	--dark-green: #11373f;
+	--green: #18515c;
+	--light-green: #1d5f6b;
+
+	--dark-cream: #e9dbc1;
+	--cream: #dccdb6;
+	--light-cream: #f0e5d3;
+
+	--dark-corail: #bd3e43;
+	--corail: #ec5052;
+	--light-corail: #f7645d;
+
+	--dark-beige: #daa379;
+	--beige: #ebb184;
+	--light-beige: #f7c08f;
+
+	--white: #fff;
+	--bs-heading-color: var(--dark-gray);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	color: var(--dark-gray);
+	font-family: var(--main-font);
+	overflow-x: hidden;
+}
+
+ul,
+ol {
+	list-style: none;
+	padding-left: 0;
+	margin: 0;
+}
+
+img,
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+.padding-navbar {
+	padding-top: 190px;
+}
+
+@media screen and (max-width: 767px) {
+	.padding-navbar {
+		padding-top: 120px;
+	}
+}
