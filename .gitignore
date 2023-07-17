@@ -1,5 +1,4 @@
 var/
 vendor/
 conf/*.ini
-.vscode/
 .env.local
