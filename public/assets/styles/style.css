@@ -1,29 +1,29 @@
 @import url("bootstrap.min.css");
 
-@import url("navbar.css");
-@import url("breadcrumb.css");
-@import url("custom-link.css");
-@import url("buttons.css");
-@import url("header.css");
-@import url("footer.css");
-@import url("about.css");
-@import url("product-slider.css");
-@import url("titles.css");
-@import url("detail-produit.css");
+@import url("components/navbar.css");
+@import url("components/breadcrumb.css");
+@import url("components/custom-link.css");
+@import url("components/buttons.css");
+@import url("components/header.css");
+@import url("components/footer.css");
+@import url("components/about.css");
+@import url("components/product-slider.css");
+@import url("components/titles.css");
+@import url("layouts/detail-produit.css");
 
 @font-face {
 	font-family: "Jost";
-	src: url("Jost-VariableFont_wght.ttf");
+	src: url("../fonts/Jost-VariableFont_wght.ttf");
 }
 
 @font-face {
 	font-family: "NotoSerif-Regular";
-	src: url("NotoSerif-Regular.ttf");
+	src: url("../fonts/NotoSerif-Regular.ttf");
 }
 
 @font-face {
 	font-family: "NotoSerif-Bold";
-	src: url("NotoSerif-Bold.ttf");
+	src: url("../fonts/NotoSerif-Bold.ttf");
 }
 
 :root {

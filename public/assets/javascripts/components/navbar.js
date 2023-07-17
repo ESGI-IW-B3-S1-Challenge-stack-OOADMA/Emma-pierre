@@ -26,11 +26,11 @@ function navbar(){
     document.addEventListener('scroll', () => {
         if(document.documentElement.scrollTop > 20 ) {
             navbar.classList.add('fixed');
-            navbarLogo.src = './images/logos/emma-pierre-logo-noir.png'
+            navbarLogo.src = '/assets/images/logos/emma-pierre-logo-noir.png'
         } else {
             navbar.classList.remove('fixed');
             
-            if(navbar.classList.contains('white')) navbarLogo.src = './images/logos/emma-pierre-logo-blanc.png'
+            if(navbar.classList.contains('white')) navbarLogo.src = '/assets/images/logos/emma-pierre-logo-blanc.png'
         }
     });
 }

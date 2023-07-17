@@ -1,6 +1,13 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
+if (
+  php_sapi_name() !== 'cli' && // Environnement d'exécution != console
+  preg_match('/\.(ico|png|jpg|jpeg|css|js|gif|ttf)$/', $_SERVER['REQUEST_URI'])
+) {
+  return false;
+}
+
 // Initialisation de certaines choses
 use App\DependencyInjection\Container;
 use App\Routing\RouteNotFoundException;
@@ -9,7 +16,6 @@ use App\Session\SessionManager;
 use Symfony\Component\Dotenv\Dotenv;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
-use PDO;
 
 $dotenv = new Dotenv();
 $dotenv->loadEnv(__DIR__ . '/../.env');
@@ -27,7 +33,6 @@ $dsn = "mysql:dbname=$dbname;host=$host:$port;charset=$charset";
 
 try {
     $pdo = new PDO($dsn, $user, $password);
-    var_dump($pdo);
 } catch (PDOException $ex) {
     echo "Erreur lors de la connexion à la base de données : " . $ex->getMessage();
     exit;
