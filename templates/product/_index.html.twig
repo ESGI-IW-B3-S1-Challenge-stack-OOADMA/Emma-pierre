@@ -91,12 +91,27 @@
             {% endfor %}
         </section>
         <section id="pagination">
-            {{ path('app_products_index') }}
-            <img src="assets/icons/arrow-back-rounded.svg" alt="flèche gauche">
-            <span class="active">1</span>
-            <span>2</span>
-            <span>3</span>
-            <img src="assets/icons/arrow-forward-rounded.svg" alt="flèche droite">
+            {% if products.hasPreviousPage %}
+            <a href="{{ path('app_products_index')~'?page='~products.previousPage }}"><img src="assets/icons/arrow-back-rounded.svg" alt="flèche gauche"></a>
+            {% endif %}
+            
+            {% set currentPageMinusTwo = products.getCurrentPage %}
+            {% set currentPagePlusTwo = products.getCurrentPage %}
+    
+            {% for i in 1..2 %}
+                {% if currentPageMinusTwo > 1 %}
+                    {% set currentPageMinusTwo = currentPageMinusTwo - 1 %}
+                {% endif %}
+                {% if currentPagePlusTwo < products.getNbPages %}
+                    {% set currentPagePlusTwo = currentPagePlusTwo + 1 %}
+                {% endif %}
+            {% endfor %}                
+            {% for key in currentPageMinusTwo..currentPagePlusTwo %}
+            <a href="{{ path('app_products_index')~'?page='~key }}"><span class="{% if products.getCurrentPage == key %}active{% endif %}">{{ key }}</span></a>
+            {% endfor %}
+            {% if products.hasNextPage %}
+            <a href="{{ path('app_products_index')~'?page='~products.nextPage }}"><img src="assets/icons/arrow-forward-rounded.svg" alt="flèche droite"></a>
+            {% endif %}
         </section>
     </main>
 
