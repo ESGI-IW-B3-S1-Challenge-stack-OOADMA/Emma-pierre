@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Customer;
-use App\Repository\CustomerRepository;
+use App\Repository\UserRepository;
 use App\Routing\Attribute\Route;
 use Pagerfanta\Adapter\ArrayAdapter;
 use Pagerfanta\Pagerfanta;
@@ -12,7 +12,7 @@ use PDO;
 class CustomerController extends AbstractController
 {
     #[Route('/customer/new', name: 'app_customer_new')]
-    public function new(CustomerRepository $customerRepository): string
+    public function new(UserRepository $customerRepository): string
     {
 
 

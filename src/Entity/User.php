@@ -25,6 +25,14 @@ abstract class User
     }
 
     /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
      * @return mixed
      */
     public function getId()

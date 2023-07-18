@@ -4,5 +4,5 @@ namespace App\Entity;
 
 class Admin extends User
 {
-    protected array $roles = ['customer'];
+    protected array $roles = ['admin'];
 }
