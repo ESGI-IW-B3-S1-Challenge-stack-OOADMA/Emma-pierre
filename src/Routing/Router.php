@@ -90,6 +90,7 @@ class Router
      */
     public function execute(string $requestUri, string $httpMethod)
     {
+        $requestUri = explode("?", $requestUri)[0];
         $route = $this->getRoute($requestUri, $httpMethod);
 
         if ($route === null) {

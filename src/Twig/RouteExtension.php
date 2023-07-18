@@ -16,11 +16,11 @@ class RouteExtension
     public function getFunctions(): array
     {
         return [
-        new TwigFunction('route', [$this, 'route'])
+        new TwigFunction('path', [$this, 'getRoute'])
         ];
     }
 
-    public function route(string $name, array $params = []): string
+    public function getRoute(string $name, array $params = []): string
     {
         $route = $this->router->getRouteByName($name);
 

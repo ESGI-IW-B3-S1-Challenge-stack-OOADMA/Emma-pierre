@@ -12,11 +12,13 @@ class ProductController extends AbstractController
   #[Route("/produits", name: "app_products_index")]
   public function index(ProductRepository $productRepository)
   {
+    $_REQUEST['page'] ??= 1;
     $products = $productRepository->findAllActivated();
 
     $adapter = new ArrayAdapter($products);
     $productsPaginated = new Pagerfanta($adapter);
     $productsPaginated->setMaxPerPage(16);
+    $productsPaginated->setCurrentPage($_REQUEST['page']);
     
     return $this->render('product/_index.html.twig' , [
       'products' => $productsPaginated
