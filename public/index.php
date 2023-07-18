@@ -13,6 +13,7 @@ use App\DependencyInjection\Container;
 use App\Routing\RouteNotFoundException;
 use App\Routing\Router;
 use App\Session\SessionManager;
+use App\Utils\Filesystem;
 use Symfony\Component\Dotenv\Dotenv;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
@@ -51,9 +52,20 @@ $sessionManager = new SessionManager();
 
 $serviceContainer = new Container();
 $serviceContainer
-  ->set(Environment::class, $twig)
-  ->set(PDO::class, $pdo)
-  ->set(SessionManager::class, $sessionManager);
+    ->set(Environment::class, $twig)
+    ->set(PDO::class, $pdo)
+    ->set(SessionManager::class, $sessionManager);
+
+$repoClassnames = Filesystem::getClassNames(__DIR__ . "/../src/Repository/*Repository.php");
+foreach ($repoClassnames as $repoClassname) {
+    $fqcn = "App\\Repository\\" . $repoClassname;
+    $classInfos = new ReflectionClass($fqcn);
+    if ($classInfos->isAbstract()) {
+        continue;
+    }
+    $repo = new $fqcn($pdo);
+    $serviceContainer->set($repo::class, $repo);
+}
 
 // Appeler un routeur pour lui transférer la requête
 $router = new Router($serviceContainer);

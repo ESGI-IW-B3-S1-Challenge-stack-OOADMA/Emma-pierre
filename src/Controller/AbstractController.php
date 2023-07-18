@@ -14,7 +14,6 @@ abstract class AbstractController
     public function __construct(
         private Environment    $twig,
         private SessionManager $sessionManager,
-        protected PDO          $pdo,
     )
     {
     }
