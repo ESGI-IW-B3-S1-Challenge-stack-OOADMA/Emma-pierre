@@ -14,7 +14,6 @@ abstract class AbstractController
     public function __construct(
         private Environment    $twig,
         private SessionManager $sessionManager,
-        protected PDO          $pdo,
     )
     {
     }
@@ -24,7 +23,7 @@ abstract class AbstractController
      * @throws RuntimeError
      * @throws LoaderError
      */
-    public function render(string $template, array $context): string
+    public function render(string $template, array $context = []): string
     {
         return $this->twig->render($template, $context);
     }
