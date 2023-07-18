@@ -2,30 +2,36 @@
 
 {% block title %}Se connecter - Emma Pierre{% endblock %}
 
+{% block stylesheet %}
+    <link rel="stylesheet" href="assets/styles/layouts/contact.css">
+    {{ parent() }}
+{% endblock %}
+
+{% block navbar %}
+    {% set overrideIsWhite = false %}
+    {{ parent() }}
+{% endblock %}
+
 {% block content %}
-    <section class="container padding-navbar">
+    <section class="contact-infos">
         <form name="login" action="/login" method="post">
             {% if display_errors %}
                 <div class="mb-3 text-danger">
                     Votre email ou votre mot de passe est faux
                 </div>
             {% endif %}
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="email" name="login[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">Nous ne partagerons jamais votre email.</div>
+            <div class="floating-label-group">
+                <input type="email" id="email" name="login[email]" required>
+                <label for="email" class="floating-label">Email</label>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
-                <input type="password" name="login[password]" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Se souvenir de moi</label>
+            <div class="floating-label-group">
+                <input type="password" id="password" name="login[password]" required>
+                <label for="password" class="floating-label">Mot de passe</label>
             </div>
             <p>Pas de compte ? Inscrivez-vous en <a href="/registration">cliquant ici</a></p>
-            <button type="submit" class="btn btn-primary">Se connecter</button>
+            <button type="submit">Se connecter</button>
         </form>
     </section>
+
 
 {% endblock %}

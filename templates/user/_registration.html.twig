@@ -2,45 +2,48 @@
 
 {% block title %}S'inscrire - Emma Pierre{% endblock %}
 
+{% block stylesheet %}
+    <link rel="stylesheet" href="assets/styles/layouts/contact.css">
+    {{ parent() }}
+{% endblock %}
+
+{% block navbar %}
+    {% set overrideIsWhite = false %}
+    {{ parent() }}
+{% endblock %}
+
 {% block content %}
 
-    <section class="padding-navbar container">
+    <section class="contact-infos">
         <form name="registration" action="/registration" method="post">
             {% if display_errors %}
                 <div class="mb-3 text-danger">
                     L'email renseigné est déjà utilisé
                 </div>
             {% endif %}
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="mb-3">
-                        <label for="exampleInputFirstname1" class="form-label">Prénom</label>
-                        <input type="text" name="registration[firstname]" class="form-control" id="exampleInputFirstname1">
-                    </div>
+            <div class="input-container-denomination">
+                <div class="floating-label-group input-line input-prenom">
+                    <input type="text" id="prenom" name="registration[firstname]" required>
+                    <label for="prenom" class="floating-label">Prénom</label>
                 </div>
-                <div class="col-lg-6">
-                    <div class="mb-3">
-                        <label for="exampleInputLastname1" class="form-label">Nom</label>
-                        <input type="text" name="registration[lastname]" class="form-control" id="exampleInputLastname1">
-                    </div>
+                <div class="floating-label-group input-line input-nom">
+                    <input type="text" id="nom" name="registration[lastname]" required>
+                    <label for="nom" class="floating-label">Nom</label>
                 </div>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="email" name="registration[email]" class="form-control" id="exampleInputEmail1"
-                       aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">Nous ne partagerons jamais votre email.</div>
+            <div class="floating-label-group">
+                <input type="email" id="email" name="registration[email]" required>
+                <label for="email" class="floating-label">Email</label>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPhone1" class="form-label">Téléphone</label>
-                <input type="text" name="registration[phone_number]" class="form-control" id="exampleInputPhone1"
-                       aria-describedby="emailHelp">
+            <div class="floating-label-group">
+                <input type="email" id="email" name="registration[phone_number]" required>
+                <label for="email" class="floating-label">Téléphone</label>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
-                <input type="password" name="registration[password]" class="form-control" id="exampleInputPassword1">
+            <div class="floating-label-group">
+                <input type="password" id="password" name="registration[password]" required>
+                <label for="password" class="floating-label">Mot de passe</label>
             </div>
-            <button type="submit" class="btn btn-primary">S'inscrire</button>
+            <button type="submit">S'inscrire</button>
         </form>
     </section>
 

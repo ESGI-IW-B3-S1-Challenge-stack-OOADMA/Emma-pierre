@@ -18,7 +18,7 @@ class LoginController extends AbstractController
             $password = $request->all('login')['password'];
             $customer = $customerRepository->findOneByEmail($email);
 
-            if (password_verify($password, $customer->getPassword())) {
+            if ($customer && password_verify($password, $customer->getPassword())) {
                 $sessionManager->set('user_id', $customer->getId());
                 return $this->redirectToRoute('/admin/dashboard');
             }
