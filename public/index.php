@@ -46,6 +46,7 @@ $twig = new Environment($loader, [
   'cache' => __DIR__ . '/../var/twig/',
 ]);
 $twig->addGlobal('flashes', $_SESSION['flash'] ?? []);
+$twig->addExtension(new \Twig\Extension\DebugExtension());
 
 // SessionManager
 $sessionManager = new SessionManager();

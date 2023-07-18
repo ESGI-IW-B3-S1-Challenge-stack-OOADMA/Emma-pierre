@@ -4,12 +4,12 @@ namespace App\Controller;
 
 use App\Routing\Attribute\Route;
 
-class ContactController
+class ContactController extends AbstractController
 {
-  #[Route("/contact/{id}", name: "contact_page")]
-  public function contact($id)
+  #[Route("/contact", name: "app_contact")]
+  public function contact()
   {
-    echo "Page de contact avec l'id = $id";
+    return $this->render('_contact.html.twig');
   }
 
   #[Route("/devis", name: "page_devis")]
