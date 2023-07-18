@@ -1,0 +1,121 @@
+@import "../bootstrap.min.css";
+
+@font-face {
+    font-family: "Jost";
+    src: url("../../fonts/Jost-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "NotoSerif-Regular";
+    src: url("../../fonts/noto-serif/NotoSerif-Regular.ttf");
+}
+
+@font-face {
+    font-family: "NotoSerif-Bold";
+    src: url("../../fonts/noto-serif/NotoSerif-Bold.ttf");
+}
+
+:root {
+    --main-font: Jost;
+    --second-font: NotoSerif-Regural;
+
+    --dark-gray: #1d1923;
+    --gray: #2e2b31;
+    --light-gray: #3e3943;
+
+    --dark-green: #11373f;
+    --green: #18515c;
+    --light-green: #1d5f6b;
+
+    --dark-cream: #e9dbc1;
+    --cream: #dccdb6;
+    --light-cream: #f0e5d3;
+
+    --dark-corail: #bd3e43;
+    --corail: #ec5052;
+    --light-corail: #f7645d;
+
+    --dark-beige: #daa379;
+    --beige: #ebb184;
+    --light-beige: #f7c08f;
+
+    --white: #fff;
+    --bs-heading-color: var(--dark-gray);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    color: var(--dark-gray);
+    font-family: var(--main-font);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+ul,
+ol {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+body{
+    display: grid;
+    grid-template-columns: 250px 1fr;
+}
+
+body nav{
+    padding: 32px 16px;
+    background: var(--light-gray);
+    box-shadow: 0 3px 7px rgba(0,0,0,.5);
+}
+
+body nav > a{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+body nav > a img{
+    width: 130px;
+}
+
+body nav ul li:not(:last-child){
+    margin-bottom: 16px;
+}
+
+body nav ul li a{
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 8px;
+    transition: .3s all;
+}
+
+body nav ul li a:hover{
+    background: white;
+    color: var(--light-gray);
+}
+
+body main{
+    padding: 32px;
+}
+
+body main header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 16px;
+}

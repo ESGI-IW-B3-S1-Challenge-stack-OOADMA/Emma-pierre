@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords"
+          content="Bijoux, pierres précieuses, colliers, bracelets, boucles d'oreilles, bijouterie, jewellery, gemstone, store, necklace, bangle, earring">
+    <meta name="description"
+          content="{% block metaContent %}Explorez l'univers de la joaillerie de EmmaPierre. Découvrez notre collection de bijoux en pierres précieuses, alliant élégance et sophistication. Abonnez-vous pour ne rien manquer de nos dernières créations.{% endblock %}">
+    <meta name="author"
+          content="Chloé Pisceri, Mathis Rome, Michael Yaromishyan, Arnaud Gouel, Loan Courchinoux-Billonnet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- Title & favicon -->
+
+    {% block stylesheet %}
+        <!-- CSS -->
+        <link rel="stylesheet" href="/assets/styles/layouts/admin.css">
+    {% endblock %}
+
+    {% block javascript %}
+    <!-- JS -->
+    <script type="module" src="/assets/javascripts/layouts/admin.js" defer></script>
+    {% endblock %}
+
+    <title>{% block title %}Administration - Emma Pierre{% endblock %}</title>
+</head>
+
+<body>
+<nav>
+    <a href="">
+        <img src="/assets/images/logos/emma-pierre-logo-blanc.png" alt="Logo Emma Pierre blanc">
+    </a>
+    <ul>
+        <li><a href="">Attributs</a></li>
+        <li>
+            <a href="">Produits</a>
+        </li>
+        <li>
+            <a href="">Commandes</a>
+        </li>
+        <li>
+            <a href="">Clients</a>
+        </li>
+        <li>
+            <a href="">Administrateurs</a>
+        </li>
+    </ul>
+</nav>
+<main>
+    {% block main %}
+
+    {% endblock %}
+</main>
+</body>
+
+</html>
