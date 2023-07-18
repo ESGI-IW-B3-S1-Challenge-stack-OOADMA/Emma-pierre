@@ -2,8 +2,8 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 if (
-    php_sapi_name() !== 'cli' && // Environnement d'exécution != console
-    preg_match('/\.(ico|png|jpg|jpeg|css|js|gif|ttf)$/', $_SERVER['REQUEST_URI'])
+  php_sapi_name() !== 'cli' && // Environnement d'exécution != console
+  preg_match('/\.(ico|png|jpg|jpeg|css|js|gif|ttf|svg)$/', $_SERVER['REQUEST_URI'])
 ) {
     return false;
 }
@@ -48,6 +48,7 @@ $twig = new Environment($loader, [
     'cache' => __DIR__ . '/../var/twig/',
 ]);
 $twig->addGlobal('flashes', $_SESSION['flash'] ?? []);
+$twig->addExtension(new \Twig\Extension\DebugExtension());
 
 // SessionManager
 $sessionManager = new SessionManager();

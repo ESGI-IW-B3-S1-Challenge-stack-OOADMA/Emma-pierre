@@ -1,5 +1,11 @@
 {% extends "layout.html.twig" %}
 
+{% block stylesheet %}
+<!-- CSS -->
+<link rel="stylesheet" href="/assets/styles/layouts/index.css">
+{{ parent() }}
+{% endblock %}
+
 {% block title %}Accueil{% endblock %}
 {% block content %}
 
