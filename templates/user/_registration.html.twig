@@ -1,0 +1,47 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}S'inscrire - Emma Pierre{% endblock %}
+
+{% block content %}
+
+    <section class="padding-navbar container">
+        <form name="registration" action="/registration" method="post">
+            {% if display_errors %}
+                <div class="mb-3 text-danger">
+                    L'email renseigné est déjà utilisé
+                </div>
+            {% endif %}
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <label for="exampleInputFirstname1" class="form-label">Prénom</label>
+                        <input type="text" name="registration[firstname]" class="form-control" id="exampleInputFirstname1">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <label for="exampleInputLastname1" class="form-label">Nom</label>
+                        <input type="text" name="registration[lastname]" class="form-control" id="exampleInputLastname1">
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input type="email" name="registration[email]" class="form-control" id="exampleInputEmail1"
+                       aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">Nous ne partagerons jamais votre email.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPhone1" class="form-label">Téléphone</label>
+                <input type="text" name="registration[phone_number]" class="form-control" id="exampleInputPhone1"
+                       aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+                <input type="password" name="registration[password]" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary">S'inscrire</button>
+        </form>
+    </section>
+
+{% endblock %}

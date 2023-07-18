@@ -10,7 +10,7 @@ class Route
   public function __construct(
     private string $path,
     private string $name = "default_name",
-    private string $httpMethod = "GET"
+    private array $httpMethod = ["GET"]
   ) {
   }
 
@@ -24,7 +24,7 @@ class Route
     return $this->name;
   }
 
-  public function getHttpMethod(): string
+  public function getHttpMethod(): array
   {
     return $this->httpMethod;
   }
