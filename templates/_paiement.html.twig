@@ -1,0 +1,92 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Paiement - Emma Pierre{% endblock %}
+
+{% block content %}
+
+    <main class="padding-navbar page-panier">
+        <div class="container">
+            <div class="row g-4 g-lg-0">
+                <section class="col-12 col-lg-6 order-0 order-lg-1">
+                    <div class="col-12 col-lg-9 offset-0 offset-lg-3 aside-panel-paiement position-relative text-white">
+                        <article>
+                            <p>Mon panier rempli de bijoux fabriqués main</p>
+                            <p class="fw-bolder">144,00 €</p>
+                        </article>
+                        <img src="/assets/images/photos/gems-outline-ps.png" class="offset-img d-none d-lg-block" alt="gem">
+                    </div>
+                </section>
+                <section class="col-12 col-lg-6">
+                    <div class="d-flex flex-column gutter-5">
+                        <ul class="steps-cart">
+                            <li class="step-cart">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="9.5" stroke="#1D5F6B" />
+                                </svg>
+                                <p>Panier</p>
+                            </li>
+                            <li class="col line-middle"></li>
+                            <li class="step-cart">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="9.5" stroke="#1D5F6B" />
+                                </svg>
+                                <p>Livraison</p>
+                            </li>
+                            <li class="col line-middle"></li>
+                            <li class="step-cart">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="8.5" stroke="#1D5F6B" stroke-width="3" />
+                                    <circle cx="10" cy="10" r="3" fill="#1D5F6B" />
+                                </svg>
+                                <p>Paiement</p>
+                            </li>
+                            <li class="col line-middle"></li>
+                            <li class="step-cart">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="9.5" stroke="#1D5F6B" />
+                                </svg>
+                                <p>Confirmation</p>
+                            </li>
+                        </ul>
+                        <section class="paiement-form">
+                            <h5>Détails de paiement</h5>
+                            <form>
+                                <div class="form-container">
+                                    <input id="cb-name-field" type="text" class="w-100" placeholder="&nbsp;" />
+                                    <label for="cb-name-field" class="placeholder-input">Nom sur la carte
+                                        bancaire</label>
+                                </div>
+                                <div class="form-container">
+                                    <input id="cb-number-field" type="text" class="w-100" placeholder="&nbsp;" />
+                                    <label for="cb-number-field" class="placeholder-input">Numéro de la carte
+                                        bancaire</label>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 form-container">
+                                        <input id="cb-date-field" type="text" class="w-100" placeholder="&nbsp;" />
+                                        <label for="cb-date-field" class="placeholder-input">Date d'expiration</label>
+                                    </div>
+                                    <div class="col-6 form-container">
+                                        <input id="cb-cvv-field" type="text" class="w-100" placeholder="&nbsp;" />
+                                        <label for="cb-cvv-field" class="placeholder-input">CVV</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </section>
+                        <div>
+                            <ul class="cart-actions">
+                                <a href="livraison.html" class="secondary-btn">Retour</a>
+                                <button class="validation-btn">Confirmer mon paiement 144,00 €</button>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

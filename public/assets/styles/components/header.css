@@ -1,0 +1,142 @@
+header {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url("../../images/backgrounds/bg-homepage.png");
+	background-size: cover;
+	background-position: center;
+	min-height: 100vh;
+	padding-bottom: 32px;
+}
+
+header.about {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+		url("../../images/backgrounds/bg-about.jpg");
+	background-size: cover;
+	background-position: center;
+	min-height: 60vh;
+}
+
+header.padding-navbar {
+	padding-top: 240px;
+}
+
+header.light-cream {
+	color: var(--light-cream);
+}
+
+header h1 {
+	text-transform: uppercase;
+	color: var(--light-cream);
+}
+
+header.about h1 {
+	text-align: center;
+}
+
+header p {
+	max-width: 40%;
+}
+
+header.about p {
+	max-width: 60%;
+}
+
+@media screen and (max-width: 991px) {
+	header p {
+		max-width: 100%;
+	}
+
+	header.about p {
+		max-width: 100%;
+	}
+}
+
+header #cta {
+	text-decoration: none;
+	padding: 8px 16px;
+	border-radius: 8px;
+	transition: 0.3s all;
+}
+
+header #cta span {
+	margin-right: 8px;
+}
+
+header.light-cream #cta {
+	margin-top: 16px;
+	display: inline-block;
+	border: 1px solid var(--light-cream);
+	color: var(--light-cream);
+}
+
+header.light-cream #cta svg {
+	fill: var(--light-cream);
+}
+
+header.light-cream #cta:hover {
+	color: var(--dark-gray);
+	background-color: var(--light-cream);
+}
+
+header.light-cream #cta:hover svg {
+	fill: var(--dark-gray);
+}
+
+header ul {
+	margin-top: 32px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+}
+
+header.light-cream ul li svg {
+	fill: var(--light-cream);
+}
+
+header.light-cream ul li a {
+	position: relative;
+	text-decoration: none;
+	color: var(--light-cream);
+}
+
+header.light-cream ul li svg {
+	width: 100px;
+}
+
+header.light-cream ul li a::after {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	text-align: center;
+	content: "●";
+	color: var(--light-cream);
+	opacity: 0;
+	transition: 0.3s all;
+}
+
+header.light-cream ul li a:hover::after {
+	opacity: 1;
+}
+
+@media screen and (max-width: 991px) {
+	header {
+		background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+			url("imagespng") 60% 50%;
+	}
+
+	header.light-cream ul {
+		flex-direction: column;
+	}
+
+	header.light-cream ul li {
+		text-align: center;
+	}
+
+	header.padding-navbar {
+		padding-top: 140px;
+	}
+
+	header.about {
+		min-height: 40vh;
+	}
+}

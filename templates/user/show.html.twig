@@ -1,0 +1,7 @@
+<h1>Client info</h1>
+
+{% for client in clients %}
+  <p>Nom : {{client.name}}</p>
+  <p>Prénom : {{client.firstname}}</p>
+  <p>Numéro de compte : {{client.accountNumber}}</p>
+{% endfor %}
