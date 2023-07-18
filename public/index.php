@@ -3,7 +3,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 if (
   php_sapi_name() !== 'cli' && // Environnement d'exécution != console
-  preg_match('/\.(ico|png|jpg|jpeg|css|js|gif|ttf)$/', $_SERVER['REQUEST_URI'])
+  preg_match('/\.(ico|png|jpg|jpeg|css|js|gif|ttf|svg)$/', $_SERVER['REQUEST_URI'])
 ) {
   return false;
 }

@@ -1,5 +1,16 @@
 {% extends "layout.html.twig" %}
 
+{% block stylesheet %}
+    <link rel="stylesheet" href="assets/styles/layouts/liste_produits.css">
+    <link rel="stylesheet" href="assets/styles/components/filters.css">
+    {{ parent() }}
+{% endblock %}
+
+{% block navbar %}
+    {% set overrideIsWhite = false %}
+    {{ parent() }}
+{% endblock %}
+
 {% block title %}Nos produits - Emma Pierre{% endblock %}
 
 {% block content %}
@@ -254,11 +265,11 @@
             </article>
         </section>
         <section id="pagination">
-            <img src="/assets/icons/arrow-back-rounded.svg" alt="flèche gauche">
+            <img src="assets/icons/arrow-back-rounded.svg" alt="flèche gauche">
             <span class="active">1</span>
             <span>2</span>
             <span>3</span>
-            <img src="/assets/icons/arrow-forward-rounded.svg" alt="flèche droite">
+            <img src="assets/icons/arrow-forward-rounded.svg" alt="flèche droite">
         </section>
     </main>
 

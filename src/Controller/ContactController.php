@@ -11,10 +11,4 @@ class ContactController extends AbstractController
   {
     return $this->render('_contact.html.twig');
   }
-
-  #[Route("/devis", name: "page_devis")]
-  public function devis()
-  {
-    echo "Page de devis";
-  }
 }
