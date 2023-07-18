@@ -2,6 +2,16 @@
 
 {% block title %}Blog - Emma Pierre{% endblock %}
 
+{% block stylesheet %}
+    <link rel="stylesheet" href="assets/styles/layouts/blog.css">
+    {{ parent() }}
+{% endblock %}
+
+{% block navbar %}
+    {% set overrideIsWhite = false %}
+    {{ parent() }}
+{% endblock %}
+
 {% block content %}
 
     <main>

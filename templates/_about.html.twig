@@ -2,6 +2,11 @@
 
 {% block title %}À propos - Emma Pierre{% endblock %}
 
+{% block stylesheet %}
+    <link rel="stylesheet" href="assets/styles/layouts/about.css">
+    {{ parent() }}
+{% endblock %}
+
 {% block content %}
 
     <header class="light-cream about padding-navbar">
