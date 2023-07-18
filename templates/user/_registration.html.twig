@@ -15,6 +15,7 @@
 {% block content %}
 
     <section class="contact-infos">
+        <h1>S'inscrire</h1>
         <form name="registration" action="/registration" method="post">
             {% if display_errors %}
                 <div class="mb-3 text-danger">
@@ -36,8 +37,8 @@
                 <label for="email" class="floating-label">Email</label>
             </div>
             <div class="floating-label-group">
-                <input type="email" id="email" name="registration[phone_number]" required>
-                <label for="email" class="floating-label">Téléphone</label>
+                <input type="text" id="phone_number" name="registration[phone_number]" required>
+                <label for="phone_number" class="floating-label">Téléphone</label>
             </div>
             <div class="floating-label-group">
                 <input type="password" id="password" name="registration[password]" required>
