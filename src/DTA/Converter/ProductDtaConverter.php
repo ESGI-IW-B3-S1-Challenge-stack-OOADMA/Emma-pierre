@@ -13,8 +13,8 @@ class ProductDtaConverter
         $product->setId($productDTA->id);
         $product->setName($productDTA->name);
         $product->setDescription($productDTA->description);
-        $product->setProductCategoryId($productDTA->product_category_id);
-        $product->setJewelryCategoryId($productDTA->jewelry_category_id);
+        $product->setProductCategory($productDTA->product_category);
+        $product->setJewelryCategory($productDTA->jewelry_category);
         $product->setPrice($productDTA->price);
         $product->setAvailable($productDTA->available);
         $product->setCreatedAt($productDTA->created_at);

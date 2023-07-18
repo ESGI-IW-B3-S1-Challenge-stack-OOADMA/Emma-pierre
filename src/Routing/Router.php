@@ -175,4 +175,14 @@ class Router
             }
         }
     }
+
+    public function getRouteByName($name)
+    {
+        foreach ($this->routes as $route) {
+            if ($route['name'] === $name) {
+                return $route;
+            }
+        }
+        return null;
+    }
 }

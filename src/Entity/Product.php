@@ -7,8 +7,8 @@ class Product
     private int $id;
     private string $name;
     private string $description;
-    private int $product_category_id;
-    private int $jewelry_category_id;
+    private ProductCategory $product_category;
+    private JewelryCategory $jewelry_category;
     private int $price;
     private int $available;
     private \DateTimeImmutable $created_at;
@@ -47,25 +47,25 @@ class Product
         return $this;
     }
 
-    public function getProductCategoryId(): int
+    public function getProductCategory(): ProductCategory
     {
-        return $this->product_category_id;
+        return $this->product_category;
     }
 
-    public function setProductCategoryId(int $product_category_id): self
+    public function setProductCategory(ProductCategory $product_category): self
     {
-        $this->product_category_id = $product_category_id;
+        $this->product_category = $product_category;
         return $this;
     }
 
-    public function getJewelryCategoryId(): int
+    public function getJewelryCategory(): JewelryCategory
     {
-        return $this->jewelry_category_id;
+        return $this->jewelry_category;
     }
 
-    public function setJewelryCategoryId(int $jewelry_category_id): self
+    public function setJewelryCategory(JewelryCategory $jewelry_category): self
     {
-        $this->jewelry_category_id = $jewelry_category_id;
+        $this->jewelry_category = $jewelry_category;
         return $this;
     }
 
