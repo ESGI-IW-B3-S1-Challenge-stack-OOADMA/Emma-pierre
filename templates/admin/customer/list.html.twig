@@ -1,0 +1,51 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block main %}
+<header>
+        <a href="/admin/dashboard/customer/create" class="btn-primary btn">Créer un client</a>
+    </header>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Adresse mail</th>
+            <th scope="col">Téléphone</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for customer in customers %}
+            <tr>
+                <td>{{ customer.firstname }}</td>
+                <td>{{ customer.lastname }}</td>
+                <td>{{ customer.email }}</td>
+                <td>{{ customer.phoneNumber }}</td>
+                <td>
+                    <a href="/admin/dashboard/customer/edit/{{ customer.id }}" class="btn btn-info">Éditer</a>
+                    <button data-href="/admin/dashboard/customer/delete/{{ customer.id }}" class="btn btn-danger btn-delete">Supprimer</button>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Supprimer le produit</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Attention cette action est irréversible
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <a href="" type="button" class="btn btn-danger" id="btn-delete-modal">Supprimer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

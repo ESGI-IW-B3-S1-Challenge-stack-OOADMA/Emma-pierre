@@ -1,0 +1,51 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block main %}
+
+    <section>
+        <h1>Edition</h1>
+        <form name="customer_edit" action="/admin/dashboard/customer/edit/{{customer.id}}" method="post">
+            {% if display_errors %}
+                <div class="mb-3 text-danger">
+                    L'email renseigné est déjà utilisé
+                </div>
+            {% endif %}
+            <div class="row justify-content-center mb-3">
+                <div class="col-6">
+                    <label for="nom" class="col-form-label">Nom : </label>
+                    <input type="text" class="form-control" id="nom" name="customer_edit[lastname]" value="{{ customer.lastname }}" required>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-6">
+                    <label for="prenom" class="col-form-label">Prénom : </label>
+                    <input type="text" class="form-control" id="prenom" name="customer_edit[firstname]" value="{{ customer.firstname }}" required>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-6">
+                    <label for="phone_number" class="col-form-label">Téléphone : </label>
+                    <input type="text" class="form-control" id="phone_number" name="customer_edit[phone_number]" value="{{ customer.phoneNumber }}" required>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-6">
+                    <label for="email" class="col-form-label">Email : </label>
+                    <input type="email" class="form-control" id="email" name="customer_edit[email]" value="{{ customer.email }}" required>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-6">
+                    <label for="password" class="col-form-label">Mot de passe : </label>
+                    <input type="password" class="form-control" id="password" name="customer_edit[password]">
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-1">
+                    <button type="submit">Modifier</button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+{% endblock %}

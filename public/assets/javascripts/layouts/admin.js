@@ -9,7 +9,6 @@ deleteButtons.forEach(deleteButton => {
 })
 
 function openModal(){
-    let id = this.dataset.id
-    deleteButtonModal.href = 'url/' + id
+    deleteButtonModal.href = this.dataset.href
     modal.show()
 }
