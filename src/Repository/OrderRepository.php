@@ -64,4 +64,37 @@ class OrderRepository extends AbstractRepository
 
         return $orders;
     }
+
+    /**
+     * @return array<Order>
+     * @throws Exception
+     */
+    public function findAllByUser(int $user_id): array
+    {
+        $sql = '
+            SELECT o.reference, o.total, o.status, o.created_at, concat(a1.address_line1, " ", a1.postal_code, a1.city, c1.name) AS shipping_address, concat(a2.address_line1, " ", a2.postal_code, a2.city, c2.name) AS billing_address
+            FROM `order` o
+            INNER JOIN address a1 ON o.shipping_address_id = a1.id
+            INNER JOIN address a2 ON o.billing_address_id = a2.id
+            JOIN country c1 ON a1.country = c1.id
+            JOIN country c2 ON a2.country = c2.id
+            ORDER BY o.id DESC
+            WHERE o.user_id = ?
+        ';
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute([$user_id]);
+        $data = $statement->fetchAll(\PDO::FETCH_ASSOC);
+
+        if ($data === false) {
+            return [];
+        }
+
+        foreach ($data as $order) {
+            $orderDta = new OrderDTA($order);
+            $orderDtaConverter = new OrderDtaConverter();
+            $orders[] = $orderDtaConverter->toOrder($orderDta);
+        }
+
+        return $orders;
+    }
 }

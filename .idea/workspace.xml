@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd100b43-7576-4289-949c-176c9fc7f753" name="Changes" comment="feat: update Order and create dtaConverter">
-      <change afterPath="$PROJECT_DIR$/src/Controller/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="fd100b43-7576-4289-949c-176c9fc7f753" name="Changes" comment="build: .idea files">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/OrderRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/OrderRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1689709419462</updated>
       <workItem from="1689709420613" duration="4150000" />
-      <workItem from="1689753576747" duration="8241000" />
+      <workItem from="1689753576747" duration="9314000" />
     </task>
     <task id="LOCAL-00001" summary="chore: WIP favorite controller">
       <created>1689710819333</created>
@@ -219,7 +217,21 @@
       <option name="project" value="LOCAL" />
       <updated>1689760269190</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="feat: finish order repository&#10;&#10;Add findAll, findOne and add functions">
+      <created>1689763946659</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1689763946659</updated>
+    </task>
+    <task id="LOCAL-00021" summary="build: .idea files">
+      <created>1689763982502</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1689763982502</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,6 +265,8 @@
     <MESSAGE value="feat: create CouponDta and CouponDtaConverter" />
     <MESSAGE value="feat: update OrderDTA" />
     <MESSAGE value="feat: update Order and create dtaConverter" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: update Order and create dtaConverter" />
+    <MESSAGE value="feat: finish order repository&#10;&#10;Add findAll, findOne and add functions" />
+    <MESSAGE value="build: .idea files" />
+    <option name="LAST_COMMIT_MESSAGE" value="build: .idea files" />
   </component>
 </project>
