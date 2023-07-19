@@ -25,9 +25,9 @@
         </nav>
         <section id="lists" class="container">
             {% if favorites is same as([]) %}
-                <p class="text-center">
+                <p class="d-flex flex-column align-items-center">
                     Vous ne possédez pas de favoris<br>
-                    <a class="btn btn-dark" href="/products">Trouver un produit</a>
+                    <a class="main-button" href="/produits">Trouver un produit</a>
                 </p>
             {% else %}
                 {% for favorite in favorites %}

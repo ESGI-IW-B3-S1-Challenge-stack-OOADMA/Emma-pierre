@@ -11,7 +11,7 @@ class FavoriteController extends AbstractController
     /**
      * @throws Exception
      */
-    #[Route('/favorites', name: 'favorites_show')]
+    #[Route('/favoris', name: 'favorites_show')]
     public function listByUser(FavoriteRepository $favoriteRepository)
     {
         if (!$this->getSession()->has('user_id')) {
