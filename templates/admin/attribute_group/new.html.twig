@@ -1,0 +1,36 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block main %}
+    <section>
+        <h1>Création d'un groupe d'attribut : {{ attributeGroup.name }}</h1>
+        <form name="attribute_new" action="/admin/attributes-group/new" method="post">
+            {% if display_errors %}
+                <div class="mb-3 text-danger text-center">
+                    Ce groupe d'attribut existe déjà.
+                </div>
+            {% endif %}
+            <div class="row justify-content-center mb-3">
+                <div class="col-6">
+                    <label for="name" class="col-form-label">Nom : </label>
+                    <input type="text" class="form-control" id="name" name="attribute_group[name]" value="{{ attribute.data }}" required>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-6">
+                    
+                    <label for="attribute_type" class="col-form-label">Type d'attribut : </label>
+                    <select class="form-select" name="attribute_group[attribute_type]" id="attribute_type">
+                        <option value="dropdown">Menu déroulant</option>
+                        <option value="radio_button">Bouton radio</option>
+                        <option value="color">Couleur</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-1">
+                    <button type="submit" class="btn btn-primary">Créer</button>
+                </div>
+            </div>
+        </form>
+    </section>
+{% endblock %}
