@@ -8,10 +8,10 @@ class Order
 {
     protected int $id;
     protected string $reference;
-    protected int $shipping_address_id;
-    protected int $billing_address_id;
-    protected int $user_id;
-    protected int $coupon_id;
+    protected Address $shipping_address;
+    protected Address $billing_address;
+    protected User $user;
+    protected Coupon $coupon;
     protected int $total;
     protected string $status;
     protected DateTimeImmutable $created_at;
@@ -56,67 +56,67 @@ class Order
     }
 
     /**
-     * @param int $id
+     * @param Address $address
      */
-    public function setShippingAddressId(int $id): void
+    public function setShippingAddress(Address $address): void
     {
-        $this->shipping_address_id = $id;
+        $this->shipping_address = $address;
     }
 
     /**
-     * @return int
+     * @return Address
      */
-    public function getShippingAddressId(): int
+    public function getShippingAddress(): Address
     {
-        return $this->shipping_address_id;
+        return $this->shipping_address;
     }
 
     /**
-     * @param int $id
+     * @param Address $address
      */
-    public function setBillingAddressId(int $id): void
+    public function setBillingAddress(Address $address): void
     {
-        $this->billing_address_id = $id;
+        $this->billing_address = $address;
     }
 
     /**
-     * @return int
+     * @return Address
      */
-    public function getBillingAddressId(): int
+    public function getBillingAddress(): Address
     {
-        return $this->billing_address_id;
+        return $this->billing_address;
     }
 
     /**
-     * @param int $id
+     * @param User $user
      */
-    public function setUserId(int $id): void
+    public function setUser(User $user): void
     {
-        $this->user_id = $id;
+        $this->user = $user;
     }
 
     /**
-     * @return int
+     * @return User
      */
-    public function getUserId(): int
+    public function getUser(): User
     {
-        return $this->user_id;
+        return $this->user;
     }
 
     /**
-     * @param int $id
+     * @param Coupon $coupon
      */
-    public function setCouponId(int $id): void
+    public function setCoupon(Coupon $coupon): void
     {
-        $this->coupon_id = $id;
+        $this->coupon = $coupon;
     }
 
     /**
-     * @return int
+     * @return Coupon
      */
-    public function getCouponId(): int
+    public function getCoupon(): Coupon
     {
-        return $this->coupon_id;
+        return $this->coupon;
     }
 
     /**
