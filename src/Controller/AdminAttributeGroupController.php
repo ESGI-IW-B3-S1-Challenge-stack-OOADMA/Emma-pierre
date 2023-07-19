@@ -14,6 +14,7 @@ class AdminAttributeGroupController extends AbstractController
     #[Route('/admin/attributes-group', name: 'app_admin_attributes_group')]
     public function index(AttributeGroupRepository $attributeGroupRepository)
     {
+        $this->adminRoute();
         $attributeGroups = $attributeGroupRepository->findAllWithoutAttribute();
         return $this->render('admin/attribute_group/index.html.twig', [
             'attributeGroups' => $attributeGroups
@@ -23,6 +24,7 @@ class AdminAttributeGroupController extends AbstractController
     #[Route('/admin/attributes-group/{id}/detail', name: 'app_admin_attributes_group_detail')]
     public function detail(AttributeGroupRepository $attributeGroupRepository, AttributeRepository $attributeRepository, $id)
     {
+        $this->adminRoute();
         $attributeGroup = $attributeGroupRepository->find(intval($id));
         $attributes = $attributeRepository->findByAttributeGroup($attributeGroup);
         return $this->render('admin/attribute_group/detail.html.twig', [
@@ -34,7 +36,7 @@ class AdminAttributeGroupController extends AbstractController
     #[Route('/admin/attributes-group/new', name: 'app_admin_attributes_group_new', httpMethod: ['GET', 'POST'])]
     public function new(AttributeGroupRepository $attributeGroupRepository, Request $request)
     {
-
+        $this->adminRoute();
         $request = $request->request;
 
         if ($request->has('attribute_group')) {
@@ -62,6 +64,7 @@ class AdminAttributeGroupController extends AbstractController
     #[Route('/admin/attributes-group/{id}/edit', name: 'app_admin_attributes_group_edit', httpMethod: ['GET', 'POST'])]
     public function edit(AttributeGroupRepository $attributeGroupRepository, AttributeRepository $attributeRepository, Request $request, $id)
     {
+        $this->adminRoute();
         $request = $request->request;
 
         $attributeGroup = $attributeGroupRepository->find(intval($id));
@@ -94,6 +97,7 @@ class AdminAttributeGroupController extends AbstractController
     #[Route('/admin/attributes-group/{id}/attribute/new', name: 'app_admin_attributes_group_attribute_new', httpMethod: ['GET', 'POST'])]
     public function attribute_new(AttributeGroupRepository $attributeGroupRepository, AttributeRepository $attributeRepository, Request $request, $id)
     {
+        $this->adminRoute();
         $request = $request->request;
         $attributeGroup = $attributeGroupRepository->find($id);
 
@@ -127,6 +131,7 @@ class AdminAttributeGroupController extends AbstractController
     #[Route('/admin/attributes-group/attribute/{id}/edit', name: 'app_admin_attributes_group_attribute_edit', httpMethod: ['GET', 'POST'])]
     public function attribute_edit(AttributeRepository $attributeRepository, Request $request, $id)
     {
+        $this->adminRoute();
         $request = $request->request;
         $attribute = $attributeRepository->find($id);
         $attributeGroup = $attribute->getAttributeGroup();
@@ -159,6 +164,7 @@ class AdminAttributeGroupController extends AbstractController
     #[Route('/admin/attributes-group/attribute/{id}/delete', name: 'app_admin_attributes_group_attribute_delete')]
     public function attribute_delete(AttributeRepository $attributeRepository, $id)
     {
+        $this->adminRoute();
         $attribute = $attributeRepository->find($id);
         $attributeGroupId = $attribute->getAttributeGroup()->getId();
         $attributeRepository->delete(intval($id));
