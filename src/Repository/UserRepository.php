@@ -102,6 +102,33 @@ class UserRepository extends AbstractRepository
         
     }
 
+    public function saveAdmin(array $datas, string $type):?int{
+        if(empty($datas['id'])){
+            $admin = new Admin();
+        } else{
+            $admin = $this->find($datas['id']);
+        }
+
+        if(!empty($datas['password'])){
+            $password = password_hash($datas['password'], PASSWORD_DEFAULT);
+            $admin->setPassword($password);
+        }else{
+            $admin->setPassword($admin->getPassword());
+        }
+
+        $admin->setLastname($datas['lastname']);
+        $admin->setFirstname($datas['firstname']);
+        $admin->setEmail($datas['email']);
+        $admin->setPhoneNumber($datas['phone_number']);
+
+        if($type === 'create'){
+            return $this->add($admin);
+        } elseif($type === 'edit'){
+            return $this->edit($admin);
+        }
+        
+    }
+
     public function deleteOneById(int $id){
         $statement = $this->pdo->prepare('DELETE FROM `user` WHERE id = ?');
         $statement->execute([$id]);

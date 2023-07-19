@@ -1,0 +1,50 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block main %}
+    <section>
+        <h1>Création d'un client</h1>
+        <form name="admin_create" action="/admin/dashboard/admin/create" method="post">
+            {% if display_errors %}
+                <div class="mb-3 text-danger">
+                    L'email renseigné est déjà utilisé
+                </div>
+            {% endif %}
+            <div class="row justify-content-center mb-3">
+                <div class="col-6">
+                    <label for="nom" class="col-form-label">Nom : </label>
+                    <input type="text" class="form-control" id="nom" name="admin_create[lastname]" required>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-6">
+                    <label for="prenom" class="col-form-label">Prénom : </label>
+                    <input type="text" class="form-control" id="prenom" name="admin_create[firstname]" required>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-6">
+                    <label for="phone_number" class="col-form-label">Téléphone : </label>
+                    <input type="text" class="form-control" id="phone_number" name="admin_create[phone_number]" required>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-6">
+                    <label for="email" class="col-form-label">Email : </label>
+                    <input type="email" class="form-control" id="email" name="admin_create[email]" required>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-6">
+                    <label for="password" class="col-form-label">Mot de passe : </label>
+                    <input type="password" class="form-control" id="password" name="admin_create[password]">
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-1">
+                    <button type="submit">Créer</button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+{% endblock %}

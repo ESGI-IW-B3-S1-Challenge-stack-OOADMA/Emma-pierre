@@ -1,0 +1,51 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block main %}
+<header>
+        <a href="/admin/dashboard/admin/create" class="btn-primary btn">Créer un administrateur</a>
+    </header>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Adresse mail</th>
+            <th scope="col">Téléphone</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for admin in admins %}
+            <tr>
+                <td>{{ admin.firstname }}</td>
+                <td>{{ admin.lastname }}</td>
+                <td>{{ admin.email }}</td>
+                <td>{{ admin.phoneNumber }}</td>
+                <td>
+                    <a href="/admin/dashboard/admin/edit/{{ admin.id }}" class="btn btn-info">Éditer</a>
+                    <button data-href="/admin/dashboard/admin/delete/{{ admin.id }}" class="btn btn-danger btn-delete">Supprimer</button>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Supprimer le produit</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Attention cette action est irréversible
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <a href="" type="button" class="btn btn-danger" id="btn-delete-modal">Supprimer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
