@@ -11,6 +11,7 @@ class AdminCustomerController extends AbstractController
     #[Route("/admin/dashboard/customer", name: "app_admin_customers_list")]
     public function list(UserRepository $customerRepository)
     {
+        $this->adminRoute();
         $customers = $customerRepository->getAllByRole('customer');
         return $this->render('admin/customer/list.html.twig', [
         'customers' => $customers
@@ -20,6 +21,7 @@ class AdminCustomerController extends AbstractController
     #[Route('/admin/dashboard/customer/create', name: 'app_admin_customer_create', httpMethod: ['GET', 'POST'])]
     public function create(Request $request, UserRepository $customerRepository)
     {
+        $this->adminRoute();
         $request = $request->request;
         
         if ($request->has('customer_create')) {
@@ -40,6 +42,7 @@ class AdminCustomerController extends AbstractController
     #[Route('/admin/dashboard/customer/edit/{id}', name: 'app_admin_customer_edit', httpMethod: ['GET', 'POST'])]
     public function edit(Request $request, UserRepository $customerRepository, $id)
     {
+        $this->adminRoute();
         $request = $request->request;
         $customerExist = $customerRepository->find($id);
 
@@ -69,6 +72,7 @@ class AdminCustomerController extends AbstractController
 
     #[Route('/admin/dashboard/customer/delete/{id}', name: 'app_admin_customer_delete')]
     public function delete(Request $request, UserRepository $customerRepository, $id){
+        $this->adminRoute();
         $customerExist = $customerRepository->find($id);
 
         if(empty($customerExist)){
