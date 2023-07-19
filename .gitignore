@@ -2,3 +2,6 @@ var/
 vendor/
 conf/*.ini
 .env.local
+
+.idea
+.vscode
