@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\HttpFoundationWish\Request;
 use App\Repository\JewelryCategoryRepository;
 use App\Repository\ProductCategoryRepository;
 use App\Repository\ProductRepository;
@@ -12,11 +13,12 @@ use Pagerfanta\Pagerfanta;
 class ProductController extends AbstractController
 {
   #[Route("/produits", name: "app_products_index")]
-  public function index(ProductRepository $productRepository, ProductCategoryRepository $productCategoryRepository, JewelryCategoryRepository $jewelryCategoryRepository)
+  public function index(Request $request, ProductRepository $productRepository, ProductCategoryRepository $productCategoryRepository, JewelryCategoryRepository $jewelryCategoryRepository)
   {
-    $_REQUEST['page'] ??= 1;
-    $productCategoryId = $_REQUEST['productCategory'] ?? 0;
-    $jewelryCategoryId  = $_REQUEST['jewelryCategory'] ?? 0;
+    $request = $request->query;
+    $page = $request->get('page') ?? 1;
+    $productCategoryId = $request->get('productCategory') ?? 0;
+    $jewelryCategoryId  = $request->get('jewelryCategory') ?? 0;
     $products = $productRepository->findActivatedByFilters($productCategoryId, $jewelryCategoryId);
 
     $productCategories = $productCategoryRepository->findAll();
@@ -25,7 +27,7 @@ class ProductController extends AbstractController
     $adapter = new ArrayAdapter($products);
     $productsPaginated = new Pagerfanta($adapter);
     $productsPaginated->setMaxPerPage(16);
-    $productsPaginated->setCurrentPage($_REQUEST['page']);
+    $productsPaginated->setCurrentPage($page);
     
     return $this->render('product/_index.html.twig' , [
       'products' => $productsPaginated,
