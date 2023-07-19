@@ -186,4 +186,16 @@ class Router
         }
         return null;
     }
+
+    public function getCurrentPath()
+    {
+        if(isset($_SERVER['REQUEST_URI']))
+        {
+            $getParams = explode("?", $_SERVER['REQUEST_URI']);
+            if(count($getParams) > 1){
+                str_replace("page=", "", $_SERVER['REQUEST_URI']);
+            }
+            return $_SERVER['REQUEST_URI'];
+        }
+    }
 }

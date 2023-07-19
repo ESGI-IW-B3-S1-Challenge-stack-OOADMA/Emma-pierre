@@ -95,8 +95,42 @@ $getRouteExtention = new \Twig\TwigFunction('path', function (string $name, arra
 
         return $url;
 });
+$getCurrentRouteExtention = new \Twig\TwigFunction('getCurrentPath', function () use ($router) {
+    return $router->getCurrentPath();
+});
+$getParamsRouteExtention = new \Twig\TwigFunction('getParamsInCurrentPath', function () use ($router) {
+    $params = explode("?", $router->getCurrentPath())[1];
+    $params = preg_replace("/page=[0-9]+/", "", $params);
+    return $params;
+});
+$generateRouteWithFilters = new \Twig\TwigFunction('generateRouteWithFilters', function (array $filters = []) use ($router) {
+
+    $params = explode("?", $router->getCurrentPath())[1] ?? "";
+    $params = preg_replace("/page=[0-9]+/", "", $params);
+    $params = explode("&", $params);
+    $paramsArray = [];
+    foreach ($params as $key => $value) {
+        $paramsArray[explode("=", $value)[0]] = explode("=", $value);
+    }
+    foreach ($filters as $key => $value) {
+        $paramsArray[$key] = [$key, $value];
+    }
+    $path = explode("?", $router->getCurrentPath())[0];
+    $params = implode("&", array_map(function ($param) {
+        return implode("=", $param);
+    }, $paramsArray));
+
+    if ($params) {
+        $path .= "?" . $params;
+    }
+
+    return $path;
+});
 
 $twig->addFunction($getRouteExtention);
+$twig->addFunction($getCurrentRouteExtention);
+$twig->addFunction($getParamsRouteExtention);
+$twig->addFunction($generateRouteWithFilters);
 
 try {
     $router->execute($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);

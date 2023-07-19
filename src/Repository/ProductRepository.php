@@ -8,7 +8,7 @@ use App\DTA\ProductDTA;
 
 class ProductRepository extends AbstractRepository
 {
-    public function findAllActivated(): ?array
+    public function findActivatedByFilters(int $productCategoryId, int $jewelryCategoryId): ?array
     {
         $sql = '
             SELECT
@@ -28,15 +28,27 @@ class ProductRepository extends AbstractRepository
             WHERE
                 p.available = 1
         ';
+
+        $sql .= $productCategoryId ? ' AND p.product_category_id = :product_category_id' : "";
+        $sql .= $jewelryCategoryId ? ' AND p.jewelry_category_id = :jewelry_category_id' : "";
+        
         $statement = $this->pdo->prepare($sql);
-        $statement->execute();
+
+        $params = [];
+        if($productCategoryId){
+            $params['product_category_id'] = $productCategoryId;
+        }
+        if($jewelryCategoryId){
+            $params['jewelry_category_id'] = $jewelryCategoryId;
+        }
+
+        $statement->execute($params);
         $data = $statement->fetchAll(\PDO::FETCH_ASSOC);
         if ($data === false) {
             return null;
         }
 
         foreach ($data as $product) {
-            // var_dump($product); die; 
             $productDta = new ProductDTA($product);
             $productDtaConverter = new ProductDtaConverter();
             $products[] = $productDtaConverter->toProduct($productDta);

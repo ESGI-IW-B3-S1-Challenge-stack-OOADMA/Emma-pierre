@@ -32,4 +32,32 @@ class JewelryCategoryRepository extends AbstractRepository
 
         return $jewelryCategory;
     }
+
+    public function findAll(): ?array
+    {
+        $sql = '
+            SELECT
+                *
+            FROM
+                `jewelry_category`
+
+        ';
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        $data = $statement->fetchAll(\PDO::FETCH_ASSOC);
+        if ($data === false) {
+            return null;
+        }
+
+        $jewelryCategories = [];
+
+        foreach ($data as $jewelryCategory){
+            $jewelryCategoryDta = new JewelryCategoryDTA($jewelryCategory);
+            $jewelryCategoryDtaConverter = new JewelryCategoryDtaConverter();
+            $jewelryCategories[] = $jewelryCategoryDtaConverter->toJewelryCategory($jewelryCategoryDta);
+        }
+
+
+        return $jewelryCategories;
+    }
 }
