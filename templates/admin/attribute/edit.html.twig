@@ -1,0 +1,25 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block main %}
+    <section>
+        <h1>Édition d'une valeur ({{ attribute.data }}) pour le groupe d'attribut : {{ attributeGroup.name }}</h1>
+        <form name="attribute_new" action="/admin/attributes-group/attribute/{{ attribute.id }}/edit" method="post">
+            {% if display_errors %}
+                <div class="mb-3 text-danger text-center">
+                    La valeur existe déjà dans ce groupe d'attribut !
+                </div>
+            {% endif %}
+            <div class="row justify-content-center mb-3">
+               <div class="col-6">
+                   <label for="data" class="col-form-label">Valeur : </label>
+                   <input type="text" class="form-control" id="data" name="attribute[data]" value="{{ attribute.data }}" required>
+               </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-1">
+                    <button type="submit" class="btn btn-primary">Éditer</button>
+                </div>
+            </div>
+        </form>
+    </section>
+{% endblock %}
