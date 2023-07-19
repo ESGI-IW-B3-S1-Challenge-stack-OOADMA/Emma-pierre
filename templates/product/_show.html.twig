@@ -2,13 +2,18 @@
 
 {% block title %}Ecaille de tortue - Emma Pierre{% endblock %}
 
+{% block navbar %}
+    {% set overrideIsWhite = false %}
+    {{ parent() }}
+{% endblock %}
+
 {% block content %}
 
     <main class="padding-navbar">
         <nav class="container" id="breadcrumb">
             <ul>
                 <li>
-                    <a href="index.html" class="custom-link">Accueil</a>
+                    <a href="{{ path('homepage') }}" class="custom-link">Accueil</a>
                 </li>
                 <li>
                     /
@@ -37,13 +42,10 @@
                 </ul>
             </aside>
             <article>
-                <h1>Écailles de tortue</h1>
-                <h2>53,00 €</h2>
+                <h1>{{ product.name }}</h1>
+                <h2>{{ (product.price / 100)|number_format(2, ",", ' ') }} €</h2>
                 <p>
-                    Description : BO crochets plaqué or 14 carats et laiton, pampille dorée et éventail en résine
-                    écaille
-                    de tortue largeur
-                    3 cm, hauteur totale environ 7,3 cm, elles souligneront subtilement votre port de tête.
+                    {{ product.description }}
                 </p>
                 <p class="text-small">
                     Remarques : toutes les BO crochets sont vendues avec leur stoppeur en silicone.
@@ -96,147 +98,15 @@
                 id="products-slider">
                 <div class="splide__track">
                     <ul class="splide__list">
-                        <li class="splide__slide">
-                            <a href="./detail-produit.html">
-                                <img src="/assets/images/photos/boucle_oreille_marron.jpeg" alt="">
-                                <h2>Collier bleu</h2>
-                                <h3>72,00 €</h3>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="./detail-produit.html">
-                                <img src="/assets/images/photos/multitudes_de_bracelets.jpeg" alt="">
-                                <h2>Collier bleu</h2>
-                                <h3>72,00 €</h3>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="./detail-produit.html">
-                                <img src="/assets/images/photos/boucle_etoile.jpeg" alt="">
-                                <h2>Collier bleu</h2>
-                                <h3>72,00 €</h3>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="./detail-produit.html">
-                                <img src="/assets/images/photos/bracelets_bleu.jpeg" alt="">
-                                <h2>Collier bleu</h2>
-                                <h3>72,00 €</h3>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="./detail-produit.html">
-                                <img src="/assets/images/photos/boucle_oreille_marron.jpeg" alt="">
-                                <h2>Collier bleu</h2>
-                                <h3>72,00 €</h3>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="./detail-produit.html">
-                                <img src="/assets/images/photos/multitudes_de_bracelets.jpeg" alt="">
-                                <h2>Collier bleu</h2>
-                                <h3>72,00 €</h3>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="./detail-produit.html">
-                                <img src="/assets/images/photos/boucle_etoile.jpeg" alt="">
-                                <h2>Collier bleu</h2>
-                                <h3>72,00 €</h3>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="./detail-produit.html">
-                                <img src="/assets/images/photos/bracelets_bleu.jpeg" alt="">
-                                <h2>Collier bleu</h2>
-                                <h3>72,00 €</h3>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="./detail-produit.html">
-                                <img src="/assets/images/photos/boucle_oreille_marron.jpeg" alt="">
-                                <h2>Collier bleu</h2>
-                                <h3>72,00 €</h3>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="./detail-produit.html">
-                                <img src="/assets/images/photos/multitudes_de_bracelets.jpeg" alt="">
-                                <h2>Collier bleu</h2>
-                                <h3>72,00 €</h3>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="./detail-produit.html">
-                                <img src="/assets/images/photos/boucle_etoile.jpeg" alt="">
-                                <h2>Collier bleu</h2>
-                                <h3>72,00 €</h3>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="./detail-produit.html">
-                                <img src="/assets/images/photos/bracelets_bleu.jpeg" alt="">
-                                <h2>Collier bleu</h2>
-                                <h3>72,00 €</h3>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="./detail-produit.html">
-                                <img src="/assets/images/photos/boucle_oreille_marron.jpeg" alt="">
-                                <h2>Collier bleu</h2>
-                                <h3>72,00 €</h3>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="./detail-produit.html">
-                                <img src="/assets/images/photos/multitudes_de_bracelets.jpeg" alt="">
-                                <h2>Collier bleu</h2>
-                                <h3>72,00 €</h3>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="./detail-produit.html">
-                                <img src="/assets/images/photos/boucle_etoile.jpeg" alt="">
-                                <h2>Collier bleu</h2>
-                                <h3>72,00 €</h3>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="./detail-produit.html">
-                                <img src="/assets/images/photos/bracelets_bleu.jpeg" alt="">
-                                <h2>Collier bleu</h2>
-                                <h3>72,00 €</h3>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="./detail-produit.html">
-                                <img src="/assets/images/photos/boucle_oreille_marron.jpeg" alt="">
-                                <h2>Collier bleu</h2>
-                                <h3>72,00 €</h3>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="./detail-produit.html">
-                                <img src="/assets/images/photos/multitudes_de_bracelets.jpeg" alt="">
-                                <h2>Collier bleu</h2>
-                                <h3>72,00 €</h3>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="./detail-produit.html">
-                                <img src="/assets/images/photos/boucle_etoile.jpeg" alt="">
-                                <h2>Collier bleu</h2>
-                                <h3>72,00 €</h3>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="./detail-produit.html">
-                                <img src="/assets/images/photos/bracelets_bleu.jpeg" alt="">
-                                <h2>Collier bleu</h2>
-                                <h3>72,00 €</h3>
-                            </a>
-                        </li>
-
+                        {% for product in sameProductCategoryProducts %}
+                            <li class="splide__slide">
+                                <a href="{{ path('app_product_show', { 'id' : product.id}) }}">
+                                    <img src="/assets/images/photos/boucle_oreille_marron.jpeg" alt="{{ product.name }}">
+                                    <h2>{{ product.name }}</h2>
+                                    <h3>{{ (product.price / 100)|number_format(2, ",", ' ') }} €</h3>
+                                </a>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>

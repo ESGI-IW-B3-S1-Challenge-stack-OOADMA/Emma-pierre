@@ -85,7 +85,7 @@
                         <span>{{ product.name }}</span>
                         <span>{{ (product.price / 100)|number_format(2, ",", ' ') }} €</span>
                     </div>
-                    <a class="main-button" href="detail-produit.html">Voir détails</a>
+                    <a class="main-button" href="{{ path('app_product_show', { 'id' : product.id}) }}">Voir détails</a>
                 </article>
             {% endfor %}
         </section>

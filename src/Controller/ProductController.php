@@ -37,8 +37,14 @@ class ProductController extends AbstractController
   }
 
   #[Route("/produit/{id}", name: "app_product_show")]
-  public function show($id)
+  public function show(ProductRepository $productRepository, $id)
   {
-    return $this->render('product/_show.html.twig');
+    $product = $productRepository->find($id);
+    $sameProductCategoryProducts = $productRepository->findAllByCategory($product->getProductCategory()->getId());
+
+    return $this->render('product/_show.html.twig', [
+      'product' => $product,
+      'sameProductCategoryProducts' => $sameProductCategoryProducts,
+    ]);
   }
 }
