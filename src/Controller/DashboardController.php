@@ -9,6 +9,7 @@ class DashboardController extends AbstractController
     #[Route('/admin/dashboard', name: 'app_admin_dashboard')]
     public function dashboard(): string
     {
+        $this->adminRoute();
         if (!$this->getSession()->has('user_id')) {
             return $this->redirectToRoute('/login');
         }

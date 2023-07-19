@@ -11,6 +11,7 @@ class AdminAdminController extends AbstractController
     #[Route("/admin/administrator", name: "app_admin_admins_list")]
     public function list(UserRepository $adminRepository)
     {
+        $this->adminRoute();
         $admins = $adminRepository->getAllByRole('admin');
         return $this->render('admin/administrator/list.html.twig', [
         'admins' => $admins
@@ -20,6 +21,7 @@ class AdminAdminController extends AbstractController
     #[Route('/admin/dashboard/admin/create', name: 'app_admin_admin_create', httpMethod: ['GET', 'POST'])]
     public function create(Request $request, UserRepository $adminRepository)
     {
+        $this->adminRoute();
         $request = $request->request;
         
         if ($request->has('admin_create')) {
@@ -40,6 +42,7 @@ class AdminAdminController extends AbstractController
     #[Route('/admin/dashboard/admin/edit/{id}', name: 'app_admin_admin_edit', httpMethod: ['GET', 'POST'])]
     public function edit(Request $request, UserRepository $adminRepository, $id)
     {
+        $this->adminRoute();
         $request = $request->request;
         $adminExist = $adminRepository->find($id);
 
@@ -70,6 +73,7 @@ class AdminAdminController extends AbstractController
     #[Route('/admin/dashboard/admin/delete/{id}', name: 'app_admin_admin_delete')]
     public function delete(Request $request, UserRepository $adminRepository, $id)
     {
+        $this->adminRoute();
         $adminExist = $adminRepository->find($id);
 
         if(empty($adminExist)){

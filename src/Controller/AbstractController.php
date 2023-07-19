@@ -47,4 +47,19 @@ abstract class AbstractController
         }
         return null;
     }
+
+    public function isAdmin(): bool
+    {
+        if ($this->getUser() && in_array('admin', $this->getUser()->getRole())) {
+            return true;
+        }
+        return false;
+    }
+
+    public function adminRoute(): void
+    {
+        if (!$this->isAdmin()) {
+            $this->redirectToRoute('/');
+        }
+    }
 }
