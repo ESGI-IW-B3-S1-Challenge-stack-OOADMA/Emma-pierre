@@ -90,6 +90,7 @@ class Router
      */
     public function execute(string $requestUri, string $httpMethod)
     {
+        $requestUri = explode("?", $requestUri)[0];
         $route = $this->getRoute($requestUri, $httpMethod);
 
         if ($route === null) {
@@ -184,5 +185,17 @@ class Router
             }
         }
         return null;
+    }
+
+    public function getCurrentPath()
+    {
+        if(isset($_SERVER['REQUEST_URI']))
+        {
+            $getParams = explode("?", $_SERVER['REQUEST_URI']);
+            if(count($getParams) > 1){
+                str_replace("page=", "", $_SERVER['REQUEST_URI']);
+            }
+            return $_SERVER['REQUEST_URI'];
+        }
     }
 }

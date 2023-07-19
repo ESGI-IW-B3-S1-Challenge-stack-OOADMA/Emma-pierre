@@ -3,9 +3,7 @@
 namespace App\Repository;
 
 use App\DTA\Converter\ProductCategoryDtaConverter;
-use App\DTA\Converter\ProductDtaConverter;
 use App\DTA\ProductCategoryDTA;
-use App\DTA\ProductDTA;
 use App\Entity\ProductCategory;
 
 class ProductCategoryRepository extends AbstractRepository
@@ -33,5 +31,33 @@ class ProductCategoryRepository extends AbstractRepository
         $productCategory = $productCategoryDtaConverter->toProductCategory($productCategoryDta);
 
         return $productCategory;
+    }
+
+    public function findAll(): ?array
+    {
+        $sql = '
+            SELECT
+                *
+            FROM
+                `product_category`
+
+        ';
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        $data = $statement->fetchAll(\PDO::FETCH_ASSOC);
+        if ($data === false) {
+            return null;
+        }
+
+
+        $productCategories = [];
+
+
+        foreach ($data as $productCategory) {
+            $productCategoryDta = new ProductCategoryDTA($productCategory);
+            $productCategoryDtaConverter = new ProductCategoryDtaConverter();
+            $productCategories[] = $productCategoryDtaConverter->toProductCategory($productCategoryDta);
+        }
+        return $productCategories;
     }
 }

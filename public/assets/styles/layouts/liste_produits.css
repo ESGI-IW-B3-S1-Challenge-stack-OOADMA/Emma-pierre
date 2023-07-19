@@ -105,8 +105,9 @@
 	padding-top: 5rem;
 }
 
-#pagination * {
+#pagination > * {
 	transform: scale(2);
+	color: black;
 }
 
 #pagination img {
