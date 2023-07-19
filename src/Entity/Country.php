@@ -8,6 +8,7 @@ class Country
 {
     private int $id;
     private string $name;
+    private string $code;
     private DateTimeImmutable $created_at;
     private DateTimeImmutable $updated_at;
 
@@ -41,6 +42,22 @@ class Country
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCode(): string
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string $code
+     */
+    public function setCode(string $code): void
+    {
+        $this->code = $code;
     }
 
     /**
