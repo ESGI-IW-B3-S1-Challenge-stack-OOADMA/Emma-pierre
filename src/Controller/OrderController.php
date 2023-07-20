@@ -18,7 +18,7 @@ class OrderController extends AbstractController
     #[Route('/panier', name: "app_cart")]
     public function cart(ProductRepository $productRepository){
         if(!$this->getUser()) {
-            $this->redirectToRoute('app_login');
+            $this->redirectToRoute('/login');
         }
         $cart = $this->getSession()->has('cart') ? $this->getSession()->get('cart') : [];
         $products = $productRepository->findMultipleById(array_keys($cart));
