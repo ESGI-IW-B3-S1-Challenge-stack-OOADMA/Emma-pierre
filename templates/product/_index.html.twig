@@ -65,6 +65,11 @@
                             <li><a href="{{ generateRouteWithFilters({ 'jewelryCategory' : jewelryCategory.id }) }}">{{ jewelryCategory.name }}</a></li>
                         {% endfor %}
                     </ul>
+                    <li class="dropdown">
+                        <a href=" /produits">
+                            <button>Supprimer les filtres</button>
+                        </a>
+                    </li>
                 </li>
             </ul>
         </nav>
@@ -74,19 +79,10 @@
                     <div class="image">
                         <img src="/assets/images/photos/boucle_oreille_marron.jpeg" alt="{{ product.name }}">
                         <p>{{ product.description[:100] }}...</p>
-                        {%set favoriteId = 0 %}
-                        <svg width="60"
-                             height="60"
-                             viewBox="0 0 60 60"
-                             xmlns="http://www.w3.org/2000/svg"
-                             class="add_favorite {% for favorite in favorites %}{% if product.id is same as(favorite.product.id) %}favorite {% set favoriteId = favorite.id %}{% endif %}{% endfor %}"
-                             data-id="{{ product.id }}"
-                             {% if favoriteId is not same as 0 %}data-favorite-id="{{ favoriteId }}"{% endif %}
-                        >
+                        <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M27.0482 49.3355L27.0467 49.3342C20.5896 43.4789 15.3103 38.684 11.6336 34.1859C7.96796 29.7012 6 25.6337 6 21.25C6 14.0785 11.6011 8.5 18.75 8.5C22.7977 8.5 26.6991 10.3895 29.2412 13.3513L30 14.2354L30.7588 13.3513C33.3009 10.3895 37.2023 8.5 41.25 8.5C48.3989 8.5 54 14.0785 54 21.25C54 25.6337 52.032 29.7012 48.3664 34.1859C44.6897 38.684 39.4104 43.4789 32.9533 49.3342L32.9518 49.3355L30 52.0227L27.0482 49.3355Z"
-                                stroke-width="2"
-                            />
+                                stroke-width="2" />
                         </svg>
 
                     </div>
@@ -123,9 +119,4 @@
         </section>
     </main>
 
-{% endblock %}
-
-{% block javascript %}
-    {{ parent() }}
-    <script src="/assets/javascripts/components/favorite.js" defer></script>
 {% endblock %}
