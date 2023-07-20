@@ -10,9 +10,10 @@ class Product
     private ProductCategory $product_category;
     private JewelryCategory $jewelry_category;
     private int $price;
-    private int $available;
+    private bool $available;
     private \DateTimeImmutable $created_at;
     private \DateTimeImmutable $updated_at;
+    private ?ProductImage $product_image;
 
     public function getId(): int
     {
@@ -69,6 +70,17 @@ class Product
         return $this;
     }
 
+    public function getImage(): ?ProductImage
+    {
+        return $this->product_image;
+    }
+
+    public function setImage(?ProductImage $product_image): self
+    {
+        $this->product_image = $product_image;
+        return $this;
+    }
+
     public function getPrice(): int
     {
         return $this->price;
@@ -80,12 +92,12 @@ class Product
         return $this;
     }
 
-    public function getAvailable(): int
+    public function getAvailable(): bool
     {
         return $this->available;
     }
 
-    public function setAvailable(int $available): self
+    public function setAvailable(bool $available): self
     {
         $this->available = $available;
         return $this;

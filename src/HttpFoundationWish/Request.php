@@ -6,6 +6,7 @@ class Request
 {
     public InputBag $request;
     public InputBag $query;
+    public InputBag $files;
 
     /**
      * Sets the parameters for this request.
@@ -22,13 +23,13 @@ class Request
      *
      * @return void
      */
-    public function __construct(array $query = [], array $request = [], array $attributes = [], array $cookies = [], array $files = [], array $server = [])
+    public function __construct(array $query = [], array $request = [], array $files = [])
     {
         $this->request = new InputBag($request);
         $this->query = new InputBag($query);
         //$this->attributes = new ParameterBag($attributes);
         //$this->cookies = new InputBag($cookies);
-        //$this->files = new FileBag($files);
+        $this->files = new InputBag($files);
         //$this->server = new ServerBag($server);
         //$this->headers = new HeaderBag($this->server->getHeaders());
     }

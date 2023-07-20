@@ -19,6 +19,8 @@ use App\Utils\Filesystem;
 use Symfony\Component\Dotenv\Dotenv;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
+use Twig\Extra\Intl\IntlExtension;
+use App\Service\FileUploader;
 
 $dotenv = new Dotenv();
 $dotenv->loadEnv(__DIR__ . '/../.env');
@@ -49,17 +51,20 @@ $twig = new Environment($loader, [
 ]);
 $twig->addGlobal('flashes', $_SESSION['flash'] ?? []);
 $twig->addExtension(new \Twig\Extension\DebugExtension());
+$twig->addExtension(new IntlExtension());
 
 // SessionManager
 $sessionManager = new SessionManager();
-$request = new Request($_GET, $_POST);
+$request = new Request($_GET, $_POST, $_FILES);
+$fileUploader = new FileUploader();
 
 $serviceContainer = new Container();
 $serviceContainer
 ->set(Environment::class, $twig)
 ->set(PDO::class, $pdo)
 ->set(SessionManager::class, $sessionManager)
-->set(Request::class, $request);
+->set(Request::class, $request)
+->set(FileUploader::class, $fileUploader);
 
 $repoClassnames = Filesystem::getClassNames(__DIR__ . "/../src/Repository/*Repository.php");
 foreach ($repoClassnames as $repoClassname) {

@@ -19,6 +19,7 @@ class ProductDtaConverter
         $product->setAvailable($productDTA->available);
         $product->setCreatedAt($productDTA->created_at);
         $product->setUpdatedAt($productDTA->updated_at);
+        $product->setImage($productDTA->product_image);
         return $product;
     }
 }
