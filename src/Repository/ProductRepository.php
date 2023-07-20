@@ -13,8 +13,9 @@ class ProductRepository extends AbstractRepository
      * Récupère tout les produits
      * Si on veut récupérer que ceux activer on passe le paramètre à true
      */
-    public function findAll(bool $available=false): ?array{
-     
+    public function findAll(bool $available = false): ?array
+    {
+
         $sql = '
             SELECT
                 p.*,
@@ -32,7 +33,7 @@ class ProductRepository extends AbstractRepository
                 JOIN jewelry_category jc on jc.id = p.jewelry_category_id
         ';
 
-        if($available){
+        if ($available) {
             $sql .= ' WHERE p.available = 1';
         }
         $statement = $this->pdo->prepare($sql);
@@ -49,12 +50,12 @@ class ProductRepository extends AbstractRepository
             $productDtaConverter = new ProductDtaConverter();
             $products[] = $productDtaConverter->toProduct($productDta);
         }
-        
+
         return $products;
     }
 
-    public function find(int $id): ?Product{
-     
+    public function find(int $id): ?Product
+    {
         $sql = '
             SELECT
                 p.*,
@@ -93,8 +94,11 @@ class ProductRepository extends AbstractRepository
         return $productDtaConverter->toProduct($productDta);
     }
 
-    public function findMultipleById(array $ids): ?array{
-     
+    public function findMultipleById(array $ids): ?array
+    {
+        if (empty($ids)) {
+            return [];
+        }
         $sql = '
             SELECT
                 p.*,
@@ -116,19 +120,20 @@ class ProductRepository extends AbstractRepository
                 JOIN jewelry_category jc on jc.id = p.jewelry_category_id
                 LEFT JOIN product_image pi on pi.product_id = p.id
             WHERE
-                p.id in ('. implode(',', $ids) .')
+                p.id in (' . implode(',', $ids) . ')
+            GROUP BY p.id
         ';
         $statement = $this->pdo->prepare($sql);
 
         $statement->execute(
-            // ['ids' => implode(',', array_map('intval', $ids))]
-            // On a commenté cette ligne car elle ne fonctionne pas quand on veut transformer un tableau de int
+        // ['ids' => implode(',', array_map('intval', $ids))]
+        // On a commenté cette ligne car elle ne fonctionne pas quand on veut transformer un tableau de int
         );
         $data = $statement->fetchAll(\PDO::FETCH_ASSOC);
         if ($data === false) {
             return null;
         }
-        
+
 
         $products = [];
 
@@ -141,8 +146,9 @@ class ProductRepository extends AbstractRepository
         return $products;
     }
 
-    public function findActivatedByFilters(int $productCategoryId, int $jewelryCategoryId): ?array{
-     
+    public function findActivatedByFilters(int $productCategoryId, int $jewelryCategoryId): ?array
+    {
+
         $sql = '
             SELECT
                 p.*,
@@ -169,14 +175,14 @@ class ProductRepository extends AbstractRepository
 
         $sql .= $productCategoryId ? ' AND p.product_category_id = :product_category_id' : "";
         $sql .= $jewelryCategoryId ? ' AND p.jewelry_category_id = :jewelry_category_id' : "";
-        
+
         $statement = $this->pdo->prepare($sql);
 
         $params = [];
-        if($productCategoryId){
+        if ($productCategoryId) {
             $params['product_category_id'] = $productCategoryId;
         }
-        if($jewelryCategoryId){
+        if ($jewelryCategoryId) {
             $params['jewelry_category_id'] = $jewelryCategoryId;
         }
 
@@ -193,12 +199,12 @@ class ProductRepository extends AbstractRepository
             $productDtaConverter = new ProductDtaConverter();
             $products[] = $productDtaConverter->toProduct($productDta);
         }
-        
+
         return $products;
     }
 
 
-    public function findAllByCategory(int $productCategoryId): ?array 
+    public function findAllByCategory(int $productCategoryId): ?array
     {
         $sql = '
             SELECT
@@ -219,7 +225,7 @@ class ProductRepository extends AbstractRepository
                 p.available = 1
                 AND p.product_category_id = :product_category_id
         ';
-        
+
         $statement = $this->pdo->prepare($sql);
 
         $statement->execute([
@@ -242,16 +248,18 @@ class ProductRepository extends AbstractRepository
     public function add(Product $product): int
     {
         $statement = $this->pdo->prepare('INSERT INTO `product` (`name`, `description`, `product_category_id`, `jewelry_category_id`, `price`, `available`) VALUES (?, ?, ?, ?, ?, ?)');
-        $statement->execute([$product->getName(), $product->getDescription(), $product->getProductCategory()->getId(), $product->getJewelryCategory()->getId(), $product->getPrice(), $product->getAvailable()?1:0]);
+        $statement->execute([$product->getName(), $product->getDescription(), $product->getProductCategory()->getId(), $product->getJewelryCategory()->getId(), $product->getPrice(), $product->getAvailable() ? 1 : 0]);
         return $this->pdo->lastInsertId();
     }
 
-    public function edit(Product $product){
+    public function edit(Product $product)
+    {
         $statement = $this->pdo->prepare('UPDATE `product` SET `name` = ?, `description` = ?, `product_category_id` = ?, `jewelry_category_id` = ?, `price` = ?, `available`= ?, `updated_at` = ? WHERE `id` = ?');
         $statement->execute([$product->getName(), $product->getDescription(), $product->getProductCategory()->getId(), $product->getJewelryCategory()->getId(), $product->getPrice(), $product->getAvailable(), $product->getUpdatedAt()->format('Y-m-d H:i:s'), $product->getId()]);
     }
 
-    public function deleteOneById(int $id){
+    public function deleteOneById(int $id)
+    {
         $statement = $this->pdo->prepare('DELETE FROM `product` WHERE id = ?');
         $statement->execute([$id]);
     }
