@@ -12,6 +12,9 @@ class UserProfileController extends AbstractController
     #[Route('/user-profile', name: 'app_user_profile', httpMethod: ['GET', 'POST'])]
     public function profile(Request $request, UserRepository $customerRepository)
     {
+        if (!$this->getUser()) {
+            $this->redirectToRoute('/login');
+        }
         $request = $request->request;
         if ($request->has('profile')) {
             $customer = $this->getUser();
