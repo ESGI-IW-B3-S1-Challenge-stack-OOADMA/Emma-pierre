@@ -14,3 +14,11 @@ document.querySelectorAll('.add_favorite').forEach((product) => {
         }
     });
 });
+
+document.querySelectorAll('.remove-favorite').forEach((favorite) => {
+    favorite.addEventListener('click', async function() {
+        const id = this.dataset.id;
+        await fetch(`/favoris/remove/${id}`);
+        this.parentNode.parentNode.remove();
+    })
+})
