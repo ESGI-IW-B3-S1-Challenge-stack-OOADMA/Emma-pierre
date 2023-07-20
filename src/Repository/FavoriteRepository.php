@@ -31,7 +31,7 @@ class FavoriteRepository extends AbstractRepository
                 pc.updated_at product_product_category_updated_at, jc.id product_jewelry_category_id, jc.name product_jewelry_category_name,
                 jc.created_at product_jewelry_category_created_at, jc.updated_at product_jewelry_category_updated_at,
                 p.price product_price, p.available product_available, p.created_at product_created_at, p.updated_at product_updated_at,
-                f.created_at product_created_at, p.updated_at product_updated_at
+                f.created_at product_created_at, p.updated_at product_updated_at, f.created_at created_at, f.updated_at updated_at
             FROM favorite f 
             INNER JOIN `user` u ON f.user_id = u.id
             INNER JOIN product p ON f.product_id = p.id
