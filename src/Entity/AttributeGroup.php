@@ -10,6 +10,7 @@ class AttributeGroup
     private string $attribute_type;
     private \DateTimeImmutable $created_at;
     private \DateTimeImmutable $updated_at;
+    private array $attributes;
 
     /**
      * @return int
@@ -89,5 +90,16 @@ class AttributeGroup
     public function setUpdatedAt(\DateTimeImmutable $updated_at): void
     {
         $this->updated_at = $updated_at;
+    }
+
+    public function getAttributes(): array
+    {
+        return $this->attributes;
+    }
+
+    public function setAttributes(array $attributes): self
+    {
+        $this->attributes = $attributes;
+        return $this;
     }
 }

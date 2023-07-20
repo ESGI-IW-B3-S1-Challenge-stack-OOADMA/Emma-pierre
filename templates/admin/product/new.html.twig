@@ -4,6 +4,11 @@
     <section>
         <h1>Création d'un produit</h1>
         <form name="product_create" enctype="multipart/form-data" action="/admin/product/create" method="post">
+            {% if display_errors %}
+                <div class="mb-3 text-danger">
+                    Le prix renseigné est dans un mauvais format
+                </div>
+            {% endif %}
             <div class="row justify-content-center mb-3">
                 <div class="col-6">
                     <label for="nom" class="col-form-label">Nom : </label>
@@ -54,7 +59,7 @@
             <div class="row justify-content-center mb-3">
                 <div class="col-6">
                     <label for="price" class="col-form-label">Prix : </label>
-                    <input type="number" class="form-control" id="price" name="product_create[price]">
+                    <input type="number" class="form-control" id="price" step="0.01" min="0" name="product_create[price]">
                 </div>
             </div>
             <div class="row justify-content-center mb-3">
@@ -64,6 +69,24 @@
                 </div>
             </div>
             <div class="row justify-content-center mb-3">
+                <div class="col-6">
+                    <hr><h3>Attributs</h3> 
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-6">
+                    {% for attributeGroupWithAttributes in attributeGroupsWithAttributes %}
+                        <h5>{{ attributeGroupWithAttributes['attributeGroup'].name }}</h5>
+                        <select class="select-attribute mb-3" name="product_create[attributes][]" multiple placeholder="Choisir..." autocomplete="off">
+                             {% for attribute in attributeGroupWithAttributes['attributes'] %}
+                               <option value="{{ attribute.id }}"> {{ attribute.data }}</option>
+                            {% endfor %}
+                        </select>                   
+                    {% endfor %} 
+                </div>
+            </div>      
+            
+            <div class="row justify-content-center mb-3">
                 <div class="col-1">
                     <button type="submit" class="btn btn-primary">Créer</button>
                 </div>
@@ -72,3 +95,4 @@
     </section>
 
 {% endblock %}
+

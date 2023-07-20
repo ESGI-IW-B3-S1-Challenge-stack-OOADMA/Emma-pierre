@@ -8,7 +8,7 @@ use App\HttpFoundationWish\Request;
 
 class AdminCustomerController extends AbstractController
 {
-    #[Route("/admin/dashboard/customer", name: "app_admin_customers_list")]
+    #[Route("/admin/customer", name: "app_admin_customers_list")]
     public function list(UserRepository $customerRepository)
     {
         $this->adminRoute();
@@ -18,7 +18,7 @@ class AdminCustomerController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/dashboard/customer/create', name: 'app_admin_customer_create', httpMethod: ['GET', 'POST'])]
+    #[Route('/admin/customer/create', name: 'app_admin_customer_create', httpMethod: ['GET', 'POST'])]
     public function create(Request $request, UserRepository $customerRepository)
     {
         $this->adminRoute();
@@ -33,13 +33,13 @@ class AdminCustomerController extends AbstractController
                 ]);
             }
             $id = $customerRepository->saveCustomer($request->all('customer_create'), 'create');
-            return $this->redirectToRoute('/admin/dashboard/customer');
+            return $this->redirectToRoute('/admin/customer');
         }
 
         return $this->render('admin/customer/new.html.twig');
     }
 
-    #[Route('/admin/dashboard/customer/edit/{id}', name: 'app_admin_customer_edit', httpMethod: ['GET', 'POST'])]
+    #[Route('/admin/customer/edit/{id}', name: 'app_admin_customer_edit', httpMethod: ['GET', 'POST'])]
     public function edit(Request $request, UserRepository $customerRepository, $id)
     {
         $this->adminRoute();
@@ -62,7 +62,7 @@ class AdminCustomerController extends AbstractController
             $customerEdit['id'] = $customerExist->getId();
             
             $id = $customerRepository->saveCustomer($customerEdit, 'edit');
-            return $this->redirectToRoute('/admin/dashboard/customer');
+            return $this->redirectToRoute('/admin/customer');
         }
 
         return $this->render('admin/customer/edit.html.twig', [
@@ -70,7 +70,7 @@ class AdminCustomerController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/dashboard/customer/delete/{id}', name: 'app_admin_customer_delete')]
+    #[Route('/admin/customer/delete/{id}', name: 'app_admin_customer_delete')]
     public function delete(Request $request, UserRepository $customerRepository, $id){
         $this->adminRoute();
         $customerExist = $customerRepository->find($id);
@@ -80,7 +80,7 @@ class AdminCustomerController extends AbstractController
         }
 
         $customerRepository->deleteOneById($id);
-        return $this->redirectToRoute('/admin/dashboard/customer');
+        return $this->redirectToRoute('/admin/customer');
     }
 
 }

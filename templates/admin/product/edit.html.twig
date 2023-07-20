@@ -4,6 +4,11 @@
     <section>
         <h1>Modifier d'un produit</h1>
         <form name="product_edit" enctype="multipart/form-data" action="/admin/product/edit/{{ product.id }}" method="post">
+            {% if display_errors %}
+                <div class="mb-3 text-danger">
+                    Le prix renseigné est dans un mauvais format
+                </div>
+            {% endif %}
             <div class="row justify-content-center mb-3">
                 <div class="col-6">
                     <label for="nom" class="col-form-label">Nom : </label>
@@ -74,7 +79,7 @@
             <div class="row justify-content-center mb-3">
                 <div class="col-6">
                     <label for="price" class="col-form-label">Prix : </label>
-                    <input type="number" class="form-control" id="price" name="product_edit[price]" value="{{ product.price }}" required>
+                    <input type="number" class="form-control" id="price" step="0.01" min="0" name="product_edit[price]" value="{{ product.price / 100 }}" required>
                 </div>
             </div>
             <div class="row justify-content-center mb-3">
@@ -84,6 +89,29 @@
                     {% if product.Image.path %}
                         <img src="{{ product.Image.path }}" alt="image du produit" class="img-thumbnail w-25 mt-3">
                     {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-6">
+                    <hr><h3>Attributs</h3> 
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-6">
+                    {% for attributeGroupWithAttributes in attributeGroupsWithAttributes %}
+                        <h5>{{ attributeGroupWithAttributes['attributeGroup'].name }}</h5>
+                        <select class="select-attribute mb-3" name="product_edit[attributes][]" multiple placeholder="Choisir..." autocomplete="off">
+                            {% for attribute in attributeGroupWithAttributes['attributes'] %}
+                                {% set break = false %}
+                                {% for idAttributeExist in idsAttributesExists %}
+                                    {% if idAttributeExist == attribute.id %}
+                                        {% set break = true %}
+                                    {% endif %}
+                                {% endfor  %}
+                               <option value="{{ attribute.id }}" {% if break == true %}selected{% endif %}> {{ attribute.data }}</option>
+                            {% endfor %}
+                        </select>                   
+                    {% endfor %} 
                 </div>
             </div>
             <div class="row justify-content-center mb-3">
