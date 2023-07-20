@@ -71,6 +71,10 @@
 	align-items: center;
 }
 
+.cart-item a {
+	color: var(--dark-gray);
+}
+
 .cart-actions {
 	display: flex;
 	justify-content: space-between;
