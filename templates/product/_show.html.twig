@@ -7,6 +7,11 @@
     {{ parent() }}
 {% endblock %}
 
+{% block javascript %}
+    <script src="/assets/javascripts/product_show.js" defer></script>
+    {{ parent() }}
+{% endblock %}
+
 {% block content %}
 
     <main class="padding-navbar">
@@ -52,7 +57,7 @@
                 </p>
                 <ul class="button-list">
                     <li>
-                        <a href="#" class="main-button cream">
+                        <a href="#" class="main-button cream" id="addToCart" data-product-id="{{ product.id }}">
                             <svg width="32" height="32" fill="#fff" viewBox="0 0 53 53"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
