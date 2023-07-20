@@ -46,16 +46,6 @@ class AdminProductController extends AbstractController
             $datas = $request->request->all('product_create');
             $files = $request->files->all('product_create');
 
-            $formatPrice = '/^\d+(\.\d{2})?$/';
-            if(preg_match($formatPrice, $datas['price']) == 0){
-                return $this->render('admin/product/new.html.twig', [
-                    'display_errors' => true,
-                    'jewelryCategories' => $jewelryCategories,
-                    'productCategories' => $productCategories,
-                    'attributeGroupsWithAttributes' => $attributeGroupsWithAttributes
-                ]);
-            }
-
             //Création du nouveau produit
             $product = new Product();
             $product
@@ -67,7 +57,7 @@ class AdminProductController extends AbstractController
             $product->setJewelryCategory($jewelryCategory);
             $productCategory = $productCategoryRepository->findById($datas['category']);
             $product->setProductCategory($productCategory);
-            $product->setStripeId($productService->createProduct($product));
+            $product->setStripeId($productService->createProduct($product)->id);
 
             $idProduct = $productRepository->add($product);
 
@@ -121,18 +111,6 @@ class AdminProductController extends AbstractController
         if ($request->request->has('product_edit')) {
             $productEdit = $request->request->all('product_edit');
             $files = $request->files->all('product_edit');
-
-            $formatPrice = '/^\d+(\.\d{2})?$/';
-            if(preg_match($formatPrice, $productEdit['price']) == 0){
-                return $this->render('admin/product/new.html.twig', [
-                    'display_errors' => true,
-                    'product' => $productExist,
-                    'jewelryCategories' => $jewelryCategories,
-                    'productCategories' => $productCategories,
-                    'attributeGroupsWithAttributes' => $attributeGroupsWithAttributes,
-                    'idsAttributesExists' => $attributesIdsExists
-                ]);
-            }
 
             //Gestion des attributs
             if(!empty($productEdit['attributes'])){
