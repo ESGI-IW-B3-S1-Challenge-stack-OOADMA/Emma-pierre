@@ -1,0 +1,45 @@
+.padding-navbar {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+}
+
+.padding-navbar h2 {
+    text-align: center;
+}
+
+.padding-navbar form {
+    margin-top: 0;
+}
+
+.infos {
+    grid-area: 1 / 1 / 6 / 2;
+}
+
+.nav-buttons {
+    grid-area: 1 / 2 / 6 / 3;
+}
+
+.nav-buttons ul {
+    display: flex;
+    flex-direction: column;
+    margin-top: 31px;
+}
+
+.nav-buttons li a {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+    margin: 0.5rem 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    color: white;
+    background-color: var(--dark-green);
+    transition: all 0.5s ease;
+}
+
+.nav-buttons li a:hover {
+    background-color: var(--light-green);
+}
