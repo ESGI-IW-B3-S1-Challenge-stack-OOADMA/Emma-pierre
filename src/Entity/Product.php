@@ -15,6 +15,8 @@ class Product
     private \DateTimeImmutable $updated_at;
     private ?ProductImage $product_image;
 
+    private string $stripe_id;
+
     public function getId(): int
     {
         return $this->id;
@@ -123,5 +125,37 @@ class Product
     {
         $this->updated_at = $updated_at;
         return $this;
+    }
+
+    /**
+     * @return ProductImage|null
+     */
+    public function getProductImage(): ?ProductImage
+    {
+        return $this->product_image;
+    }
+
+    /**
+     * @param ProductImage|null $product_image
+     */
+    public function setProductImage(?ProductImage $product_image): void
+    {
+        $this->product_image = $product_image;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStripeId(): string
+    {
+        return $this->stripe_id;
+    }
+
+    /**
+     * @param string $stripe_id
+     */
+    public function setStripeId(string $stripe_id): void
+    {
+        $this->stripe_id = $stripe_id;
     }
 }

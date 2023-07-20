@@ -11,15 +11,39 @@ class OrderRepository extends AbstractRepository
 {
     public function add(Order $order): int
     {
-        $statement = $this->pdo->prepare('INSERT INTO `order` (`reference`, `shipping_address_id`, `billing_address_id`, `user_id`, `coupon_id`, `total`, `status`) VALUES (?, ?, ?, ?, ?, ?, ?)');
-        $statement->execute([$order->getReference(), $order->getShippingAddress()->getId(), $order->getBillingAddress()->getId(), $order->getUser()->getId(), $order->getCoupon()->getId(), $order->getTotal(), $order->getStatus()]);
+        $statement = $this->pdo->prepare('INSERT INTO `order` (`reference`, `shipping_address_id`, `billing_address_id`, `user_id`, `coupon_id`, `total`, `status`, `stripe_id`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+        $statement->execute([
+            $order->getReference(),
+            $order->getShippingAddress()?->getId(),
+            $order->getBillingAddress()?->getId(),
+            $order->getUser()->getId(),
+            $order->getCoupon()?->getId(),
+            $order->getTotal(),
+            $order->getStatus(),
+            $order->getStripeId()
+        ]);
         return $this->pdo->lastInsertId();
+    }
+
+    public function update(Order $order){
+        $statement = $this->pdo->prepare('UPDATE `order` SET reference = ?, shipping_address_id = ?, billing_address_id = ?, user_id = ?, coupon_id = ?, total = ?, status = ?, stripe_id = ? WHERE id = ?');
+        $statement->execute([
+            $order->getReference(),
+            $order->getShippingAddress()?->getId(),
+            $order->getBillingAddress()?->getId(),
+            $order->getUser()->getId(),
+            $order->getCoupon()?->getId(),
+            $order->getTotal(),
+            $order->getStatus(),
+            $order->getStripeId(),
+            $order->getId()
+        ]);
     }
 
     /**
      * @throws Exception
      */
-    public function findOne(int $id): Order | null
+    public function find(int $id): Order|null
     {
         $sql = '
             SELECT o.id id, o.reference reference, sa.id shipping_address_id, sa.name shipping_address_name, sa.address_line1 shipping_address_address_line1,
@@ -55,6 +79,42 @@ class OrderRepository extends AbstractRepository
         $orderDta = new OrderDTA($data);
         $orderDtaConverter = new OrderDtaConverter();
         return $orderDtaConverter->toOrder($orderDta);
+    }
+
+    public function findOneByReference(string $reference): Order|null
+    {
+        $sql = 'SELECT * FROM `order` WHERE reference = ?';
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute([$reference]);
+        $data = $statement->fetch(\PDO::FETCH_ASSOC);
+        if ($data === false) {
+            return null;
+        }
+
+        $orderDta = new OrderDTA($data);
+        $orderDtaConverter = new OrderDtaConverter();
+        $order = $orderDtaConverter->toOrder($orderDta);
+
+        $addressRepository = new AddressRepository($this->pdo);
+        if ($data['shipping_address_id']) {
+            $order->setShippingAddress($addressRepository->find($data['shipping_address_id']));
+        }
+
+        if ($data['billing_address_id']) {
+            $order->setBillingAddress($addressRepository->find($data['billing_address_id']));
+        }
+
+        $userRepo = new UserRepository($this->pdo);
+        if ($data['user_id']) {
+            $order->setUser($userRepo->find($data['user_id']));
+        }
+
+        $couponRepository = new CouponRepository($this->pdo);
+        if ($data['coupon_id']) {
+            $order->setCoupon($couponRepository->find($data['coupon_id']));
+        }
+
+        return $order;
     }
 
     /**
