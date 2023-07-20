@@ -4,10 +4,12 @@ namespace App\DTA;
 
 use App\DTA\Converter\JewelryCategoryDtaConverter;
 use App\DTA\Converter\ProductCategoryDtaConverter;
+use App\DTA\Converter\ProductImageDtaConverter;
 use App\Entity\JewelryCategory;
 use App\Entity\ProductCategory;
 use App\Repository\JewelryCategoryRepository;
 use App\Repository\ProductCategoryRepository;
+use App\Entity\ProductImage;	
 
 class ProductDTA
 {
@@ -17,9 +19,10 @@ class ProductDTA
     public ProductCategory $product_category;
     public JewelryCategory $jewelry_category;
     public int $price;
-    public int $available;
+    public bool $available;
     public \DateTimeImmutable $created_at;
     public \DateTimeImmutable $updated_at;
+    public ?ProductImage $product_image;
 
     public function __construct(
         array $data
@@ -44,6 +47,19 @@ class ProductDTA
         ]);
         $jewelryCategoryDtaConverter = new JewelryCategoryDtaConverter();
         $this->jewelry_category = $jewelryCategoryDtaConverter->toJewelryCategory($jewelryCategoryDTA);
+        if(!empty($data['product_image_id'])){
+            $productImageDTA = new ProductImageDTA([
+                'id' => $data['product_image_id'], 
+                'path' => $data['product_image_path'], 
+                'created_at' => $data['product_image_created_at'], 
+                'updated_at' => $data['product_image_updated_at']
+            ]);
+            $productImageDtaConverter = new ProductImageDtaConverter();
+            $this->product_image = $productImageDtaConverter->toProductImage($productImageDTA);
+        }else{
+            $this->product_image = null;
+        }
+        
         $this->price = $data['price'];
         $this->available = $data['available'];
         $this->created_at = new \DateTimeImmutable($data['created_at']);
