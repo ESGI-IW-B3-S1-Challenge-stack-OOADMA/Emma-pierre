@@ -4,11 +4,15 @@ namespace App\Entity;
 
 use DateTimeImmutable;
 
-class Country
+class Coupon
 {
     private int $id;
     private string $name;
     private string $code;
+    private int $percent;
+    private string $duration;
+    private int $duration_in_month;
+    private bool $valid;
     private DateTimeImmutable $created_at;
     private DateTimeImmutable $updated_at;
 
@@ -58,6 +62,70 @@ class Country
     public function setCode(string $code): void
     {
         $this->code = $code;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPercent(): int
+    {
+        return $this->percent;
+    }
+
+    /**
+     * @param int $percent
+     */
+    public function setPercent(int $percent): void
+    {
+        $this->percent = $percent;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDuration(): string
+    {
+        return $this->duration;
+    }
+
+    /**
+     * @param string $duration
+     */
+    public function setDuration(string $duration): void
+    {
+        $this->duration = $duration;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDurationInMonth(): int
+    {
+        return $this->duration_in_month;
+    }
+
+    /**
+     * @param int $duration_in_month
+     */
+    public function setDurationInMonth(int $duration_in_month): void
+    {
+        $this->duration_in_month = $duration_in_month;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isValid(): bool
+    {
+        return $this->valid;
+    }
+
+    /**
+     * @param bool $valid
+     */
+    public function setValid(bool $valid): void
+    {
+        $this->valid = $valid;
     }
 
     /**
