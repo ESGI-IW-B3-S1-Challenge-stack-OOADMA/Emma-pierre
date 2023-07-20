@@ -72,7 +72,7 @@
             {% for product in products %}
                 <article>
                     <div class="image">
-                        <img src="/assets/images/photos/boucle_oreille_marron.jpeg" alt="{{ product.name }}">
+                        <img src="{{product.Image.path}}" alt="{{ product.name }}">
                         <p>{{ product.description[:100] }}...</p>
                         {%set favoriteId = 0 %}
                         <svg width="60"

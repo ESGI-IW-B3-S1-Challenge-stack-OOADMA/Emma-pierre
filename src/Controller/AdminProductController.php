@@ -35,6 +35,13 @@ class AdminProductController extends AbstractController
             $datas = $request->request->all('product_create');
             $files = $request->files->all('product_create');
 
+            $formatPrice = '/^\d+(\.\d{2})?$/';
+            if(preg_match($formatPrice, $datas['price']) == 0){
+                return $this->render('admin/product/new.html.twig', [
+                    'display_errors' => true
+                ]);
+            }
+
             //Création du nouveau produit
             $product = new Product();
             $product
@@ -59,10 +66,12 @@ class AdminProductController extends AbstractController
             }
 
             //Ajout des attributs
-            foreach($datas['attributes'] as $idAttribute){
-                $attributeProductRepository->add($idAttribute, $idProduct);
+            if(!empty($datas['attributes'])){
+                foreach($datas['attributes'] as $idAttribute){
+                    $attributeProductRepository->add($idAttribute, $idProduct);
+                }
             }
-                
+            
             return $this->redirectToRoute('/admin/product');
         }
 
@@ -98,6 +107,13 @@ class AdminProductController extends AbstractController
         if ($request->request->has('product_edit')) {
             $productEdit = $request->request->all('product_edit');
             $files = $request->files->all('product_edit');
+
+            $formatPrice = '/^\d+(\.\d{2})?$/';
+            if(preg_match($formatPrice, $productEdit['price']) == 0){
+                return $this->render('admin/product/new.html.twig', [
+                    'display_errors' => true
+                ]);
+            }
 
             //Gestion des attributs
             $newIdsAttributes = $productEdit['attributes'];
@@ -153,8 +169,6 @@ class AdminProductController extends AbstractController
             return $this->redirectToRoute('/admin/product');
         }
 
-        
-        
         $jewelryCategories = $jewelryCategoryRepository->findAll();
         $productCategories = $productCategoryRepository->findAll();	
         $attributeGroupsWithAttributes = [];

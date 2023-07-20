@@ -105,12 +105,16 @@ class ProductRepository extends AbstractRepository
                 jc.id as jewelry_category_id,
                 jc.`name` jewelry_category_name,
                 jc.created_at jewelry_category_created_at,
-                jc.updated_at jewelry_category_updated_at
+                jc.updated_at jewelry_category_updated_at,
+                pi.id product_image_id,
+                pi.path product_image_path,
+                pi.created_at product_image_created_at,
+                pi.updated_at product_image_updated_at
             FROM
                 `product` p
                 JOIN product_category pc on pc.id = p.product_category_id
                 JOIN jewelry_category jc on jc.id = p.jewelry_category_id
-
+                LEFT JOIN product_image pi on pi.product_id = p.id
             WHERE 
                 p.available = 1
         ';
