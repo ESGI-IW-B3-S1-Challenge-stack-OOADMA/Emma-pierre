@@ -68,6 +68,10 @@
 	transition: 0.3s all;
 }
 
+#lists div.image svg.favorite path {
+	fill: #ec5052 !important;
+}
+
 #lists div.image svg:hover path {
 	fill: #ec5052;
 }

@@ -18,10 +18,11 @@
     {% block stylesheet %}
         <!-- CSS -->
         <link rel="stylesheet" href="/assets/styles/layouts/admin.css">
+        <link href="/assets/styles/tom-select/tom-select.css" rel="stylesheet">
     {% endblock %}
 
     {% block javascript %}
-    <!-- JS -->
+    <script type="module" src="/assets/javascripts/tom-select/tom-select.min.js" defer></script>
     <script type="module" src="/assets/javascripts/layouts/admin.js" defer></script>
     {% endblock %}
 
@@ -42,7 +43,7 @@
             <a href="">Commandes</a>
         </li>
         <li>
-            <a href="/admin/dashboard/customer">Clients</a>
+            <a href="/admin/customer">Clients</a>
         </li>
         <li>
             <a href="/admin/administrator">Administrateurs</a>

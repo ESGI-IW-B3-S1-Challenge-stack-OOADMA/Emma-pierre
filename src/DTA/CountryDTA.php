@@ -17,7 +17,7 @@ class CountryDTA
         $this->id = $data['id'];
         $this->name = $data['name'];
         $this->code = $data['code'];
-        $this->created_at = $data['created_at'];
-        $this->updated_at = $data['updated_at'];
+        $this->created_at = new \DateTimeImmutable($data['created_at']);
+        $this->updated_at = new \DateTimeImmutable($data['updated_at']);
     }
 }

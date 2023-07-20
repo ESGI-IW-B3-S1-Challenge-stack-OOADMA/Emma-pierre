@@ -6,16 +6,23 @@ use DateTimeImmutable;
 
 class Order
 {
-    protected int $id;
-    protected string $reference;
-    protected Address $shipping_address;
-    protected Address $billing_address;
-    protected User $user;
-    protected Coupon $coupon;
-    protected int $total;
-    protected string $status;
-    protected DateTimeImmutable $created_at;
-    protected DateTimeImmutable $updated_at;
+    private int $id;
+    private string $reference;
+    private ?Address $shipping_address = null;
+    private ?Address $billing_address = null;
+    private User $user;
+    private ?Coupon $coupon = null;
+    private int $total;
+    private string $status;
+
+    /**
+     * @var array<OrderItem>
+     */
+    private array $orderItems;
+    private DateTimeImmutable $created_at;
+    private DateTimeImmutable $updated_at;
+
+    private string $stripe_id;
 
     public function __construct()
     {
@@ -56,33 +63,33 @@ class Order
     }
 
     /**
-     * @param Address $address
+     * @param ?Address $address
      */
-    public function setShippingAddress(Address $address): void
+    public function setShippingAddress(?Address $address): void
     {
         $this->shipping_address = $address;
     }
 
     /**
-     * @return Address
+     * @return ?Address
      */
-    public function getShippingAddress(): Address
+    public function getShippingAddress(): ?Address
     {
         return $this->shipping_address;
     }
 
     /**
-     * @param Address $address
+     * @param ?Address $address
      */
-    public function setBillingAddress(Address $address): void
+    public function setBillingAddress(?Address $address): void
     {
         $this->billing_address = $address;
     }
 
     /**
-     * @return Address
+     * @return ?Address
      */
-    public function getBillingAddress(): Address
+    public function getBillingAddress(): ?Address
     {
         return $this->billing_address;
     }
@@ -104,17 +111,17 @@ class Order
     }
 
     /**
-     * @param Coupon $coupon
+     * @param ?Coupon $coupon
      */
-    public function setCoupon(Coupon $coupon): void
+    public function setCoupon(?Coupon $coupon): void
     {
         $this->coupon = $coupon;
     }
 
     /**
-     * @return Coupon
+     * @return ?Coupon
      */
-    public function getCoupon(): Coupon
+    public function getCoupon(): ?Coupon
     {
         return $this->coupon;
     }
@@ -136,9 +143,9 @@ class Order
     }
 
     /**
-     * @param int $status
+     * @param string $status
      */
-    public function setStatus(int $status): void
+    public function setStatus(string $status): void
     {
         $this->status = $status;
     }
@@ -181,5 +188,37 @@ class Order
     public function setUpdatedAt(DateTimeImmutable $updated_at): void
     {
         $this->updated_at = $updated_at;
+    }
+
+    /**
+     * @return array
+     */
+    public function getOrderItems(): array
+    {
+        return $this->orderItems;
+    }
+
+    /**
+     * @param array $orderItems
+     */
+    public function setOrderItems(array $orderItems): void
+    {
+        $this->orderItems = $orderItems;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStripeId(): string
+    {
+        return $this->stripe_id;
+    }
+
+    /**
+     * @param string $stripe_id
+     */
+    public function setStripeId(string $stripe_id): void
+    {
+        $this->stripe_id = $stripe_id;
     }
 }

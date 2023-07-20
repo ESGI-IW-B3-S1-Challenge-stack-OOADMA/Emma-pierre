@@ -20,6 +20,7 @@ class ProductDtaConverter
         $product->setCreatedAt($productDTA->created_at);
         $product->setUpdatedAt($productDTA->updated_at);
         $product->setImage($productDTA->product_image);
+        $product->setStripeId($productDTA->stripe_id);
         return $product;
     }
 }
