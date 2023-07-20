@@ -8,7 +8,7 @@ use App\DTA\CountryDTA;
 class CountryRepository extends AbstractRepository
 {
     public function find(int $id){
-        $statement = $this->pdo->query('SELECT * FROM country WHERE id = ?');
+        $statement = $this->pdo->prepare('SELECT * FROM country WHERE id = ?');
         $statement->execute([$id]);
         $data = $statement->fetch(\PDO::FETCH_ASSOC);
         if ($data === false) {

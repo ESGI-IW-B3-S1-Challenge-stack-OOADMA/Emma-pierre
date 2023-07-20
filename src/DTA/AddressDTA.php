@@ -24,7 +24,7 @@ class AddressDTA
         $this->name = $data['name'];
         $this->address_line1 = $data['address_line1'];
         $this->address_line2 = $data['address_line2'];
-        $this->city = $data['$city'];
+        $this->city = $data['city'];
         $this->postal_code = $data['postal_code'];
 
         $this->created_at = new \DateTimeImmutable($data['created_at']);

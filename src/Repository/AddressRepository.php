@@ -11,14 +11,14 @@ class AddressRepository extends AbstractRepository
 {
     public function find(int $id)
     {
-        $statement = $this->pdo->query('SELECT * FROM address WHERE id = ?');
+        $statement = $this->pdo->prepare('SELECT * FROM address WHERE id = ?');
         $statement->execute([$id]);
         $data = $statement->fetch(\PDO::FETCH_ASSOC);
         if ($data === false) {
             return null;
         }
 
-        $addressDta = new AddressDTA([$data]);
+        $addressDta = new AddressDTA($data);
         $addressDtaConverter = new AddressDtaConverter();
 
         $address = $addressDtaConverter->toAddress($addressDta);
