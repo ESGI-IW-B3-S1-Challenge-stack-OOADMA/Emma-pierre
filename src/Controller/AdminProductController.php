@@ -30,6 +30,16 @@ class AdminProductController extends AbstractController
     public function create(FileUploader $fileUploader, Request $request, ProductRepository $productRepository, JewelryCategoryRepository $jewelryCategoryRepository, ProductCategoryRepository $productCategoryRepository, ProductImageRepository $productImageRepository, AttributeGroupRepository $attributeGroupRepository, AttributeRepository $attributeRepository, AttributeProductRepository $attributeProductRepository)
     {   
         $attributeGroups = $attributeGroupRepository->findAllWithoutAttribute();
+        $jewelryCategories = $jewelryCategoryRepository->findAll();
+        $productCategories = $productCategoryRepository->findAll();	
+        $attributeGroupsWithAttributes = [];
+        foreach($attributeGroups as $attributeGroup){
+            $attributes = $attributeRepository->findByAttributeGroup($attributeGroup);
+            $attributeGroupsWithAttributes[] = [
+                'attributeGroup' => $attributeGroup,
+                'attributes' => $attributes
+            ];
+        }
 
         if ($request->request->has('product_create')) {
             $datas = $request->request->all('product_create');
@@ -38,7 +48,10 @@ class AdminProductController extends AbstractController
             $formatPrice = '/^\d+(\.\d{2})?$/';
             if(preg_match($formatPrice, $datas['price']) == 0){
                 return $this->render('admin/product/new.html.twig', [
-                    'display_errors' => true
+                    'display_errors' => true,
+                    'jewelryCategories' => $jewelryCategories,
+                    'productCategories' => $productCategories,
+                    'attributeGroupsWithAttributes' => $attributeGroupsWithAttributes
                 ]);
             }
 
@@ -75,17 +88,6 @@ class AdminProductController extends AbstractController
             return $this->redirectToRoute('/admin/product');
         }
 
-        $jewelryCategories = $jewelryCategoryRepository->findAll();
-        $productCategories = $productCategoryRepository->findAll();	
-        $attributeGroupsWithAttributes = [];
-        foreach($attributeGroups as $attributeGroup){
-            $attributes = $attributeRepository->findByAttributeGroup($attributeGroup);
-            $attributeGroupsWithAttributes[] = [
-                'attributeGroup' => $attributeGroup,
-                'attributes' => $attributes
-            ];
-        }
-
         return $this->render('admin/product/new.html.twig',[
             'jewelryCategories' => $jewelryCategories,
             'productCategories' => $productCategories,
@@ -99,6 +101,16 @@ class AdminProductController extends AbstractController
         $productExist = $productRepository->find($id);
         $attributeGroups = $attributeGroupRepository->findAllWithoutAttribute();
         $attributesIdsExists = $attributeProductRepository->getIdAttributeByIdProduct($productExist->getId());
+        $jewelryCategories = $jewelryCategoryRepository->findAll();
+        $productCategories = $productCategoryRepository->findAll();	
+        $attributeGroupsWithAttributes = [];
+        foreach($attributeGroups as $attributeGroup){
+            $attributes = $attributeRepository->findByAttributeGroup($attributeGroup);
+            $attributeGroupsWithAttributes[] = [
+                'attributeGroup' => $attributeGroup,
+                'attributes' => $attributes
+            ]; 
+        }
 
         if(empty($productExist)){
             throw new \Exception('Product not found');
@@ -111,7 +123,12 @@ class AdminProductController extends AbstractController
             $formatPrice = '/^\d+(\.\d{2})?$/';
             if(preg_match($formatPrice, $productEdit['price']) == 0){
                 return $this->render('admin/product/new.html.twig', [
-                    'display_errors' => true
+                    'display_errors' => true,
+                    'product' => $productExist,
+                    'jewelryCategories' => $jewelryCategories,
+                    'productCategories' => $productCategories,
+                    'attributeGroupsWithAttributes' => $attributeGroupsWithAttributes,
+                    'idsAttributesExists' => $attributesIdsExists
                 ]);
             }
 
@@ -169,17 +186,6 @@ class AdminProductController extends AbstractController
             return $this->redirectToRoute('/admin/product');
         }
 
-        $jewelryCategories = $jewelryCategoryRepository->findAll();
-        $productCategories = $productCategoryRepository->findAll();	
-        $attributeGroupsWithAttributes = [];
-        foreach($attributeGroups as $attributeGroup){
-            $attributes = $attributeRepository->findByAttributeGroup($attributeGroup);
-            $attributeGroupsWithAttributes[] = [
-                'attributeGroup' => $attributeGroup,
-                'attributes' => $attributes
-            ]; 
-        }
-       
         return $this->render('admin/product/edit.html.twig', [
             'product' => $productExist,
             'jewelryCategories' => $jewelryCategories,
