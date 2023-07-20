@@ -147,7 +147,7 @@ ALTER TABLE `product` ADD FOREIGN KEY (`product_category_id`) REFERENCES `produc
 
 ALTER TABLE `product` ADD FOREIGN KEY (`jewelry_category_id`) REFERENCES `jewelry_category` (`id`);
 
-ALTER TABLE `product_image` ADD FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
+ALTER TABLE `product_image` ADD FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE;
 
 ALTER TABLE `attribute` ADD FOREIGN KEY (`attribute_group_id`) REFERENCES `attribute_group` (`id`);
 
@@ -163,5 +163,5 @@ CREATE TABLE `attribute_product` (
 
 ALTER TABLE `attribute_product` ADD FOREIGN KEY (`attribute_id`) REFERENCES `attribute` (`id`);
 
-ALTER TABLE `attribute_product` ADD FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
+ALTER TABLE `attribute_product` ADD FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE;
 

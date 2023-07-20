@@ -46,16 +46,6 @@ class AdminProductController extends AbstractController
             $datas = $request->request->all('product_create');
             $files = $request->files->all('product_create');
 
-            $formatPrice = '/^\d+(\.\d{2})?$/';
-            if(preg_match($formatPrice, $datas['price']) == 0){
-                return $this->render('admin/product/new.html.twig', [
-                    'display_errors' => true,
-                    'jewelryCategories' => $jewelryCategories,
-                    'productCategories' => $productCategories,
-                    'attributeGroupsWithAttributes' => $attributeGroupsWithAttributes
-                ]);
-            }
-
             //Création du nouveau produit
             $product = new Product();
             $product
@@ -67,7 +57,7 @@ class AdminProductController extends AbstractController
             $product->setJewelryCategory($jewelryCategory);
             $productCategory = $productCategoryRepository->findById($datas['category']);
             $product->setProductCategory($productCategory);
-            $product->setStripeId($productService->createProduct($product));
+            $product->setStripeId($productService->createProduct($product)->id);
 
             $idProduct = $productRepository->add($product);
 
@@ -98,7 +88,7 @@ class AdminProductController extends AbstractController
     }
 
     #[Route('/admin/product/edit/{id}', name: 'app_admin_product_edit', httpMethod: ['GET', 'POST'])]
-    public function edit(FileUploader $fileUploader, Request $request, ProductRepository $productRepository, JewelryCategoryRepository $jewelryCategoryRepository, ProductCategoryRepository $productCategoryRepository, ProductImageRepository $productImageRepository, AttributeGroupRepository $attributeGroupRepository, AttributeRepository $attributeRepository, AttributeProductRepository $attributeProductRepository, $id)
+    public function edit(FileUploader $fileUploader, Request $request, ProductRepository $productRepository, JewelryCategoryRepository $jewelryCategoryRepository, ProductCategoryRepository $productCategoryRepository, ProductImageRepository $productImageRepository, AttributeGroupRepository $attributeGroupRepository, AttributeRepository $attributeRepository, AttributeProductRepository $attributeProductRepository, ProductService $productService, $id)
     {
         $productExist = $productRepository->find($id);
         $attributeGroups = $attributeGroupRepository->findAllWithoutAttribute();
@@ -122,36 +112,24 @@ class AdminProductController extends AbstractController
             $productEdit = $request->request->all('product_edit');
             $files = $request->files->all('product_edit');
 
-            $formatPrice = '/^\d+(\.\d{2})?$/';
-            if(preg_match($formatPrice, $productEdit['price']) == 0){
-                return $this->render('admin/product/new.html.twig', [
-                    'display_errors' => true,
-                    'product' => $productExist,
-                    'jewelryCategories' => $jewelryCategories,
-                    'productCategories' => $productCategories,
-                    'attributeGroupsWithAttributes' => $attributeGroupsWithAttributes,
-                    'idsAttributesExists' => $attributesIdsExists
-                ]);
-            }
-
             //Gestion des attributs
-            $newIdsAttributes = $productEdit['attributes'];
-            $oldIdsAttributes = $attributesIdsExists;
+            if(!empty($productEdit['attributes'])){
+                $newIdsAttributes = $productEdit['attributes'];
+                $oldIdsAttributes = $attributesIdsExists;
 
-            $idsAttributesToDelete = array_diff($oldIdsAttributes, $newIdsAttributes);
-            $idsAttributesToAdd = array_diff($newIdsAttributes, $oldIdsAttributes);
+                $idsAttributesToDelete = array_diff($oldIdsAttributes, $newIdsAttributes);
+                $idsAttributesToAdd = array_diff($newIdsAttributes, $oldIdsAttributes);
 
-            foreach($idsAttributesToDelete as $idAttributeToDelete){
-                $attributeProductRepository->delete($idAttributeToDelete, $productExist->getId());
-            }
-            foreach($idsAttributesToAdd as $idAttributeToAdd){
-                $attributeProductRepository->add($idAttributeToAdd, $productExist->getId());
+                foreach($idsAttributesToDelete as $idAttributeToDelete){
+                    $attributeProductRepository->delete($idAttributeToDelete, $productExist->getId());
+                }
+                foreach($idsAttributesToAdd as $idAttributeToAdd){
+                    $attributeProductRepository->add($idAttributeToAdd, $productExist->getId());
+                }
             }
 
             //Gestion du produit
-            $product = new Product();
-            $product
-            ->setId($productExist->getId())
+            $productExist
             ->setName($productEdit['name'])
             ->setDescription($productEdit['description'])
             ->setPrice($productEdit['price'])
@@ -159,15 +137,15 @@ class AdminProductController extends AbstractController
             ->setUpdatedAt(new \DateTimeImmutable('now'));
             if($productEdit['type'] != $productExist->getJewelryCategory()->getId()){
                 $jewelryCategory = $jewelryCategoryRepository->findById($productEdit['type']);
-                $product->setJewelryCategory($jewelryCategory);
+                $productExist->setJewelryCategory($jewelryCategory);
             }else{
-                $product->setJewelryCategory($productExist->getJewelryCategory());
+                $productExist->setJewelryCategory($productExist->getJewelryCategory());
             }
             if($productEdit['category'] != $productExist->getProductCategory()->getId()){
                 $productCategory = $productCategoryRepository->findById($productEdit['category']);
-                $product->setProductCategory($productCategory);
+                $productExist->setProductCategory($productCategory);
             }else{
-                $product->setProductCategory($productExist->getProductCategory());
+                $productExist->setProductCategory($productExist->getProductCategory());
             }
 
             //Gestion des images
@@ -183,7 +161,7 @@ class AdminProductController extends AbstractController
                 $id = $productImageRepository->add($img);
             }            
 
-            $productRepository->edit($product);
+            $productRepository->edit($productExist);
 
             return $this->redirectToRoute('/admin/product');
         }

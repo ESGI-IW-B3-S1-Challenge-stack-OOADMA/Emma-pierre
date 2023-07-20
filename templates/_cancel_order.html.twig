@@ -1,0 +1,23 @@
+{% extends "layout.html.twig" %}
+
+{% block navbar %}
+    {% set overrideIsWhite = false %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+<div class="padding-navbar">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <h2 class="d-flex flex-column align-items-center justify-content-center mb-3">Annulation de votre commande !</h2>
+            <p>Oups ! Il semblerait pour vous ayez annulé votre commande. Retournez sur votre panier pour poursuivre celle-ci.</p>
+
+            <p>Si vous avez des questions ou besoin d'assistance supplémentaire, n'hésitez pas à nous contacter via le formulaire de contact.</p>
+
+            <p>Merci encore de votre confiance !</p>
+           
+        </div>
+    </div>
+</div>
+
+{% endblock %}
