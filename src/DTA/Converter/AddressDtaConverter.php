@@ -16,7 +16,6 @@ class AddressDtaConverter
         $address->setAddressLine2($addressDTA->address_line2);
         $address->setCity($addressDTA->city);
         $address->setPostalCode($addressDTA->postal_code);
-        $address->setCountry($addressDTA->country);
         $address->setCreatedAt($addressDTA->created_at);
         $address->setUpdatedAt($addressDTA->updated_at);
         return $address;

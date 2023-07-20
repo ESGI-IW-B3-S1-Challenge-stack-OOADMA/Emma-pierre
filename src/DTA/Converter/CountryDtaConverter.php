@@ -11,7 +11,7 @@ class CountryDtaConverter
     {
         $country = new Country();
         $country->setId($countryDTA->id);
-        $country->setName($countryDTA->id);
+        $country->setName($countryDTA->name);
         $country->setCode($countryDTA->code);
         $country->setCreatedAt($countryDTA->created_at);
         $country->setUpdatedAt($countryDTA->updated_at);

@@ -121,7 +121,6 @@ class ProductRepository extends AbstractRepository
                 LEFT JOIN product_image pi on pi.product_id = p.id
             WHERE
                 p.id in (' . implode(',', $ids) . ')
-            GROUP BY p.id
         ';
         $statement = $this->pdo->prepare($sql);
 

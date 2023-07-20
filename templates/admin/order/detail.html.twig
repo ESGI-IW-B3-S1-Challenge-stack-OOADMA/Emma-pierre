@@ -1,0 +1,29 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block main %}
+    <h1>Détail de la commande : {{ order.reference }} / {% if order.status is same as 'paid' %}
+            Payée
+            {% else %}
+            Non payée
+        {% endif %}</h1>
+
+    <p>Créé le : {{ order.created_at|date("d/m/y H:i") }}</p>
+
+    <h2>Total</h2>
+    <p>Prix HT : {{ (order.total/100)|format_currency('EUR') }}</p>
+    <p>Prix TTC : {{ ((order.total * 1.2)/100)|format_currency('EUR') }}</p>
+
+    <h2>Détail</h2>
+    <ul>
+        {% for orderItem in order.orderItems %}
+            <li>
+                <p>{{ orderItem.product.name }} / Quantité : {{ orderItem.quantity }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <h2>Utilisateur</h2>
+    <p>Prénom & Nom: {{ order.user.firstname }} {{ order.user.lastname }} </p>
+    <p>Email : {{ order.user.email }}</p>
+    <h2>Adresse de livraison</h2>
+    <p>{{ order.shippingAddress.name }} - {{ order.shippingAddress.addressLine1 }} {{ order.shippingAddress.addressLine2 }} {{ order.shippingAddress.city }} {{ order.shippingAddress.country.name }}</p>
+{% endblock %}

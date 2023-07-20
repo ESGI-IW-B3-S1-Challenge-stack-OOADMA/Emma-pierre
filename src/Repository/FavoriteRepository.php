@@ -31,7 +31,7 @@ class FavoriteRepository extends AbstractRepository
             SELECT
                 f.id id, u.id user_id, u.lastname user_lastname, u.firstname user_firstname, u.email user_email,
                 u.phone_number user_phone_number, u.password user_password, u.roles user_roles, u.created_at user_created_at,
-                u.updated_at user_updated_at, p.id product_id, p.name product_name, p.description product_description,
+                u.updated_at user_updated_at, p.id product_id, p.name product_name, p.description product_description, p.stripe_id product_stripe_id,
                 pc.id product_product_category_id, pc.name product_product_category_name, pc.created_at product_product_category_created_at,
                 pc.updated_at product_product_category_updated_at, jc.id product_jewelry_category_id, jc.name product_jewelry_category_name,
                 jc.created_at product_jewelry_category_created_at, jc.updated_at product_jewelry_category_updated_at,
@@ -67,7 +67,7 @@ class FavoriteRepository extends AbstractRepository
             SELECT
                 f.id id, u.id user_id, u.lastname user_lastname, u.firstname user_firstname, u.email user_email,
                 u.phone_number user_phone_number, u.password user_password, u.roles user_roles, u.created_at user_created_at,
-                u.updated_at user_updated_at, p.id product_id, p.name product_name, p.description product_description,
+                u.updated_at user_updated_at, p.id product_id, p.name product_name, p.description product_description, p.stripe_id product_stripe_id,
                 pc.id product_product_category_id, pc.name product_product_category_name, pc.created_at product_product_category_created_at,
                 pc.updated_at product_product_category_updated_at, jc.id product_jewelry_category_id, jc.name product_jewelry_category_name,
                 jc.created_at product_jewelry_category_created_at, jc.updated_at product_jewelry_category_updated_at,

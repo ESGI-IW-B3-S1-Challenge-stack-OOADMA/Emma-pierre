@@ -53,7 +53,8 @@ class FavoriteDTA
             'price' => $data['product_price'],
             'available' => $data['product_available'],
             'created_at' => $data['product_created_at'],
-            'updated_at' => $data['product_updated_at']
+            'updated_at' => $data['product_updated_at'],
+            'stripe_id' => $data['product_stripe_id']
         ]);
         $productDtaConverter = new ProductDtaConverter();
         $this->product = $productDtaConverter->toProduct($productDta);
