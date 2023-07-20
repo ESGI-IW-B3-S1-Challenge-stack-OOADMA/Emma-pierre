@@ -19,8 +19,8 @@
         {% for product in products %}
             <tr>
                 <td>{{ product.name }}</td>
-                <td>{{ product.productCategory.name }}</td>
                 <td>{{ product.jewelryCategory.name }}</td>
+                <td>{{ product.productCategory.name }}</td>
                 <td>{{ (product.price / 100) | format_currency('EUR')}}</td>
                 {% if product.available == 1 %}
                     <td>Oui</td>

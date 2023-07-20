@@ -24,18 +24,24 @@ class AttributeRepository extends AbstractRepository
 
     public function findByAttributeGroup(AttributeGroup $attributeGroup): ?array
     {
-        $sql = 'SELECT a.id AS id, 
-a.data as data, 
-a.created_at as created_at, 
-a.updated_at as updated_at, 
-ag.id AS attribute_group_id,
-ag.name AS attribute_group_name,
-ag.attribute_type AS attribute_group_attribute_type,
-ag.created_at AS attribute_group_created_at,
-ag.updated_at AS attribute_group_updated_at
-FROM attribute a
-JOIN attribute_group ag ON a.attribute_group_id = ag.id
-WHERE a.attribute_group_id = ?';
+        $sql = '
+            SELECT 
+                a.id AS id, 
+                a.data as data, 
+                a.created_at as created_at, 
+                a.updated_at as updated_at, 
+                ag.id AS attribute_group_id,
+                ag.name AS attribute_group_name,
+                ag.attribute_type AS attribute_group_attribute_type,
+                ag.created_at AS attribute_group_created_at,
+                ag.updated_at AS attribute_group_updated_at
+            FROM 
+                attribute a
+            JOIN 
+                attribute_group ag ON a.attribute_group_id = ag.id
+            WHERE 
+                a.attribute_group_id = ?';
+
         $statement = $this->pdo->prepare($sql);
         $statement->execute([$attributeGroup->getId()]);
         $data = $statement->fetchAll(\PDO::FETCH_ASSOC);
@@ -55,18 +61,27 @@ WHERE a.attribute_group_id = ?';
 
     public function findOneByDataAndAttributeGroup(string $data, AttributeGroup $attributeGroup)
     {
-        $sql = 'SELECT a.id AS id, 
-a.data as data, 
-a.created_at as created_at, 
-a.updated_at as updated_at, 
-ag.id AS attribute_group_id,
-ag.name AS attribute_group_name,
-ag.attribute_type AS attribute_group_attribute_type,
-ag.created_at AS attribute_group_created_at,
-ag.updated_at AS attribute_group_updated_at
-FROM attribute a
-JOIN attribute_group ag ON a.attribute_group_id = ag.id
-WHERE a.attribute_group_id = ? AND a.data = ? LIMIT 1';
+        $sql = '
+            SELECT 
+                a.id AS id, 
+                a.data as data, 
+                a.created_at as created_at, 
+                a.updated_at as updated_at, 
+                ag.id AS attribute_group_id,
+                ag.name AS attribute_group_name,
+                ag.attribute_type AS attribute_group_attribute_type,
+                ag.created_at AS attribute_group_created_at,
+                ag.updated_at AS attribute_group_updated_at
+            FROM 
+                attribute a
+            JOIN 
+                attribute_group ag ON a.attribute_group_id = ag.id
+            WHERE 
+                a.attribute_group_id = ? 
+                AND 
+                a.data = ? 
+            LIMIT 1';
+
         $statement = $this->pdo->prepare($sql);
         $statement->execute([$attributeGroup->getId(), $data]);
         $data = $statement->fetch(\PDO::FETCH_ASSOC);
@@ -82,18 +97,23 @@ WHERE a.attribute_group_id = ? AND a.data = ? LIMIT 1';
 
     public function find(int $id)
     {
-        $sql = 'SELECT a.id AS id, 
-a.data as data, 
-a.created_at as created_at, 
-a.updated_at as updated_at, 
-ag.id AS attribute_group_id,
-ag.name AS attribute_group_name,
-ag.attribute_type AS attribute_group_attribute_type,
-ag.created_at AS attribute_group_created_at,
-ag.updated_at AS attribute_group_updated_at
-FROM attribute a
-JOIN attribute_group ag ON a.attribute_group_id = ag.id
-WHERE a.id = ?';
+        $sql = '
+            SELECT 
+                a.id AS id, 
+                a.data as data, 
+                a.created_at as created_at, 
+                a.updated_at as updated_at, 
+                ag.id AS attribute_group_id,
+                ag.name AS attribute_group_name,
+                ag.attribute_type AS attribute_group_attribute_type,
+                ag.created_at AS attribute_group_created_at,
+                ag.updated_at AS attribute_group_updated_at
+            FROM 
+                attribute a
+            JOIN 
+                attribute_group ag ON a.attribute_group_id = ag.id
+            WHERE 
+                a.id = ?';
         $statement = $this->pdo->prepare($sql);
         $statement->execute([$id]);
         $data = $statement->fetch(\PDO::FETCH_ASSOC);

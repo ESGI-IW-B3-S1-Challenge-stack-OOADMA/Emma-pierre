@@ -43,6 +43,7 @@ class ProductRepository extends AbstractRepository
             return null;
         }
 
+        $products = [];
         foreach ($data as $product) {
             $productDta = new ProductDTA($product);
             $productDtaConverter = new ProductDtaConverter();
@@ -133,6 +134,7 @@ class ProductRepository extends AbstractRepository
             return null;
         }
 
+        $products = [];
         foreach ($data as $product) {
             $productDta = new ProductDTA($product);
             $productDtaConverter = new ProductDtaConverter();

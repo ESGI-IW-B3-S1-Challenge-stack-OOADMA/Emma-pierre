@@ -7,6 +7,9 @@ use App\Repository\ProductRepository;
 use App\Repository\JewelryCategoryRepository;
 use App\Repository\ProductCategoryRepository;
 use App\Repository\ProductImageRepository;
+use App\Repository\AttributeGroupRepository;
+use App\Repository\AttributeRepository;
+use App\Repository\AttributeProductRepository;
 use App\HttpFoundationWish\Request;
 use App\Entity\Product;
 use App\Entity\ProductImage;
@@ -24,49 +27,70 @@ class AdminProductController extends AbstractController
     }
 
     #[Route('/admin/product/create', name: 'app_admin_product_create', httpMethod: ['GET', 'POST'])]
-    public function create(FileUploader $fileUploader, Request $request, ProductRepository $productRepository, JewelryCategoryRepository $jewelryCategoryRepository, ProductCategoryRepository $productCategoryRepository, ProductImageRepository $productImageRepository)
+    public function create(FileUploader $fileUploader, Request $request, ProductRepository $productRepository, JewelryCategoryRepository $jewelryCategoryRepository, ProductCategoryRepository $productCategoryRepository, ProductImageRepository $productImageRepository, AttributeGroupRepository $attributeGroupRepository, AttributeRepository $attributeRepository, AttributeProductRepository $attributeProductRepository)
     {   
+        $attributeGroups = $attributeGroupRepository->findAllWithoutAttribute();
+
         if ($request->request->has('product_create')) {
             $datas = $request->request->all('product_create');
             $files = $request->files->all('product_create');
-            
+
+            //Création du nouveau produit
             $product = new Product();
             $product
             ->setName($datas['name'])
             ->setDescription($datas['description'])
-            ->setPrice($datas['price'])
+            ->setPrice($datas['price']*100)
             ->setAvailable($datas['available']);
             $jewelryCategory = $jewelryCategoryRepository->findById($datas['type']);
             $product->setJewelryCategory($jewelryCategory);
             $productCategory = $productCategoryRepository->findById($datas['category']);
             $product->setProductCategory($productCategory);
 
-            $id = $productRepository->add($product);
+            $idProduct = $productRepository->add($product);
 
-            $pathImg = $fileUploader->uploadFile($files['name']['img'], $files['tmp_name']['img'], $files['size']['img'], $id);
-            $img = new ProductImage();
-            $img->setPath($pathImg)
-            ->setIdProduct($id);
-            $id = $productImageRepository->add($img);
+            //Ajout de l'image
+            if(!empty($files['name']['img'])){
+                $pathImg = $fileUploader->uploadFile($files['name']['img'], $files['tmp_name']['img'], $files['size']['img'], $idProduct);
+                $img = new ProductImage();
+                $img->setPath($pathImg)
+                ->setIdProduct($idProduct);
+                $idProductImg = $productImageRepository->add($img);
+            }
 
+            //Ajout des attributs
+            foreach($datas['attributes'] as $idAttribute){
+                $attributeProductRepository->add($idAttribute, $idProduct);
+            }
+                
             return $this->redirectToRoute('/admin/product');
         }
 
         $jewelryCategories = $jewelryCategoryRepository->findAll();
         $productCategories = $productCategoryRepository->findAll();	
+        $attributeGroupsWithAttributes = [];
+        foreach($attributeGroups as $attributeGroup){
+            $attributes = $attributeRepository->findByAttributeGroup($attributeGroup);
+            $attributeGroupsWithAttributes[] = [
+                'attributeGroup' => $attributeGroup,
+                'attributes' => $attributes
+            ];
+        }
 
         return $this->render('admin/product/new.html.twig',[
             'jewelryCategories' => $jewelryCategories,
-            'productCategories' => $productCategories
-        
+            'productCategories' => $productCategories,
+            'attributeGroupsWithAttributes' => $attributeGroupsWithAttributes
         ]);
     }
 
     #[Route('/admin/product/edit/{id}', name: 'app_admin_product_edit', httpMethod: ['GET', 'POST'])]
-    public function edit(FileUploader $fileUploader, Request $request, ProductRepository $productRepository, JewelryCategoryRepository $jewelryCategoryRepository, ProductCategoryRepository $productCategoryRepository, ProductImageRepository $productImageRepository, $id)
+    public function edit(FileUploader $fileUploader, Request $request, ProductRepository $productRepository, JewelryCategoryRepository $jewelryCategoryRepository, ProductCategoryRepository $productCategoryRepository, ProductImageRepository $productImageRepository, AttributeGroupRepository $attributeGroupRepository, AttributeRepository $attributeRepository, AttributeProductRepository $attributeProductRepository, $id)
     {
         $productExist = $productRepository->find($id);
-        
+        $attributeGroups = $attributeGroupRepository->findAllWithoutAttribute();
+        $attributesIdsExists = $attributeProductRepository->getIdAttributeByIdProduct($productExist->getId());
+
         if(empty($productExist)){
             throw new \Exception('Product not found');
         }
@@ -75,6 +99,21 @@ class AdminProductController extends AbstractController
             $productEdit = $request->request->all('product_edit');
             $files = $request->files->all('product_edit');
 
+            //Gestion des attributs
+            $newIdsAttributes = $productEdit['attributes'];
+            $oldIdsAttributes = $attributesIdsExists;
+
+            $idsAttributesToDelete = array_diff($oldIdsAttributes, $newIdsAttributes);
+            $idsAttributesToAdd = array_diff($newIdsAttributes, $oldIdsAttributes);
+
+            foreach($idsAttributesToDelete as $idAttributeToDelete){
+                $attributeProductRepository->delete($idAttributeToDelete, $productExist->getId());
+            }
+            foreach($idsAttributesToAdd as $idAttributeToAdd){
+                $attributeProductRepository->add($idAttributeToAdd, $productExist->getId());
+            }
+
+            //Gestion du produit
             $product = new Product();
             $product
             ->setId($productExist->getId())
@@ -96,9 +135,10 @@ class AdminProductController extends AbstractController
                 $product->setProductCategory($productExist->getProductCategory());
             }
 
+            //Gestion des images
             if(!empty($files['name']['img'])){
                 if(!empty($productExist->getImage())){
-                    unlink($productExist->getImage()->getPath());
+                    unlink("/public".$productExist->getImage()->getPath());
                     $productImageRepository->delete($productExist->getImage()->getId());
                 }
                 $pathImg = $fileUploader->uploadFile($files['name']['img'], $files['tmp_name']['img'], $files['size']['img'], $productExist->getId());
@@ -106,20 +146,32 @@ class AdminProductController extends AbstractController
                 $img->setPath($pathImg)
                 ->setIdProduct($productExist->getId());
                 $id = $productImageRepository->add($img);
-            }
+            }            
 
             $productRepository->edit($product);
 
             return $this->redirectToRoute('/admin/product');
         }
 
+        
+        
         $jewelryCategories = $jewelryCategoryRepository->findAll();
         $productCategories = $productCategoryRepository->findAll();	
+        $attributeGroupsWithAttributes = [];
+        foreach($attributeGroups as $attributeGroup){
+            $attributes = $attributeRepository->findByAttributeGroup($attributeGroup);
+            $attributeGroupsWithAttributes[] = [
+                'attributeGroup' => $attributeGroup,
+                'attributes' => $attributes
+            ]; 
+        }
        
         return $this->render('admin/product/edit.html.twig', [
             'product' => $productExist,
             'jewelryCategories' => $jewelryCategories,
-            'productCategories' => $productCategories
+            'productCategories' => $productCategories,
+            'attributeGroupsWithAttributes' => $attributeGroupsWithAttributes,
+            'idsAttributesExists' => $attributesIdsExists
         ]);
     }
 
@@ -132,9 +184,9 @@ class AdminProductController extends AbstractController
         }
 
         if(!empty($productExist->getImage())){
-            unlink($productExist->getImage()->getPath());
+            unlink("/public".$productExist->getImage()->getPath());
         }
-        //AJOUTER CASCADE product_image !!!
+
         $productRepository->deleteOneById($id);
         return $this->redirectToRoute('/admin/product');
     }

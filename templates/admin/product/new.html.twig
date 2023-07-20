@@ -64,6 +64,24 @@
                 </div>
             </div>
             <div class="row justify-content-center mb-3">
+                <div class="col-6">
+                    <hr><h3>Attributs</h3> 
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-6">
+                    {% for attributeGroupWithAttributes in attributeGroupsWithAttributes %}
+                        <h5>{{ attributeGroupWithAttributes['attributeGroup'].name }}</h5>
+                        <select class="select-attribute mb-3" name="product_create[attributes][]" multiple placeholder="Choisir..." autocomplete="off">
+                             {% for attribute in attributeGroupWithAttributes['attributes'] %}
+                               <option value="{{ attribute.id }}"> {{ attribute.data }}</option>
+                            {% endfor %}
+                        </select>                   
+                    {% endfor %} 
+                </div>
+            </div>      
+            
+            <div class="row justify-content-center mb-3">
                 <div class="col-1">
                     <button type="submit" class="btn btn-primary">Créer</button>
                 </div>
@@ -72,3 +90,4 @@
     </section>
 
 {% endblock %}
+
