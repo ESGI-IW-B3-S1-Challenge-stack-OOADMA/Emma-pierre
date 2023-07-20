@@ -62,6 +62,5 @@ class OrderItemRepository extends AbstractRepository
     public function findByOrder(Order $order){
         $statement = $this->pdo->prepare('SELECT * FROM `order_item` WHERE id = ?;');
         $data = $statement->execute([$order->getId()]);
-        var_dump($data);
     }
 }

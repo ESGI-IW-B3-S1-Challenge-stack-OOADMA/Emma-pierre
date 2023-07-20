@@ -40,9 +40,6 @@ class CustomerController extends AbstractController
 
         $customers = $statement->fetchAll(PDO::FETCH_CLASS, Customer::class);
 
-        var_dump($customers);
-
-
         $adapter = new ArrayAdapter($customers);
         $pagerfanta = new PagerFanta($adapter);
 
@@ -75,8 +72,6 @@ class CustomerController extends AbstractController
     {
         $client = $this->em->getRepository(Customer::class)->find(1);
 
-        var_dump($client);
-
         return $this->render(
             'user/show.html.twig',
             ['client' => $client]
@@ -87,8 +82,6 @@ class CustomerController extends AbstractController
     public function showByName($name): string
     {
         $clients = $this->em->getRepository(Customer::class)->findByNameInOrder($name);
-
-        var_dump($clients);
 
         return $this->render(
             'user/show.html.twig',
