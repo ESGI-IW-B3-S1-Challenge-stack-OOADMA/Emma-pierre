@@ -1,0 +1,61 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Mon profile - Emma Pierre{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="assets/styles/layouts/contact.css">
+    <link rel="stylesheet" href="assets/styles/layouts/profile.css">
+    {{ parent() }}
+{% endblock %}
+
+{% block navbar %}
+    {% set overrideIsWhite = false %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <main class="padding-navbar">
+        <section class="infos">
+            <h2>Modifier mes informations</h2>
+            <form name="userProfile" action="/user-profile" method="post">
+                <div class="floating-label-group">
+                    <input type="text" id="firstname" name="profile[firstname]" value="{{ user.firstname }}" required>
+                    <label for="firstname" class="floating-label">Prénom</label>
+                </div>
+                <div class="floating-label-group">
+                    <input type="text" id="lastname" name="profile[lastname]" value="{{ user.lastname }}" required>
+                    <label for="lastname" class="floating-label">Nom</label>
+                </div>
+                <div class="floating-label-group">
+                    <input type="email" id="email" name="profile[email]" value="{{ user.email }}" required>
+                    <label for="email" class="floating-label">Adresse mail</label>
+                </div>
+                <div class="floating-label-group">
+                    <input type="password" id="password" name="profile[password]" required>
+                    <label for="password" class="floating-label">Mot de passe</label>
+                </div>
+                <div class="floating-label-group">
+                    <input type="tel" id="phone_number" name="profile[phone_number]" value="{{ user.phone_number }}">
+                    <label for="phone_number" class="floating-label">Numéro de téléphone</label>
+                </div>
+                <button type="submit">Modifier</button>
+            </form>
+        </section>
+        <section class="nav-buttons">
+            <h2>Navigation</h2>
+            <ul>
+                <li>
+                    <a href="/favoris">Mes favoris</a>
+                </li>
+                <li>
+                    <a href="/commandes">Mes commandes</a>
+                </li>
+                {% if isAdmin %}
+                    <li>
+                        <a href="/admin/dashboard">Administration</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </section>
+    </main>
+{% endblock %}
