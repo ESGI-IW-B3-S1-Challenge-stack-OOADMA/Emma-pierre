@@ -24,6 +24,7 @@
     "symfony/cache": "^6.3",
     "psr/container": "^2.0",
     "pagerfanta/pagerfanta": "^4.1",
-    "ext-pdo": "*"
+    "ext-pdo": "*",
+    "stripe/stripe-php": "^10.17"
   }
 }

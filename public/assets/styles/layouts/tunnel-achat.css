@@ -1,6 +1,5 @@
 .page-panier a {
 	text-decoration: none;
-	color: black;
 }
 
 .line-middle {
@@ -75,6 +74,7 @@
 .cart-actions {
 	display: flex;
 	justify-content: space-between;
+    align-items: center;
 }
 
 .cart-item-aside {
@@ -82,6 +82,10 @@
 	align-items: center;
 	gap: 2rem;
 	justify-content: center;
+}
+
+.cart-item-aside a{
+    color: black;
 }
 
 .cart-item-aside-price {
@@ -268,7 +272,7 @@
 	
 	.secondary-btn, .validation-btn {
 		display: block;
-		width: 100%;
+        color: white;
 	}
 	
 	.step-cart p:first-of-type {

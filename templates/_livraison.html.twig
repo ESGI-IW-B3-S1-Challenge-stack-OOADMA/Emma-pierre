@@ -2,6 +2,16 @@
 
 {% block title %}Livraison - Emma Pierre{% endblock %}
 
+{% block stylesheet %}
+    <link rel="stylesheet" href="assets/styles/layouts/tunnel-achat.css">
+    {{ parent() }}
+{% endblock %}
+
+{% block navbar %}
+    {% set overrideIsWhite = false %}
+    {{ parent() }}
+{% endblock %}
+
 {% block content %}
 
     <main class="padding-navbar">
@@ -88,8 +98,8 @@
                         </section>
                         <form action="paiement.html">
                             <ul class="cart-actions">
-                                <a href="panier.html" class="secondary-btn">Retour</a>
-                                <button class="validation-btn">Valider mon adresse de livraison</button>
+                                <li><a href="{{ path("app_cart") }}" class="secondary-btn">Retour</a></li>
+                                <li><a href="/paiement" class="validation-btn">Valider mon adresse de livraison</a></li>
                             </ul>
                         </form>
                     </div>

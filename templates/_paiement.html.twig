@@ -2,6 +2,16 @@
 
 {% block title %}Paiement - Emma Pierre{% endblock %}
 
+{% block stylesheet %}
+    <link rel="stylesheet" href="assets/styles/layouts/tunnel-achat.css">
+    {{ parent() }}
+{% endblock %}
+
+{% block navbar %}
+    {% set overrideIsWhite = false %}
+    {{ parent() }}
+{% endblock %}
+
 {% block content %}
 
     <main class="padding-navbar page-panier">
