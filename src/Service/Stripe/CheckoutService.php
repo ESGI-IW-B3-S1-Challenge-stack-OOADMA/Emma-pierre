@@ -106,7 +106,7 @@ class CheckoutService
                     ]
                 ],
                 "allow_promotion_codes" => true,
-                'success_url' => (empty($_SERVER['HTTPS']) ? 'http' : 'https') . '://' . $_SERVER['HTTP_HOST'] . '/stripe/success',
+                'success_url' => (empty($_SERVER['HTTPS']) ? 'http' : 'https') . '://' . $_SERVER['HTTP_HOST'] . '/stripe/success/'.$order->getReference(),
                 'cancel_url' => (empty($_SERVER['HTTPS']) ? 'http' : 'https') . '://' . $_SERVER['HTTP_HOST'] . '/stripe/cancel',
             ]);
         } catch (ApiErrorException $e) {

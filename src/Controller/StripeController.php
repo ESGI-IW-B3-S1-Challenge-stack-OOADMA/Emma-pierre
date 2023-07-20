@@ -9,17 +9,18 @@ use App\Repository\CountryRepository;
 use App\Repository\OrderRepository;
 use App\Routing\Attribute\Route;
 
-class StripeController
+class StripeController extends AbstractController
 {
-    #[Route('/stripe/success', name: 'app_stripe_success')]
-    public function success()
-    {
+    #[Route('/stripe/success/{id}', name: 'app_stripe_success')]
+    public function success($id){
+        return $this->render('_success_order.html.twig',[
+            'reference' => $id
+        ]);
     }
 
     #[Route('/stripe/cancel', name: 'app_stripe_cancel')]
-    public function cancel()
-    {
-
+    public function cancel() {
+        return $this->render('_cancel_order.html.twig');
     }
 
     #[Route('/stripe/webhook', name: 'app_stripe_webhook', httpMethod: ['POST'])]

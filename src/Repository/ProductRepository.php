@@ -255,7 +255,7 @@ class ProductRepository extends AbstractRepository
     public function edit(Product $product)
     {
         $statement = $this->pdo->prepare('UPDATE `product` SET `name` = ?, `description` = ?, `product_category_id` = ?, `jewelry_category_id` = ?, `price` = ?, `available`= ?, `updated_at` = ? WHERE `id` = ?');
-        $statement->execute([$product->getName(), $product->getDescription(), $product->getProductCategory()->getId(), $product->getJewelryCategory()->getId(), $product->getPrice(), $product->getAvailable(), $product->getUpdatedAt()->format('Y-m-d H:i:s'), $product->getId()]);
+        $statement->execute([$product->getName(), $product->getDescription(), $product->getProductCategory()->getId(), $product->getJewelryCategory()->getId(), $product->getPrice()*100, $product->getAvailable(), $product->getUpdatedAt()->format('Y-m-d H:i:s'), $product->getId()]);
     }
 
     public function deleteOneById(int $id)
