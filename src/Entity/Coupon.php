@@ -16,6 +16,8 @@ class Coupon
     private DateTimeImmutable $created_at;
     private DateTimeImmutable $updated_at;
 
+    private string $stripe_id;
+
     /**
      * @return int
      */
@@ -158,5 +160,21 @@ class Coupon
     public function setUpdatedAt(DateTimeImmutable $updated_at): void
     {
         $this->updated_at = $updated_at;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStripeId(): string
+    {
+        return $this->stripe_id;
+    }
+
+    /**
+     * @param string $stripe_id
+     */
+    public function setStripeId(string $stripe_id): void
+    {
+        $this->stripe_id = $stripe_id;
     }
 }
