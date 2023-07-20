@@ -27,7 +27,7 @@ class FavoriteController extends AbstractController
     }
 
     #[Route('/favoris/add/{product_id}', name: 'add_favorite')]
-    public function add(FavoriteRepository $favoriteRepository, ProductRepository $productRepository, $product_id)
+    public function add(FavoriteRepository $favoriteRepository, ProductRepository $productRepository, $product_id): string
     {
         if (!$this->getSession()->has('user_id')) {
             return $this->redirectToRoute('/login');
@@ -36,7 +36,18 @@ class FavoriteController extends AbstractController
         $favorite = new Favorite();
         $favorite->setUser($this->getUser());
         $favorite->setProduct($productRepository->find($product_id));
-        $favoriteRepository->add($favorite);
-        return json_encode('favorite added');
+        $favorite->setId($favoriteRepository->add($favorite));
+        return json_encode($favorite->getId());
+    }
+
+    /**
+     * @throws Exception
+     */
+    #[Route('/favoris/remove/{favorite_id}', name: 'remove_favorite')]
+    public function remove(FavoriteRepository $favoriteRepository, $favorite_id): string
+    {
+        $favorite = $favoriteRepository->findOneById($favorite_id);
+        $favoriteRepository->remove($favorite);
+        return json_encode("favorite $favorite_id deleted");
     }
 }
