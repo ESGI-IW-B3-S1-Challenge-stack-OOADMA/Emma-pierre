@@ -4,12 +4,9 @@ const productId = addToCartButton.dataset.productId;
 addToCartButton.addEventListener('click', (e) => {
     e.preventDefault();
     let data = new FormData();
-    data.append('id', productId);
+    data.append("id", productId.toString());
     fetch('/panier/add', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
         body: data
     })
         .then(response => response.json())

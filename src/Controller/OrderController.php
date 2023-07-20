@@ -3,20 +3,23 @@
 namespace App\Controller;
 
 use App\HttpFoundationWish\Request;
+use App\Repository\ProductRepository;
 use App\Routing\Attribute\Route;
 
 class OrderController extends AbstractController
 {
     #[Route('/panier', name: "app_cart")]
-    public function cart(){
+    public function cart(ProductRepository $productRepository){
         $cart = $this->getSession()->has('cart') ? $this->getSession()->get('cart') : [];
+        $products = $productRepository->findMultipleById(array_keys($cart));
         return $this->render('_panier.html.twig', [
-            'cart' => $cart
+            'cart' => $cart,
+            'products' => $products
         ]);
     }
 
     #[Route('/panier/add', name: "app_cart_add" , httpMethod: ['POST'])]
-    public function addToCart(Request $request){    
+    public function addToCart(Request $request){   
         $cart = $this->getSession()->has('cart') ? $this->getSession()->get('cart') : [];
         $id  = $request->request->get('id');
         if(isset($cart[$id])){
@@ -26,22 +29,23 @@ class OrderController extends AbstractController
             $cart[$id] = 1;
         }
         $this->getSession()->set('cart', $cart);
-        return json_encode($cart); 
+        return json_encode($cart[$id]); 
     }
 
     #[Route('/panier/decrement', name: "app_cart_decrement" , httpMethod: ['POST'])]
     public function decrementFromCart(Request $request){    
         $cart = $this->getSession()->has('cart') ? $this->getSession()->get('cart') : [];
-        if(isset($cart[$request->request->get('id')])){
-            if($cart[$request->request->get('id')] > 1){
-                $cart[$request->request->get('id')]--;
+        $id = $request->request->get('id');
+        if(isset($cart[$id])){
+            if($cart[$id] > 1){
+                $cart[$id]--;
             }
             else {
-                unset($cart[$request->request->get('id')]);
+                unset($cart[$id]);
             }
         }
-        $cart = $this->getSession()->set('cart', $cart);
-        return json_encode($cart);
+        $this->getSession()->set('cart', $cart);
+        return json_encode($cart[$id]);
     }
 
     #[Route('/panier/remove', name: "app_cart_remove" , httpMethod: ['POST'])]
