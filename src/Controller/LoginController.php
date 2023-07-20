@@ -28,4 +28,11 @@ class LoginController extends AbstractController
         }
         return $this->render('user/_login.html.twig');
     }
+
+    #[Route('/logout', name: "app_logout", httpMethod: ['GET'])]
+    public function logout(SessionManager $sessionManager)
+    {
+        $sessionManager->destroy();
+        return $this->redirectToRoute('/');
+    }
 }
