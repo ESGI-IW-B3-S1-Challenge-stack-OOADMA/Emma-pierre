@@ -247,8 +247,8 @@ class ProductRepository extends AbstractRepository
 
     public function add(Product $product): int
     {
-        $statement = $this->pdo->prepare('INSERT INTO `product` (`name`, `description`, `product_category_id`, `jewelry_category_id`, `price`, `available`) VALUES (?, ?, ?, ?, ?, ?)');
-        $statement->execute([$product->getName(), $product->getDescription(), $product->getProductCategory()->getId(), $product->getJewelryCategory()->getId(), $product->getPrice(), $product->getAvailable() ? 1 : 0]);
+        $statement = $this->pdo->prepare('INSERT INTO `product` (`name`, `description`, `product_category_id`, `jewelry_category_id`, `price`, `available`, `stripe_id`) VALUES (?, ?, ?, ?, ?, ?, ?)');
+        $statement->execute([$product->getName(), $product->getDescription(), $product->getProductCategory()->getId(), $product->getJewelryCategory()->getId(), $product->getPrice(), $product->getAvailable() ? 1 : 0, $product->getStripeId()]);
         return $this->pdo->lastInsertId();
     }
 

@@ -14,6 +14,7 @@ use App\HttpFoundationWish\Request;
 use App\Entity\Product;
 use App\Entity\ProductImage;
 use App\Service\FileUploader;
+use App\Service\Stripe\ProductService;
 
 class AdminProductController extends AbstractController
 {
@@ -27,7 +28,7 @@ class AdminProductController extends AbstractController
     }
 
     #[Route('/admin/product/create', name: 'app_admin_product_create', httpMethod: ['GET', 'POST'])]
-    public function create(FileUploader $fileUploader, Request $request, ProductRepository $productRepository, JewelryCategoryRepository $jewelryCategoryRepository, ProductCategoryRepository $productCategoryRepository, ProductImageRepository $productImageRepository, AttributeGroupRepository $attributeGroupRepository, AttributeRepository $attributeRepository, AttributeProductRepository $attributeProductRepository)
+    public function create(FileUploader $fileUploader, Request $request, ProductRepository $productRepository, JewelryCategoryRepository $jewelryCategoryRepository, ProductCategoryRepository $productCategoryRepository, ProductImageRepository $productImageRepository, AttributeGroupRepository $attributeGroupRepository, AttributeRepository $attributeRepository, AttributeProductRepository $attributeProductRepository, ProductService $productService)
     {   
         $attributeGroups = $attributeGroupRepository->findAllWithoutAttribute();
         $jewelryCategories = $jewelryCategoryRepository->findAll();
@@ -66,6 +67,7 @@ class AdminProductController extends AbstractController
             $product->setJewelryCategory($jewelryCategory);
             $productCategory = $productCategoryRepository->findById($datas['category']);
             $product->setProductCategory($productCategory);
+            $product->setStripeId($productService->createProduct($product));
 
             $idProduct = $productRepository->add($product);
 
