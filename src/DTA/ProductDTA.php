@@ -64,5 +64,6 @@ class ProductDTA
         $this->available = $data['available'];
         $this->created_at = new \DateTimeImmutable($data['created_at']);
         $this->updated_at = new \DateTimeImmutable($data['updated_at']);
+        $this->stripe_id = $data['stripe_id'];
     }
 }

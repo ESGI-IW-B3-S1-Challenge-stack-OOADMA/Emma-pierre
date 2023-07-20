@@ -9,7 +9,7 @@ class Address
     private int $id;
     private string $name;
     private string $address_line1;
-    private string $address_line2;
+    private ?string $address_line2 = null;
     private string $city;
     private string $postal_code;
     private Country $country;
@@ -65,17 +65,17 @@ class Address
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getAddressLine2(): string
+    public function getAddressLine2(): ?string
     {
         return $this->address_line2;
     }
 
     /**
-     * @param string $address_line2
+     * @param ?string $address_line2
      */
-    public function setAddressLine2(string $address_line2): void
+    public function setAddressLine2(?string $address_line2): void
     {
         $this->address_line2 = $address_line2;
     }
