@@ -25,6 +25,7 @@
     "psr/container": "^2.0",
     "pagerfanta/pagerfanta": "^4.1",
     "ext-pdo": "*",
-    "stripe/stripe-php": "^10.17"
+    "stripe/stripe-php": "^10.17",
+    "twig/intl-extra": "^3.6"
   }
 }

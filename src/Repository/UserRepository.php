@@ -18,9 +18,8 @@ class UserRepository extends AbstractRepository
     }
 
     public function edit(User $user){
-        $statement = $this->pdo->prepare('UPDATE `user` SET `address_id` = null, `lastname` = ?, `firstname` = ?, `email` = ?, `phone_number` = ?, `password` = ?, `roles`= ? WHERE `id` = ?');
-        $statement->execute([$user->getLastname(), $user->getFirstname(), $user->getEmail(), $user->getPhoneNumber(), $user->getPassword(), json_encode($user->getRoles()),$user->getId()]);
-       
+        $statement = $this->pdo->prepare('UPDATE `user` SET `address_id` = null, `lastname` = ?, `firstname` = ?, `email` = ?, `phone_number` = ?, `password` = ?, `roles`= ?, `updated_at` = ? WHERE `id` = ?');
+        $statement->execute([$user->getLastname(), $user->getFirstname(), $user->getEmail(), $user->getPhoneNumber(), $user->getPassword(), json_encode($user->getRoles()),$user->getUpdatedAt()->format('Y-m-d H:i:s'),$user->getId()]);
     }
 
     public function find(int $int): User|null
@@ -80,6 +79,7 @@ class UserRepository extends AbstractRepository
             $customer = new Customer();
         } else{
             $customer = $this->find($datas['id']);
+            $customer->setUpdatedAt(new \DateTimeImmutable('now'));
         }
 
         if(!empty($datas['password'])){
