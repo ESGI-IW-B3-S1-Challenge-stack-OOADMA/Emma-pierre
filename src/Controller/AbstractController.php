@@ -50,7 +50,7 @@ abstract class AbstractController
 
     public function isAdmin(): bool
     {
-        if ($this->getUser() && in_array('admin', $this->getUser()->getRole())) {
+        if ($this->getUser() && in_array('admin', $this->getUser()->getRoles())) {
             return true;
         }
         return false;
