@@ -5,7 +5,7 @@ namespace App\Service;
 class FileUploader
 {
     public function uploadFile(string $fileName, string $fileNameTmp, int $fileSize, int $id):string{
-        $target_dir = "public/uploads/";
+        $target_dir = __DIR__."/../../public/uploads/";
         $target_file = $target_dir . $id . "_" . basename($fileName);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
