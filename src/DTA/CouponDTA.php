@@ -3,6 +3,7 @@
 namespace App\DTA;
 
 use DateTimeImmutable;
+use Exception;
 
 class CouponDTA
 {
@@ -16,6 +17,9 @@ class CouponDTA
     public DateTimeImmutable $created_at;
     public DateTimeImmutable $updated_at;
 
+    /**
+     * @throws Exception
+     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];
@@ -25,7 +29,7 @@ class CouponDTA
         $this->duration = $data['duration'];
         $this->duration_in_months = $data['duration_in_months'];
         $this->valid = $data['valid'];
-        $this->created_at = new \DateTimeImmutable($data['created_at']);
-        $this->updated_at = new \DateTimeImmutable($data['updated_at']);
+        $this->created_at = new DateTimeImmutable($data['created_at']);
+        $this->updated_at = new DateTimeImmutable($data['updated_at']);
     }
 }

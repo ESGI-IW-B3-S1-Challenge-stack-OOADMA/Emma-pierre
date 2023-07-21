@@ -136,6 +136,7 @@
 }
 
 .form-container .placeholder-input {
+  z-index: 1;
   position: absolute;
   left: 12px;
   top: 22px;  
@@ -296,4 +297,32 @@
 	.delivery-choice {
 		flex-direction: column;
 	}
+}
+
+#add_coupon {
+	margin-left: 2rem;
+	padding: 0.5rem;
+	background-color: var(--green);
+	color: white;
+	border-radius: 10px;
+	border: none;
+	position: inherit;
+	z-index: 2;
+}
+
+#coupon_error {
+	margin-top: -2rem;
+	padding: 0.5rem;
+	background-color: #d9534f;
+	color: white;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.text-line {
+	text-decoration: line-through;
+}
+
+.hide {
+	display: none;
 }

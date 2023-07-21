@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block javascript %}
-<script src="/assets/javascripts/cart.js" defer></script>
+    <script src="/assets/javascripts/cart.js" defer></script>
 {{ parent() }}
 {% endblock %}
 
@@ -119,9 +119,11 @@
                                     {% endfor %}
                                 {% endif %}
                                 <div class="form-container">
-                                    <input id="reduction-field" type="text" placeholder="&nbsp;"/>
+                                    <input id="reduction-field" type="text" name="order[reduction]" placeholder="&nbsp;"/>
                                     <label for="reduction-field" class="placeholder-input">Code Promo</label>
+                                    <button id="add_coupon">Appliquer la réduction</button>
                                 </div>
+                                <div id="coupon_error" class="hide"></div>
                                 <div>
                                     <ul class="cart-actions">
                                         <li><a href="{{ path('app_products_index') }}" class="secondary-btn">Continuer
@@ -129,7 +131,10 @@
                                                 achats</a></li>
                                         <li><a href="{{ path('app_order_new') }}" class="validation-btn">Valider mon
                                                 panier
-                                                <span id="cart-total">{{ (total / 100)|number_format(2, ".", ' ') }} €</span></a>
+                                                <span id="cart-total" data-price="{{ (total / 100) }}">{{ (total / 100)|number_format(2, ".", ' ') }}</span>
+                                                <span id="cart-total-reduction"></span>
+                                                €
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
@@ -147,4 +152,3 @@
     </main>
 
 {% endblock %}
-
