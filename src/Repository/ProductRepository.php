@@ -9,6 +9,26 @@ use App\Entity\Product;
 class ProductRepository extends AbstractRepository
 {
 
+    public function findNextId(): int
+    {
+        $sql = '
+            SELECT
+                AUTO_INCREMENT
+            FROM
+                information_schema.TABLES
+            WHERE
+                TABLE_SCHEMA = DATABASE()
+            AND TABLE_NAME = \'product\';
+            ';
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        $data = $statement->fetch(\PDO::FETCH_ASSOC);
+        if ($data === false) {
+            return 0;
+        }
+        return $data['AUTO_INCREMENT'];
+    }
+
     /**
      * Récupère tout les produits
      * Si on veut récupérer que ceux activer on passe le paramètre à true

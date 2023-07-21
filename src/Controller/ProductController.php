@@ -46,7 +46,7 @@ class ProductController extends AbstractController
     $productsPaginated->setMaxPerPage(16);
     $productsPaginated->setCurrentPage($page);
 
-    if ($this->getSession()->has('user_id')) {
+    if ($this->getSession()->has('user_id') && $this->getUser()) {
       $favorites = $favoriteRepository->findAllByUser($this->getUser()->getId());
     } else {
       $favorites = [];
