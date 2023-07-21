@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Coupon;
 use App\Entity\Order;
 use App\Entity\OrderItem;
 use App\Enum\OrderStatus;
 use App\HttpFoundationWish\Request;
+use App\Repository\CouponRepository;
 use App\Repository\OrderItemRepository;
 use App\Repository\OrderRepository;
 use App\Repository\ProductRepository;
@@ -16,7 +18,7 @@ use App\Session\SessionManager;
 class OrderController extends AbstractController
 {
     #[Route('/panier', name: "app_cart")]
-    public function cart(ProductRepository $productRepository)
+    public function cart(Request $request, ProductRepository $productRepository)
     {
         if (!$this->getUser()) {
             $this->redirectToRoute('/login');
@@ -27,6 +29,17 @@ class OrderController extends AbstractController
             'cart' => $cart,
             'products' => $products
         ]);
+    }
+
+    #[Route('/panier/coupon/{coupon_code}', name: "app_reduction_add")]
+    public function addReduction(CouponRepository $couponRepository, $coupon_code)
+    {
+        $coupon = $couponRepository->findByCode($coupon_code);
+        if ($coupon) {
+            return json_encode($coupon->getPercent());
+        } else {
+            return json_encode(404);
+        }
     }
 
     #[Route('/panier/add', name: "app_cart_add", httpMethod: ['POST'])]
