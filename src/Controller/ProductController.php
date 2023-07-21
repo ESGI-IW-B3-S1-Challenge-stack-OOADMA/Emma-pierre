@@ -43,7 +43,7 @@ class ProductController extends AbstractController
 
     $adapter = new ArrayAdapter($products);
     $productsPaginated = new Pagerfanta($adapter);
-    $productsPaginated->setMaxPerPage(16);
+    $productsPaginated->setMaxPerPage(8);
     $productsPaginated->setCurrentPage($page);
 
     if ($this->getSession()->has('user_id') && $this->getUser()) {
