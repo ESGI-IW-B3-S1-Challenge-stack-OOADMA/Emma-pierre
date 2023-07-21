@@ -106,7 +106,7 @@
                         {% for product in sameProductCategoryProducts %}
                             <li class="splide__slide">
                                 <a href="{{ path('app_product_show', { 'id' : product.id}) }}">
-                                    <img src="/assets/images/photos/boucle_oreille_marron.jpeg" alt="{{ product.name }}">
+                                    <img src="{{ product.Image.path }}" alt="{{ product.name }}">
                                     <h2>{{ product.name }}</h2>
                                     <h3>{{ (product.price / 100)|number_format(2, ",", ' ') }} €</h3>
                                 </a>
