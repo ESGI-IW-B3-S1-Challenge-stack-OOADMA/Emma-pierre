@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Customer;
 use App\HttpFoundationWish\Request;
+use App\Repository\OrderRepository;
 use App\Repository\UserRepository;
 use App\Routing\Attribute\Route;
 
@@ -30,6 +31,34 @@ class UserProfileController extends AbstractController
         return $this->render('user/_profile.html.twig', [
             'user' => $this->getUser(),
             'isAdmin' => $this->isAdmin(),
+        ]);
+    }
+
+    #[Route('/user-profile/my-orders', name: "app_user_profile_orders")]
+    public function orders(OrderRepository $orderRepository){
+        if (!$this->getUser()) {
+            $this->redirectToRoute('/login');
+        }
+
+        $orders = $orderRepository->findAllByUser($this->getUser());
+
+
+        return $this->render('user/order/_list.html.twig', [
+            'orders' => $orders
+        ]);
+    }
+
+    #[Route('/user-profile/my-orders/{id}', name: "app_user_profile_orders")]
+    public function order_detail(OrderRepository $orderRepository, $id){
+        if (!$this->getUser()) {
+            $this->redirectToRoute('/login');
+        }
+
+        $order = $orderRepository->find($id);
+
+
+        return $this->render('user/order/_detail.html.twig', [
+            'order' => $order
         ]);
     }
 }

@@ -12,7 +12,7 @@ class AdminOrderController extends AbstractController
     {
         $orders = $orderRepository->findAll();
 
-        return $this->render('admin/order/list.html.twig', [
+        return $this->render('admin/order/_list.html.twig', [
             'orders' => $orders
         ]);
     }
@@ -22,7 +22,7 @@ class AdminOrderController extends AbstractController
     {
         $order = $orderRepository->find($id);
 
-        return $this->render('admin/order/detail.html.twig', [
+        return $this->render('admin/order/_detail.html.twig', [
             'order' => $order
         ]);
     }
