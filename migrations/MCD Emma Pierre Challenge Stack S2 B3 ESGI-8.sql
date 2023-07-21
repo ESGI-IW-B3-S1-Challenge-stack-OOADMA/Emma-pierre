@@ -8,8 +8,8 @@ CREATE TABLE `order` (
   `total` int,
   `status` ENUM ('paid', 'unpaid'),
   `stripe_id` varchar(255),
-  `created_at` timestamp DEFAULT (now()),
-  `updated_at` timestamp DEFAULT (now())
+  `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE `order_item` (
@@ -17,8 +17,8 @@ CREATE TABLE `order_item` (
   `order_id` int,
   `product_id` int,
   `quantity` int DEFAULT 1,
-  `created_at` timestamp DEFAULT (now()),
-  `updated_at` timestamp DEFAULT (now())
+  `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE `coupon` (
@@ -30,16 +30,16 @@ CREATE TABLE `coupon` (
   `duration_in_months` int,
   `valid` boolean,
   `stripe_id` varchar(255),
-  `created_at` timestamp DEFAULT (now()),
-  `updated_at` timestamp DEFAULT (now())
+  `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE `favorite` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `user_id` int,
   `product_id` int,
-  `created_at` timestamp DEFAULT (now()),
-  `updated_at` timestamp DEFAULT (now())
+  `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE `product` (
@@ -51,47 +51,47 @@ CREATE TABLE `product` (
   `price` int,
   `available` boolean,
   `stripe_id` varchar(255),
-  `created_at` timestamp DEFAULT (now()),
-  `updated_at` timestamp DEFAULT (now())
+  `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE `product_image` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `product_id` int,
   `path` varchar(255),
-  `created_at` timestamp DEFAULT (now()),
-  `updated_at` timestamp DEFAULT (now()),
+  `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP,
   `position` int
 );
 
 CREATE TABLE `product_category` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(255),
-  `created_at` timestamp DEFAULT (now()),
-  `updated_at` timestamp DEFAULT (now())
+  `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE `jewelry_category` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(255),
-  `created_at` timestamp DEFAULT (now()),
-  `updated_at` timestamp DEFAULT (now())
+  `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE `attribute_group` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(255),
   `attribute_type` ENUM ('dropdown', 'radio_button', 'color'),
-  `created_at` timestamp DEFAULT (now()),
-  `updated_at` timestamp DEFAULT (now())
+  `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE `attribute` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `data` varchar(255),
   `attribute_group_id` int,
-  `created_at` timestamp DEFAULT (now()),
-  `updated_at` timestamp DEFAULT (now())
+  `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE `user` (
@@ -103,8 +103,8 @@ CREATE TABLE `user` (
   `phone_number` varchar(255),
   `password` varchar(255),
   `roles` json,
-  `created_at` timestamp DEFAULT (now()),
-  `updated_at` timestamp DEFAULT (now())
+  `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE `address` (
@@ -115,16 +115,16 @@ CREATE TABLE `address` (
   `city` varchar(255),
   `postal_code` varchar(255),
   `country_id` int,
-  `created_at` timestamp DEFAULT (now()),
-  `updated_at` timestamp DEFAULT (now())
+  `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE `country` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(255),
   `code` varchar(2),
-  `created_at` timestamp DEFAULT (now()),
-  `updated_at` timestamp DEFAULT (now())
+  `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 ALTER TABLE `order` ADD FOREIGN KEY (`shipping_address_id`) REFERENCES `address` (`id`);

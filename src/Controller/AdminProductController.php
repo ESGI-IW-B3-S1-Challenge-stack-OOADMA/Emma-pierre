@@ -59,17 +59,21 @@ class AdminProductController extends AbstractController
             $product->setProductCategory($productCategory);
             $product->setStripeId($productService->createProduct($product)->id);
 
-            $idProduct = $productRepository->add($product);
-
+            $nextId = $productRepository->findNextId();
+            
             //Ajout de l'image
             if(!empty($files['name']['img'])){
-                $pathImg = $fileUploader->uploadFile($files['name']['img'], $files['tmp_name']['img'], $files['size']['img'], $idProduct);
+                $pathImg = $fileUploader->uploadFile($files['name']['img'], $files['tmp_name']['img'], $files['size']['img'], $nextId);
                 $img = new ProductImage();
-                $img->setPath($pathImg)
-                ->setIdProduct($idProduct);
+                $img->setPath($pathImg);
+                $img->setIdProduct($nextId);
                 $idProductImg = $productImageRepository->add($img);
             }
-
+            
+            $idProduct = $productRepository->add($product);
+            
+            if(!empty($files['name']['img'])){
+            }            
             //Ajout des attributs
             if(!empty($datas['attributes'])){
                 foreach($datas['attributes'] as $idAttribute){
