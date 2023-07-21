@@ -67,12 +67,12 @@ class AdminProductController extends AbstractController
                 $img = new ProductImage();
                 $img->setPath($pathImg);
                 $img->setIdProduct($nextId);
-                $idProductImg = $productImageRepository->add($img);
             }
             
             $idProduct = $productRepository->add($product);
             
             if(!empty($files['name']['img'])){
+                $idProductImg = $productImageRepository->add($img);
             }            
             //Ajout des attributs
             if(!empty($datas['attributes'])){

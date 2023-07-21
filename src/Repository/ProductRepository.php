@@ -24,7 +24,7 @@ class ProductRepository extends AbstractRepository
         $statement->execute();
         $data = $statement->fetch(\PDO::FETCH_ASSOC);
         if ($data === false) {
-            return 0;
+            return 1;
         }
         return $data['AUTO_INCREMENT'];
     }
