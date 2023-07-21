@@ -27,16 +27,16 @@
                     <label for="lastname" class="floating-label">Nom</label>
                 </div>
                 <div class="floating-label-group">
+                    <input type="tel" id="phone_number" name="profile[phone_number]" value="{{ user.phone_number }}">
+                    <label for="phone_number" class="floating-label">Numéro de téléphone</label>
+                </div>
+                <div class="floating-label-group">
                     <input type="email" id="email" name="profile[email]" value="{{ user.email }}" required>
                     <label for="email" class="floating-label">Adresse mail</label>
                 </div>
                 <div class="floating-label-group">
                     <input type="password" id="password" name="profile[password]" required>
                     <label for="password" class="floating-label">Mot de passe</label>
-                </div>
-                <div class="floating-label-group">
-                    <input type="tel" id="phone_number" name="profile[phone_number]" value="{{ user.phone_number }}">
-                    <label for="phone_number" class="floating-label">Numéro de téléphone</label>
                 </div>
                 <button type="submit">Modifier</button>
             </form>
@@ -55,6 +55,9 @@
                         <a href="/admin/dashboard">Administration</a>
                     </li>
                 {% endif %}
+                <li>
+                    <a href="/logout">Se déconnecter</a>
+                </li>
             </ul>
         </section>
     </main>
